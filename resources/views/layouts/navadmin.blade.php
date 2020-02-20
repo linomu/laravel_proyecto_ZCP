@@ -6,7 +6,7 @@
         <ul class="nav child_menu">
           <li><a href="{{route('admin.create')}}">Crear</a></li>
           <li><a href="index2.html">Editar</a></li>
-          <li><a href="index3.html">Buscar</a></li>
+          <li><a href="{{route('admin.show',$id ?? '' )}}">Buscar</a></li>
           <li><a href="{{route('admin.index')}}">Listar</a></li>
         </ul>
       </li>

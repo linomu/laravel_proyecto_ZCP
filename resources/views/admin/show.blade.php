@@ -10,7 +10,7 @@
     </div>
 @endif
 
-<h1>Update and admin</h1>
+<h1>Mostrar un administrador {{$id}}</h1>
 
 </div>
 @endsection
