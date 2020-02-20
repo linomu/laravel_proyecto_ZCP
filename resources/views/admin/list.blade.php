@@ -1,4 +1,4 @@
-@extends('layouts.encuestador')
+@extends('layouts.master')
 
 @section('content')
 <div class="container">
@@ -6,9 +6,9 @@
     <div class="alert alert-success" role="alert">
         {{ session('status') }}
     </div>
-    @endif
+@endif
 
-<h1>Listado de Formularios</h1>
+<h1>List admins</h1>
 
 </div>
 @endsection

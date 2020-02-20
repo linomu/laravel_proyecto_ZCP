@@ -17,8 +17,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/listarEncuestas','encuestadorPaginas@listar')->name('pag_listar');
 
 Route::get('/crearEncuesta','encuestadorPaginas@crear')->name('pag_crear');
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Mostrar todos los administradores
+Route::get('/admin','AdminController@index')->name('admin.index');
+//Mostrar el formulario para crear un nuevo usuario
+Route::get('/admin/create','AdminController@create')->name('admin.create');
