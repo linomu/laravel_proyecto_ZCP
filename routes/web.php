@@ -33,3 +33,9 @@ Route::get('/admin/create','AdminController@create')->name('admin.create');
 Route::post('/admin', 'AdminController@store')->name('admin.store');
 // Mostrar un administrador en particular
 Route::get('/admin/{id?}','AdminController@show')->name('admin.show');
+//Editar un administrador en particular
+Route::get('/admin/{id}/edit', 'AdminController@edit')->name('admin.edit');
+//Actualizar un administrador en particular
+Route::put('/admin/{id}','AdminController@update')->name('admin.update');
+//Eliminar un administrador en particular
+Route::delete('/admin/{id}','AdminController@destroy')->name('usuarios.destroy');

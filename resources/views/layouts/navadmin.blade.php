@@ -5,7 +5,7 @@
       <li><a><i class="fa fa-home"></i> Administrador <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
           <li><a href="{{route('admin.create')}}">Crear</a></li>
-          <li><a href="index2.html">Editar</a></li>
+          <li><a href="{{route('admin.edit',$id ?? '')}}">Editar</a></li>
           <li><a href="{{route('admin.show',$id ?? '' )}}">Buscar</a></li>
           <li><a href="{{route('admin.index')}}">Listar</a></li>
         </ul>

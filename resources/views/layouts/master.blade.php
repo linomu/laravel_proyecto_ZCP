@@ -14,7 +14,7 @@
     
     
     
-    <link href="{{ URL::asset('vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="{{ URL::asset('vendors/font-awesome/css/font-awesome.min.css') }}"rel="stylesheet">
     <!-- NProgress -->
