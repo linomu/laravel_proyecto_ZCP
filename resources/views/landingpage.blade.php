@@ -128,9 +128,7 @@
       <div class="container">
         <div class="row align-items-center text-center justify-content-center">
           <div class="col-md-8">
-            <a data-fancybox data-ratio="2" href="https://  .com/317571768" class="play-button d-block">
-              <span class="icon-play"></span>
-            </a>
+            
             <h1 class="text-uppercase">Satisfacción de Usuario</h1>
             <span class="sub-text mb-3 d-block"><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam molestiae ipsam, atque.</em></span>
           </div>
