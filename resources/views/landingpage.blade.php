@@ -88,27 +88,20 @@
                       <a href="#home-section" class="nav-link">Inicio</a>
                     </li>
                     <li class="has-children">
-                      <a href="#about-section" class="nav-link">About Us</a>
+                      <a href="#about-section" class="nav-link">Acerca de nosotros</a>
                       <ul class="dropdown arrow-top">
-                        <li><a href="#our-team-section" class="nav-link">Team</a></li>
-                        <li><a href="#pricing-section" class="nav-link">Pricing</a></li>
-                        <li><a href="#faq-section" class="nav-link">FAQ</a></li>
-                        <li class="has-children">
-                          <a href="#">More Links</a>
-                          <ul class="dropdown">
-                            <li><a href="#">Menu One</a></li>
-                            <li><a href="#">Menu Two</a></li>
-                            <li><a href="#">Menu Three</a></li>
-                          </ul>
-                        </li>
+                        <li><a href="#our-team-section" class="nav-link">Equipo</a></li>
+                        
+                        
                       </ul>
                     </li>
                     <li>
                       <a href="#projects-section" class="nav-link">Projects</a>
                     </li>
-                    <li><a href="#news-section" class="nav-link">News</a></li>
+                    
                     <li><a href="#services-section" class="nav-link">Services</a></li>
-                    <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                    <li><a href="#pricing-section" class="nav-link">Acciones</a></li>
+                    <li><a href="#faq-section" class="nav-link">FAQ</a></li>
                     @if (Route::has('login'))
                 
                     @auth
@@ -131,14 +124,14 @@
       </div>
     </div>
     
-    <div class="site-blocks-cover overlay" style="background-image: url(images/hero_bg_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5"id="home-section">
+    <div class="site-blocks-cover overlay" style="background-image: url(images/fondo.jpg);" data-aos="fade" data-stellar-background-ratio="0.5"id="home-section">
       <div class="container">
         <div class="row align-items-center text-center justify-content-center">
           <div class="col-md-8">
-            <a data-fancybox data-ratio="2" href="https://vimeo.com/317571768" class="play-button d-block">
+            <a data-fancybox data-ratio="2" href="https://  .com/317571768" class="play-button d-block">
               <span class="icon-play"></span>
             </a>
-            <h1 class="text-uppercase">Interior Design</h1>
+            <h1 class="text-uppercase">Satisfacción de Usuario</h1>
             <span class="sub-text mb-3 d-block"><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam molestiae ipsam, atque.</em></span>
           </div>
         </div>
@@ -146,45 +139,7 @@
     </div>  
 
     
-    <div class="site-section  border-bottom">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-            <div class="media custom-media">
-              <div class="mr-3 icon"><span class="flaticon-window display-4"></span></div>
-              <div class="media-body">
-                <h5 class="mt-0">Innovative Structure</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin..
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-            <div class="media custom-media">
-              <div class="mr-3 icon"><span class="flaticon-sit-down display-4"></span></div>
-              <div class="media-body">
-                <h5 class="mt-0">Arhictectural</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin..
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-            <div class="media custom-media">
-              <div class="mr-3 icon"><span class="flaticon-turned-off display-4"></span></div>
-              <div class="media-body">
-                <h5 class="mt-0">Interior Design</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin..
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
+  
 
 
     <div class="site-section about-section" id="about-section">
@@ -195,7 +150,7 @@
           </div>
           <div class="col-lg-4 ml-auto">
             <span class="sub-title">Learn To Know</span>
-            <h3 class="mb-4">About Us</h3>
+            <h3 class="mb-4">Acerca de nosotros</h3>
             <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate fuga ipsum commodi aliquid aspernatur reiciendis enim cum voluptas id itaque, asperiores modi, voluptatibus sed voluptate nulla et ratione aliquam! Quaerat.</p>
             <ul class="list-unstyled ul-check text-left success mb-5">
                 <li>Asperiores modi sed</li>
@@ -203,7 +158,7 @@
                 <li>Commodi aliquid aspernatur</li>
                 <li>Cupiditate fuga ipsum commodi</li>
               </ul>
-            <p><a href="#" class="btn btn-primary btn-lg rounded-0">Read More About Us</a></p>
+            
           </div>
         </div>
 
@@ -216,9 +171,9 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-7 text-center">
-            <span class="sub-title">Meet Our Team</span>
-            <h2 class="font-weight-bold text-black">Our Team</h2>
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, explicabo, quasi. Magni deserunt sunt labore.</p>
+            <span class="sub-title">Conoce nuestro equipo</span>
+            <h2 class="font-weight-bold text-black">Zorros Privativos Comunes</h2>
+            <p class="mb-5">Somos estudiantes del programa de Ingeniería de Sistemas de la Universidad del Cauca. Cada uno de nosotros cuenta con diferentes conocimientos y actitudes que han hecho de esta aplicación web una realidad.</p>
           </div>
         </div>
        
@@ -228,7 +183,7 @@
             <div class="person">
               <div class="bio-img">
                 <figure>
-                  <img src="images/person_1.jpg" alt="Image" class="img-fluid">
+                  <img src="images/Juan.png" alt="Image" class="img-fluid" width="462" height="498">
                 </figure>
                 <div class="social">
                   <a href="#"><span class="icon-facebook"></span></a>
@@ -236,9 +191,9 @@
                   <a href="#"><span class="icon-instagram"></span></a>
                 </div>
               </div>
-              <h2>Cloe Marena</h2>
-              <span class="sub-title d-block mb-3">Architect</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum excepturi corporis qui doloribus perspiciatis ipsa modi accusantium repellat.</p>
+              <h2>Juan Felipe Muñoz</h2>
+              <span class="sub-title d-block mb-3">Front End</span>
+              <p>Decidí estudiar ingeniería porque me gusta administrar sistemas tecnológicos enfocados hacia distintas áreas para encontrar una solución con aplicación en ese área</p>
             </div>
           </div>
 
@@ -246,17 +201,17 @@
             <div class="person">
               <div class="bio-img">
                 <figure>
-                  <img src="images/person_2.jpg" alt="Image" class="img-fluid">
+                  <img src="images/edwar.jpeg" alt="Image" class="img-fluid" width="310" height="200">
                 </figure>
                 <div class="social">
-                  <a href="#"><span class="icon-facebook"></span></a>
-                  <a href="#"><span class="icon-twitter"></span></a>
-                  <a href="#"><span class="icon-instagram"></span></a>
+                  <a href="https://www.facebook.com/edwarjavier.cuasapudquenguan.3"><span class="icon-facebook"></span></a>
+                  <a href="https://twitter.com/javier_cuasapud?s=08"><span class="icon-twitter"></span></a>
+                  <a href="https://instagram.com/javiiierse?igshid=12sg03heaz94p"><span class="icon-instagram"></span></a>
                 </div>
               </div>
-              <h2>John Rooster</h2>
-              <span class="sub-title d-block mb-3">Designer</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum excepturi corporis qui doloribus perspiciatis ipsa modi accusantium repellat.</p>
+              <h2>Edwar Javier Cuasapud</h2>
+              <span class="sub-title d-block mb-3">Programador</span>
+              <p>Me gusta el desarrollo por qué por medio de la tecnología se puede brindar soluciones al mundo para que sea un mejor lugar</p>
               
             </div>
           </div>
@@ -265,7 +220,24 @@
             <div class="person">
               <div class="bio-img">
                 <figure>
-                  <img src="images/person_3.jpg" alt="Image" class="img-fluid">
+                  <img src="images/lino.png" alt="Image" class="img-fluid"  width="330" height="200">
+                </figure>
+                <div class="social">
+                  <a href="https://www.facebook.com/edwarjavier.cuasapudquenguan.3"><span class="icon-facebook"></span></a>
+                  <a href="https://twitter.com/javier_cuasapud?s=08"><span class="icon-twitter"></span></a>
+                  <a href="https://instagram.com/javiiierse?igshid=12sg03heaz94p"><span class="icon-instagram"></span></a>
+                </div>
+              </div>
+              <h2>Lino Alejandro Muñoz</h2>
+              <span class="sub-title d-block mb-3">Front End & Back End</span>
+              <p>Decidí estudiar ingeniería de sistemas porque le apuesto a la tecnología como medio para </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="person">
+              <div class="bio-img">
+                <figure>
+                  <img src="images/viviana.jpeg" alt="Image" class="img-fluid"  width="310" height="200">
                 </figure>
                 <div class="social">
                   <a href="#"><span class="icon-facebook"></span></a>
@@ -273,9 +245,9 @@
                   <a href="#"><span class="icon-instagram"></span></a>
                 </div>
               </div>
-              <h2>Will Turner</h2>
-              <span class="sub-title d-block mb-3">Designer</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum excepturi corporis qui doloribus perspiciatis ipsa modi accusantium repellat.</p>
+              <h2>Viviana Isabella Peña</h2>
+              <span class="sub-title d-block mb-3">Diseñadora</span>
+              <p>Hola soy Isabella peña tengo 24 años, estudio ingeniería de sistemas porque me apasiona el desarrollo y el trabajo en equipo. Mi rol dentro de este proyecto es el de diseñadora</p>
             </div>
           </div>
 
@@ -283,7 +255,7 @@
             <div class="person">
               <div class="bio-img">
                 <figure>
-                  <img src="images/person_4.jpg" alt="Image" class="img-fluid">
+                  <img src="images/thomas.jpeg" alt="Image" class="img-fluid"  width="270" height="100">
                 </figure>
                 <div class="social">
                   <a href="#"><span class="icon-facebook"></span></a>
@@ -291,9 +263,9 @@
                   <a href="#"><span class="icon-instagram"></span></a>
                 </div>
               </div>
-              <h2>Nicolas Stainer</h2>
-              <span class="sub-title d-block mb-3">Engineer</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum excepturi corporis qui doloribus perspiciatis ipsa modi accusantium repellat.</p>
+              <h2>Thomas Jesús Escobar</h2>
+              <span class="sub-title d-block mb-3">Requisitos</span>
+              <p>Hola soy Thomas Jesús Escobar, tengo 21 años y me gusta mucho la ciberseguridad además del desarrollo de software y soy el ingeniero de requisitos.</p>
             </div>
           </div>
 
@@ -309,57 +281,51 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-7 text-center">
-            <span class="sub-title">Pricing</span>
-            <h2 class="font-weight-bold text-black">Choose Your Plan</h2>
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, explicabo, quasi. Magni deserunt sunt labore.</p>
+            <span class="sub-title">Descubre que tipo de Acciones puedes hacer</span>
+            <h2 class="font-weight-bold text-black">¿Qué rol tienes?</h2>
+            <p class="mb-5">Nuestro sistema está diseñado para tres tipos de usuario diferentes, dependiendo de tu rol podrás realizar acciones diferentes.</p>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 pricing">
             <div class="border p-5 text-center rounded">
-              <h3>Starter</h3>
-              <div class="price mb-3"><sup class="currency">$</sup><span class="number">30</span> <span class="per">/year</span></div>
-              <p class="text-muted mb-4">* Billed annualy or $10 per month</p>
+              <h3>Usuario</h3>
+              
               <ul class="list-unstyled ul-check text-left success mb-5">
-                <li>Max 5 users</li>
-                <li>29 local security</li>
-                <li class="text-muted"><del>Desktop App</del></li>
-                <li class="text-muted"><del>Email Support</del></li>
-                <li class="text-muted"><del>Phone Support 24/7</del></li>
+                <li>Responder a encuestas</li>
+                
+                
               </ul>
-              <p><a href="#" class="btn btn-lg btn-primary rounded-0 btn-block">Buy Now</a></p>
+              
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 pricing">
             <div class="border p-5 text-center rounded">
-              <h3>Professional</h3>
-              <div class="price mb-3"><sup class="currency">$</sup><span class="number">72</span> <span class="per">/year</span></div>
-              <p class="text-muted mb-4">* Billed annualy or $30 per month</p>
+              <h3>Encuestador</h3>
+              
               <ul class="list-unstyled ul-check text-left success mb-5">
-                <li>Max 10 users</li>
-                <li>29 local security</li>
-                <li>Desktop App</li>
-                <li>Email Support</li>
-                <li class="text-muted"><del>Phone Support 24/7</del></li>
+                <li>Gestionar encuestas</li>
+                <li>Visualizar estadísticas por encuesta</li>
+                <li>Gestionar perfil</li>
+                
+                
               </ul>
-              <p><a href="#" class="btn btn-lg btn-primary rounded-0 btn-block">Buy Now</a></p>
+              
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 pricing">
             <div class="border p-5 text-center rounded">
-              <h3>Enterprise</h3>
-              <div class="price mb-3"><sup class="currency">$</sup><span class="number">130</span> <span class="per">/year</span></div>
-              <p class="text-muted mb-4">* Billed annualy or $10 per month</p>
+              <h3>Administrador</h3>
+              
               <ul class="list-unstyled ul-check text-left success mb-5">
-                <li>Unlimitted users</li>
-                <li>29 local security</li>
-                <li>Desktop App</li>
-                <li>Email Support</li>
-                <li>Phone Support 24/7</li>
+                <li>Gestionar  administradores</li>
+                <li>Gestionar encuestadores</li>
+                <li>Ver encuestas</li>
+                <li>Ver estadísticas por encuesta</li>
               </ul>
-              <p><a href="#" class="btn btn-lg btn-primary rounded-0 btn-block">Buy Now</a></p>
+              
             </div>
           </div>
 
@@ -378,20 +344,20 @@
           </div>
           
           <div class="col-lg-6 ml-auto pl-lg-5">
-            <span class="sub-title">Ask Us, We Are Happy To Answer</span>
-            <h2 class="font-weight-bold text-black mb-5">Frequently Ask Questions</h2>
+            <span class="sub-title">Pregúntanos! Estamos felices de responderte</span>
+            <h2 class="font-weight-bold text-black mb-5">Preguntas comunes</h2>
             <div class="accordion" id="accordionExample">
               
 
               <div class="accordion-item">
                 <h2 class="mb-0 rounded mb-2">
                   <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  How much you charge for a building?</a>
+                  ¿Qué tipo de encuestas puedo encotrar?</a>
                 </h2>
 
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                   <div class="accordion-body">
-                    <p>Lorem ipsum dolor sit amet, <a href="#">Cnsectetur adipisicing</a> elit. Eos quos incidunt, perspiciatis, ad saepe, magnam error adipisci vitae ut provident alias! Odio debitis error ipsum molestiae voluptas accusantium quibusdam animi, soluta explicabo asperiores aliquid, modi natus suscipit deleniti. Corrupti, autem.</p>
+                    <p>Nuestro sistema está diseñado para la gestión de diferentes tipos de encuestas, nuestro desarrolladores se han encargado de hacer esto posible!. Actualmente, estamos trabajando un tipo de encuesta denominado EasyAnswer. </p>
                   </div>
                 </div>
               </div>
@@ -399,13 +365,13 @@
               <div class="accordion-item">
                 <h2 class="mb-0 rounded mb-2">
                   <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    What is your process?
+                    ¿Cómo es el proceso de encuestas?
                   </a>
                 </h2>
                
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                   <div class="accordion-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat voluptate animi hic quasi sequi odio, vitae dolorum soluta sapiente debitis ad similique tempore, aliquam quae nam deserunt dicta ullam perspiciatis minima, quam. Quis repellat corporis aperiam, veritatis nemo iure inventore.</p>
+                    <p>En nuestro sistema encontramos varios tipos de usuario, por tal, tú como usuario solo debes preocuparte por responder a las diferentes preguntas relacionadas con el sitio web en cuestión, nada de crear usuarios y acciones tediosas! Solo marcas tus respeustas y envias! Facil y rápido como nos gusta.</p>
                   </div>
                 </div>
               </div>
@@ -459,47 +425,7 @@
       </div>
     </div>
 
-    
-    <div class="container site-section block-13 testimonial-wrap">
-
-      <div class="row">
-        <div class="col-12 text-center">
-          <span class="sub-title">Happy Clients</span>
-          <h2 class="font-weight-bold text-black mb-5">Testimonials</h2>
-        </div>
-      </div>
-
-      <div class="nonloop-block-13 owl-carousel">
-        
-        <div class="testimony px-5">
-          <img src="images/person_1.jpg" alt="Image" class="img-fluid">
-          <h3>Cloe Marena</h3>
-          <span class="sub-title">Owner of Building Co.</span>
-          <p>&ldquo;<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium non eligendi totam natus ullam cumque! Assumenda optio, ad in! Nesciunt natus veritatis hic iste quas. Sunt iste autem vel repudiandae.</em>&rdquo;</p>
-        </div>
-      
-        <div class="testimony px-5">
-          <img src="images/person_2.jpg" alt="Image" class="img-fluid">
-          <h3>Nathalie Channie</h3>
-          <span class="sub-title">Owner of Building Co.</span>
-          <p>&ldquo;<em>Eveniet, laboriosam impedit facilis. Voluptatem, repudiandae eligendi maiores sunt itaque, dolores voluptas labore perferendis, illum tenetur suscipit vero officia. Quaerat facilis cum ex a labore iusto, beatae fuga nam rem, quos vel aliquam nobis.</em>&rdquo;</p>
-        </div>
-
-        <div class="testimony px-5">
-          <img src="images/person_3.jpg" alt="Image" class="img-fluid">
-          <h3>Will Turner</h3>
-          <span class="sub-title">Owner of Building Co.</span>
-          <p>&ldquo;<em>Laboriosam nisi natus quos soluta blanditiis iste in distinctio fugiat perferendis, architecto eveniet provident, consequatur dolore ab nihil voluptatibus laborum magnam cum assumenda nobis, nam quam quae! Unde porro laboriosam nam qui! Eligendi, qui!</em>&rdquo;</p>
-        </div>
-
-        <div class="testimony px-5">
-          <img src="images/person_4.jpg" alt="Image" class="img-fluid">
-          <h3>Nicolas Stainer</h3>
-          <span class="sub-title">Owner of Building Co.</span>
-          <p>&ldquo;<em>Voluptatibus sed vero corporis reiciendis, ducimus iste aliquam doloribus voluptas nam quo assumenda perferendis excepturi accusantium, ipsam minus tempora earum exercitationem laborum. Delectus voluptate quaerat repellat obcaecati. Qui nemo ad similique facere modi dolores.</em>&rdquo;</p>
-        </div>
-      </div>
-    </div>
+   
 
     
     <div class="site-section" id="projects-section">
@@ -562,45 +488,7 @@
 
     
 
-    <div class="site-section" id="news-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-center">
-            <span class="sub-title">News &amp; Update</span>
-            <h2 class="font-weight-bold text-black mb-5">Our Blog Posts</h2>
-          </div>
-        </div>
-        <div class="row mb-5">
-          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 post-entry">
-            <a href="#" class="d-block figure">
-              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-            </a>
-            <span class="text-muted d-block mb-1">29, January 2019</span>
-            <h3><a href="#">Architectural Art Modern</a></h3>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 post-entry">
-            <a href="#" class="d-block figure">
-              <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-            </a>
-            <span class="text-muted d-block mb-1">29, January 2019</span>
-            <h3><a href="#">Architectural Art Modern</a></h3>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 post-entry">
-            <a href="#" class="d-block figure">
-              <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-            </a>
-            <span class="text-muted d-block mb-1">29, January 2019</span>
-            <h3><a href="#">Architectural Art Modern</a></h3>
-          </div>
-
-        </div>
-        <div class="row mt-5 text-center">
-          <div class="col-12">
-            <p><a href="#" class="btn btn-primary btn-lg rounded-0">View All Posts</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
+ 
 
     <div class="site-section" id="services-section">
       <div class="container">
@@ -614,36 +502,11 @@
 
         <div class="row">
 
-          <div class="col-lg-4 col-md-6 mb-5">
-            <div class="media custom-media">
-              <div class="mr-3 icon"><span class="flaticon-interior-design display-4"></span></div>
-              <div class="media-body">
-                <h5 class="mt-0">Innovative Structure</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin..
-              </div>
-            </div>
-          </div>
+         
 
 
-          <div class="col-lg-4 col-md-6 mb-5">
-            <div class="media custom-media">
-              <div class="mr-3 icon"><span class="flaticon-step-ladder display-4"></span></div>
-              <div class="media-body">
-                <h5 class="mt-0">Arcitectural Design</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin..
-              </div>
-            </div>
-          </div>
+         
 
-          <div class="col-lg-4 col-md-6 mb-5">
-            <div class="media custom-media">
-              <div class="mr-3 icon"><span class="flaticon-turned-off display-4"></span></div>
-              <div class="media-body">
-                <h5 class="mt-0">Interior Design</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin..
-              </div>
-            </div>
-          </div>
 
           <div class="col-lg-4 col-md-6 mb-5">
             <div class="media custom-media">
@@ -680,55 +543,7 @@
       </div>
     </div>
 
-    <div class="site-section bg-light" id="contact-section">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-7 text-center">
-            <span class="sub-title">Get In Touch</span>
-            <h2 class="font-weight-bold text-black">Contact Us</h2>
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, explicabo, quasi. Magni deserunt sunt labore.</p>
-          </div>
-        </div>
-        <div class="row">
-          
-          <div class="col-md-12 col-lg-12">
-          
-            <form action="#" class="p-5 bg-white">
-
-              <div class="row form-group">
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="font-weight-bold" for="fullname">Full Name</label>
-                  <input type="text" id="fullname" class="form-control" placeholder="Full Name">
-                </div>
-              </div>
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="font-weight-bold" for="email">Email</label>
-                  <input type="email" id="email" class="form-control" placeholder="Email Address">
-                </div>
-              </div>
-
-              
-
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="font-weight-bold" for="message">Message</label> 
-                  <textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Say hello to us"></textarea>
-                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <input type="submit" value="Send Message" class="btn btn-primary rounded-0 btn-lg">
-                </div>
-              </div>
-
-  
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+    
 
     <footer class="site-footer border-top">
       <div class="container">
@@ -736,7 +551,7 @@
           <div class="col-lg-4 mb-5 mb-lg-0">
             <div class="row mb-5">
               <div class="col-12">
-                <h3 class="footer-heading mb-4">About Us</h3>
+                <h3 class="footer-heading mb-4">Acerca de nosotros</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non rem iusto nisi, eum vitae quas culpa fugiat itaque aliquam nulla, accusamus aspernatur molestias recusandae voluptates ratione dolores deleniti velit. Corporis.</p>
               </div>
             </div>
