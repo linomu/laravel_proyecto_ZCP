@@ -37,7 +37,7 @@
           <form action="{{route('admin.destroy',$admin->id)}}" class="d-inline" method="POST">
             @method('DELETE')
             @csrf
-            <button class="btn btn-danger btn-sm ">Eliminar</button>
+            <button class="btnDelete btn btn-danger btn-sm ">Eliminar</button>
           </form>
         </td>
        
@@ -51,4 +51,9 @@
 {{$admins->links()}}
 
 </div>
+@endsection
+
+
+@section('script_section')
+<script src="{{URL::asset('js/myscript.js') }}"></script>
 @endsection

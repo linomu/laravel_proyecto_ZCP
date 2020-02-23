@@ -52,8 +52,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                
-              <img src="{{ URL::asset('images/img.jpg')}}" alt="..." class="img-circle profile_img">
+                <img src="{{ URL::asset('images/img.jpg')}}" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -152,7 +151,10 @@
 
     <!-- jQuery -->
     
+
     <script src="{{ URL::asset('vendors/jquery/dist/jquery.min.js') }}"></script>
+    
+    @yield('script_section')
     <!-- Bootstrap -->
     
     <script src="{{ URL::asset('vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>

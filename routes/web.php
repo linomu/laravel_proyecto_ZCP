@@ -12,8 +12,7 @@
 */
 
 Route::get('/', function () {
-    
-    return view('landingpage');
+     return view('landingpage');
 })->name('landingpage');
 
 Auth::routes();
