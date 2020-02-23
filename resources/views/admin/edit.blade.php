@@ -18,13 +18,13 @@
       <div class="row form-group">
         <div class="col-md-12 mb-3 mb-md-0">
           <label class="font-weight-bold" for="fullname">Cédula</label>
-          <input type="text" id="fullname" class="form-control" placeholder="Cédula">
+        <input type="text" id="fullname" class="form-control" placeholder="Cédula" value="{{$admin->personal_id}}">
         </div>
       </div>  
       <div class="row form-group">
           <div class="col-md-12 mb-3 mb-md-0">
             <label class="font-weight-bold" for="fullname">Primer Nombre</label>
-            <input type="text" id="fullname" class="form-control" placeholder="Primer Nombre">
+          <input type="text" id="fullname" class="form-control" placeholder="Primer Nombre" value="{{$admin->name}}">
           </div>
         </div>
         <div class="row form-group">

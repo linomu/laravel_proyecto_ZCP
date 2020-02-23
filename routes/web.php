@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+    
     return view('landingpage');
 })->name('landingpage');
 
@@ -24,6 +25,8 @@ Route::get('/listarEncuestas','encuestadorPaginas@listar')->name('pag_listar');
 
 Route::get('/crearEncuesta','encuestadorPaginas@crear')->name('pag_crear');
 
+
+//Route::resource('/admin','AdminController');
 
 //Mostrar todos los administradores
 Route::get('/admin','AdminController@index')->name('admin.index');
@@ -38,4 +41,5 @@ Route::get('/admin/{id}/edit', 'AdminController@edit')->name('admin.edit');
 //Actualizar un administrador en particular
 Route::put('/admin/{id}','AdminController@update')->name('admin.update');
 //Eliminar un administrador en particular
-Route::delete('/admin/{id}','AdminController@destroy')->name('usuarios.destroy');
+Route::delete('/admin/{id}','AdminController@destroy')->name('admin.destroy');
+

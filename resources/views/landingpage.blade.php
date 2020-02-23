@@ -377,7 +377,7 @@
               <div class="accordion-item">
                 <h2 class="mb-0 rounded mb-2">
                   <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    How it works? Please let us know!
+                    ¿Cuántos campos tendrá mi encuesta?
                   </a>
                 </h2>
                 
