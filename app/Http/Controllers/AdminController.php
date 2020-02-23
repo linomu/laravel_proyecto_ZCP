@@ -11,7 +11,8 @@ class AdminController extends Controller
     
     public function index()
     {
-        $admins = App\Admin::all();
+        //$admins = App\Admin::all();
+        $admins = App\Admin::paginate(5);
         return view('admin.list',compact('admins'));
     }
 
@@ -60,7 +61,21 @@ class AdminController extends Controller
     
     public function update(Request $request, $id)
     {
-        //
+        $admin = App\Admin::findOrFail($id);
+        $request->validate([
+            'txt_name'=>'required',
+            'txt_personal_id'=>'required',
+            'txt_last_name'=>'required',
+            'txt_email'=>'required'
+        ]);
+
+        $admin->personal_id=$request->txt_personal_id;
+        $admin->name = $request->txt_name;
+        $admin->lastname = $request->txt_last_name;
+        $admin->email = $request->txt_email;
+        $admin->save();
+
+        return back()->with('mensaje','Administrador Actualizado!');
     }
 
     public function destroy($id)

@@ -5,14 +5,13 @@
       <li><a><i class="fa fa-home"></i> Administrador <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
           <li><a href="{{route('admin.create')}}">Crear</a></li>
-          <li><a href="{{route('admin.show',$id ?? '' )}}">Buscar</a></li>
-          <li><a href="{{route('admin.index')}}">Listar</a></li>
+          <li><a href="{{route('admin.index')}}">Administradores</a></li>
         </ul>
       </li>
       <li><a><i class="fa fa-edit"></i> Evaluador <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
           <li><a href="form_advanced.html">Crear</a></li>
-          <li><a href="form_validation.html">Editar</a></li>
+          <li><a href="form_validation.html">Administradores</a></li>
           <li><a href="form_wizards.html">Buscar</a></li>
         </ul>
       </li>
