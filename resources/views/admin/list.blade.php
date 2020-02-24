@@ -14,6 +14,9 @@
   {{session('mensaje')}}
 </div>
 @endif
+
+<div id="alert" class="alert alert-info"></div>
+
 <table class="table">
   <thead>
     <tr>
@@ -27,12 +30,14 @@
   </thead>
   <tbody>
     @foreach ($admins as $admin)
-      <tr>
+    
+    <tr>
         <th scope="row">{{$admin->id}}</th>
-        <td>{{$admin->personal_id}}</td>
-        <td><a href="{{route('admin.show',$admin->id)}}">{{$admin->name}}</a></td>
-        <td>{{$admin->lastname}}</td>
-        <td>{{$admin->email}}</td>
+        <td  class="clickable-row" data-href="{{route('admin.show',$admin->id)}}">{{$admin->personal_id}}</td>
+        <!--<td><a href="{{route('admin.show',$admin->id)}}">{{$admin->name}}</a></td>-->
+        <td  class="clickable-row" data-href="{{route('admin.show',$admin->id)}}">{{$admin->name}}</td>
+        <td  class="clickable-row" data-href="{{route('admin.show',$admin->id)}}">{{$admin->lastname}}</td>
+        <td  class="clickable-row" data-href="{{route('admin.show',$admin->id)}}">{{$admin->email}}</td>
         <td><a href="{{route('admin.edit', $admin->id)}}" class="btn btn-warning btn-sm">Editar</a>
           <form action="{{route('admin.destroy',$admin->id)}}" class="d-inline" method="POST">
             @method('DELETE')
@@ -40,10 +45,9 @@
             <button class="btnDelete btn btn-danger btn-sm ">Eliminar</button>
           </form>
         </td>
-       
-          
-        
+   
       </tr>
+    
     @endforeach
   
   </tbody>

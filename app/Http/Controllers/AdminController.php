@@ -78,10 +78,22 @@ class AdminController extends Controller
         return back()->with('mensaje','Administrador Actualizado!');
     }
 
-    public function destroy($id)
+    /*public function destroy($id)
     {
         $admin = App\Admin::findOrFail($id);
         $admin->delete();
         return back()->with('mensaje','Administrador Eliminado!');
+    }*/
+
+    public function destroy(Request $request, $id)
+    {
+        if($request->ajax()){
+            $admin = App\Admin::findOrFail($id);
+            $admin->delete();
+            return response()->json([
+                'mensaje'=>$admin->name.' fue eliminado satisfactoriamente!'
+            ]);
+            
+        }
     }
 }
