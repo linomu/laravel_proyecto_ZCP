@@ -13,7 +13,7 @@
     <!-- Bootstrap -->
     
     
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="{{ URL::asset('vendors/font-awesome/css/font-awesome.min.css') }}"rel="stylesheet">
@@ -52,8 +52,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                
-              <img src="{{ URL::asset('images/img.jpg')}}" alt="..." class="img-circle profile_img">
+                <img src="{{ URL::asset('images/img.jpg')}}" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -152,7 +151,10 @@
 
     <!-- jQuery -->
     
+
     <script src="{{ URL::asset('vendors/jquery/dist/jquery.min.js') }}"></script>
+    
+    @yield('script_section')
     <!-- Bootstrap -->
     
     <script src="{{ URL::asset('vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
