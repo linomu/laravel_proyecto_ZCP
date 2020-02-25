@@ -20,6 +20,7 @@ class CrearTablaLocalizations extends Migration
             $table->string('region',100);
             $table->date('modified');
             $table->date('created');
+            $table->timestamps();
         });
     }
 

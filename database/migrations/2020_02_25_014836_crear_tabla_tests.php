@@ -23,6 +23,7 @@ class CrearTablaTests extends Migration
             $table->string('description',200);
             $table->date('modified');
             $table->date('created');
+            $table->timestamps();
         });
     }
 

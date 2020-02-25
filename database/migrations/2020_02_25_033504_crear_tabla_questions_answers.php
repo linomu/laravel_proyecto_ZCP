@@ -21,6 +21,7 @@ class CrearTablaQuestionsAnswers extends Migration
             $table->foreign('answers_id','fk_questions_answers_answers')->references('id')->on('answers');
             $table->date('modified');
             $table->date('created');
+            $table->timestamps();
         });
     }
 

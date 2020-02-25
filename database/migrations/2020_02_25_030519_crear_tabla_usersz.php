@@ -26,6 +26,7 @@ class CrearTablaUsersz extends Migration
             $table->char('gender');
             $table->string('firstname',100);
             $table->string('lastname',100);
+            $table->timestamps();
         });
     }
 

@@ -22,6 +22,7 @@ class CrearTablaQuestions extends Migration
             $table->string('description',100);
             $table->date('modified');
             $table->date('created');
+            $table->timestamps();
         });
     }
 

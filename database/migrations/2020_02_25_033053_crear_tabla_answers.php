@@ -18,6 +18,7 @@ class CrearTablaAnswers extends Migration
             $table->string('value',255);
             $table->date('modified');
             $table->date('created');
+            $table->timestamps();
         });
     }
 

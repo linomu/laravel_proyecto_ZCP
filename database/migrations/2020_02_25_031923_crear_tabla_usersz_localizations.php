@@ -21,6 +21,7 @@ class CrearTablaUserszLocalizations extends Migration
             $table->foreign('localizations_id','fk_usersz_localizations_localizations')->references('id')->on('localizations');
             $table->date('modified');
             $table->date('created');
+            $table->timestamps();
         });
     }
 
