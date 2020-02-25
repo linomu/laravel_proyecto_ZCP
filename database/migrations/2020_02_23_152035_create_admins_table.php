@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAdminsTable extends Migration
 {
-    
+
     public function up()
     {
         Schema::create('admins', function (Blueprint $table) {
