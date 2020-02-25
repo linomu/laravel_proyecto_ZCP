@@ -379,7 +379,7 @@
               <div class="accordion-item">
                 <h2 class="mb-0 rounded mb-2">
                   <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    How it works? Please let us know!
+                    ¿Cuántas preguntas podrían contener las encuestas?
                   </a>
                 </h2>
 
@@ -393,7 +393,7 @@
               <div class="accordion-item">
                 <h2 class="mb-0 rounded mb-2">
                   <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                    Tengo que pagar por las encuestas que yo haga?
+                    ¿Tengo que pagar por las encuestas que yo haga?
                   </a>
                 </h2>
 
@@ -407,7 +407,7 @@
               <div class="accordion-item">
                 <h2 class="mb-0 rounded mb-2">
                   <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                    Puedo crear encuestas aún si soy solo un usuario?
+                    ¿Puedo crear encuestas aún si soy solo un usuario?
                   </a>
                 </h2>
 
