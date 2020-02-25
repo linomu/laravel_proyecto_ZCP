@@ -5,8 +5,8 @@
     <title>Archs &mdash; Onepage Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900"> 
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
@@ -14,19 +14,19 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    
-    
+
+
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-  
+
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    
+
 
     <link rel="stylesheet" href="css/style.css">
-    
+
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-  
+
   <div id="overlayer"></div>
   <div class="loader">
     <div class="spinner-border text-primary" role="status">
@@ -44,8 +44,8 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div> <!-- .site-mobile-menu -->
-    
-    
+
+
     <div class="site-navbar-wrap">
       <div class="site-navbar-top">
         <div class="container py-3">
@@ -93,12 +93,12 @@
                         <li><a href="#our-team-section" class="nav-link">Equipo</a></li>
                       </ul>
                     </li>
-                    
+
                     <li><a href="#services-section" class="nav-link">Servicios</a></li>
                     <li><a href="#pricing-section" class="nav-link">Acciones</a></li>
                     <li><a href="#faq-section" class="nav-link">FAQ</a></li>
                     @if (Route::has('login'))
-                
+
                     @auth
                         <li><a href="{{ url('/admin') }}" class="nav-link">Dashboard</a></li>
                     @else
@@ -108,7 +108,7 @@
                             <li><a href="{{ route('register') }}" class="nav-link">Registrarse</a></li>
                         @endif
                     @endauth
-                
+
             @endif
                   </ul>
                 </div>
@@ -118,21 +118,21 @@
         </div>
       </div>
     </div>
-    
+
     <div class="site-blocks-cover overlay" style="background-image: url(images/fondo.jpg);" data-aos="fade" data-stellar-background-ratio="0.5"id="home-section">
       <div class="container">
         <div class="row align-items-center text-center justify-content-center">
           <div class="col-md-8">
-            
+
             <h1 class="text-uppercase">Satisfacción de Usuario</h1>
             <span class="sub-text mb-3 d-block"><em>Creación y realización de encuestas para medir la satisfacción del usuario de una o varias páginas específicas.</em></span>
           </div>
         </div>
       </div>
-    </div>  
+    </div>
 
-    
-  
+
+
 
 
     <div class="site-section about-section" id="about-section">
@@ -143,22 +143,26 @@
           </div>
           <div class="col-lg-4 ml-auto">
             <h3 class="mb-4" style="color:#ff5733">Acerca de nosotros</h3>
+<<<<<<< HEAD
+            <p class="mb-4">Somo un equipo de desarrollo. Estamos formándonos en Ingeniería de Sistemas en la Universidad del Cauca. Nuestro equipo tiene solidas bases en diferentes áreas del desarrollo web, las cuáles aplicamos con su respectivo seguimiento en este sitio web. <br>Nuestros fuertes son: </p>
+=======
             <p class="mb-4">Somo un equipo de desarrollo. Estamos formándonos en Ingeniería de Sistemas en la Universidad del Cauca. Nuestro equipo tiene solidas bases en diferentes áreas del desarrollo web, las cuáles aplicamos con su respectivo seguimiento en este sitio web. <br>Somos fuertes en: </p>
+>>>>>>> 467a0eb07e642252faf9a6dfad9a40fe329ae7a7
             <ul class="list-unstyled ul-check text-left success mb-5">
-                <li>Asperiores modi sed</li>
-                <li>Enim cum voluptas</li>
-                <li>Commodi aliquid aspernatur</li>
-                <li>Cupiditate fuga ipsum commodi</li>
+                <li>Trabajo en equipo y bajo presión</li>
+                <li>Buena comunicación en el equipo</li>
+                <li>Capacidad de adaptación al entorno de trabajo</li>
+                <li>Aplicación de nuevas tecnologías a la medida que surguen</li>
               </ul>
-            
+
           </div>
         </div>
 
-        
+
       </div>
     </div>
-    
-    
+
+
     <div class="site-section" id="our-team-section">
       <div class="container">
         <div class="row justify-content-center">
@@ -168,7 +172,7 @@
             <p class="mb-5">Somos estudiantes del programa de Ingeniería de Sistemas de la Universidad del Cauca. Cada uno de nosotros cuenta con diferentes conocimientos y actitudes que han hecho de esta aplicación web una realidad.</p>
           </div>
         </div>
-       
+
         <div class="row">
 
           <div class="col-lg-4 col-md-6 mb-4">
@@ -185,7 +189,11 @@
               </div>
               <h2>Juan Felipe Muñoz</h2>
               <span class="sub-title d-block mb-3">Front End</span>
+<<<<<<< HEAD
+              <p>Decidí estudiar ingeniería porque me gusta administrar sistemas tecnológicos enfocados hacia distintas áreas para encontrar una solución con aplicación en dicha área</p>
+=======
               <p>Decidí estudiar ingeniería porque me gusta administrar sistemas tecnológicos enfocados hacia distintas áreas para encontrar una solución con aplicación en esa área</p>
+>>>>>>> 467a0eb07e642252faf9a6dfad9a40fe329ae7a7
             </div>
           </div>
 
@@ -204,10 +212,10 @@
               <h2>Edwar Javier Cuasapud</h2>
               <span class="sub-title d-block mb-3">Programador</span>
               <p>Me gusta el desarrollo por qué por medio de la tecnología se puede brindar soluciones al mundo para que sea un mejor lugar</p>
-              
+
             </div>
           </div>
-          
+
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="person">
               <div class="bio-img">
@@ -261,9 +269,9 @@
             </div>
           </div>
 
-          
 
-         
+
+
 
         </div>
       </div>
@@ -282,51 +290,51 @@
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 pricing">
             <div class="border p-5 text-center rounded">
               <h3>Usuario</h3>
-              
+
               <ul class="list-unstyled ul-check text-left success mb-5">
                 <li>Responder a encuestas</li>
-                
-                
+
+
               </ul>
-              
+
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 pricing">
             <div class="border p-5 text-center rounded">
               <h3>Evaluador</h3>
-              
+
               <ul class="list-unstyled ul-check text-left success mb-5">
                 <li>Gestionar encuestas</li>
                 <li>Visualizar estadísticas por encuesta</li>
                 <li>Gestionar perfil</li>
-                
-                
+
+
               </ul>
-              
+
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 pricing">
             <div class="border p-5 text-center rounded">
               <h3>Administrador</h3>
-              
+
               <ul class="list-unstyled ul-check text-left success mb-5">
                 <li>Gestionar  administradores</li>
                 <li>Gestionar evaluadores</li>
                 <li>Ver encuestas</li>
                 <li>Ver estadísticas por encuesta</li>
               </ul>
-              
+
             </div>
           </div>
 
         </div>
       </div>
-    </div>   
+    </div>
 
 
-    
+
 
     <div class="site-section" id="faq-section">
       <div class="container">
@@ -334,12 +342,12 @@
           <div class="col-lg-6 mb-5 mb-lg-0">
             <img src="images/about_2.jpg" alt="Image" class="img-fluid">
           </div>
-          
+
           <div class="col-lg-6 ml-auto pl-lg-5">
             <span class="sub-title">Pregúntanos! Estaremos complacidos de responderte</span>
             <h2 class="font-weight-bold text-black mb-5">Preguntas comunes</h2>
             <div class="accordion" id="accordionExample">
-              
+
 
               <div class="accordion-item">
                 <h2 class="mb-0 rounded mb-2">
@@ -349,49 +357,49 @@
 
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                   <div class="accordion-body">
-                    <p>Nuestro sistema está diseñado para la gestión de diferentes tipos de encuestas, nuestro desarrolladores se han encargado de hacer esto posible!. Actualmente, estamos trabajando un tipo de encuesta denominado EasyAnswer. </p>
+                    <p>Nuestro sistema está diseñado para la gestión de diferentes tipos de encuestas, nuestro desarrolladores se han encargado de hacer esto posible! Actualmente, estamos trabajando un tipo de encuesta denominado EasyAnswer.</p>
                   </div>
                 </div>
               </div>
-              
+
               <div class="accordion-item">
                 <h2 class="mb-0 rounded mb-2">
                   <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     ¿Cómo es el proceso de encuestas?
                   </a>
                 </h2>
-               
+
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                   <div class="accordion-body">
-                    <p>En nuestro sistema encontramos varios tipos de usuario, por tal, tú como usuario solo debes preocuparte por responder a las diferentes preguntas relacionadas con el sitio web en cuestión, nada de crear usuarios y acciones tediosas! Solo marcas tus respeustas y envias! Facil y rápido como nos gusta.</p>
+                    <p>En nuestro sistema encontramos varios tipos de usuario, por tal, tú como usuario solo debes preocuparte por responder a las diferentes preguntas relacionadas con el sitio web en cuestión, nada de crear usuarios y acciones tediosas! Solo marcas tus respuestas y envias! Facil y rápido como nos gusta.</p>
                   </div>
                 </div>
               </div>
-              
+
               <div class="accordion-item">
                 <h2 class="mb-0 rounded mb-2">
                   <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                     How it works? Please let us know!
                   </a>
                 </h2>
-                
+
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                   <div class="accordion-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum et dolorum libero consequuntur facere molestias beatae quod labore quidem ad quasi eius pariatur quae nam quo soluta optio dicta, doloribus ullam fugit nulla! Itaque necessitatibus eum sed quam eos id!</p>
+                    <p>Nuestro sistema está pensado para soportar encuestas de todo tipo, es por esto que el número y tipo de preguntas varían de pendiendo de la encuesta en sí misma.</p>
                   </div>
                 </div>
               </div>
-              
+
               <div class="accordion-item">
                 <h2 class="mb-0 rounded mb-2">
                   <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                    Is it free?
+                    Tengo que pagar por las encuestas que yo haga?
                   </a>
                 </h2>
 
                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
                   <div class="accordion-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quos incidunt, perspiciatis, ad saepe, magnam error adipisci vitae ut provident alias! Odio debitis error ipsum molestiae voluptas accusantium quibusdam animi, soluta explicabo asperiores aliquid, modi natus suscipit deleniti. Corrupti, autem.</p>
+                    <p>No! Nunca te cobrares por ninguna encuesta debido a que nuestro sistema está enfocado en la filosofía de software libre.</p>
                   </div>
                 </div>
               </div>
@@ -399,17 +407,17 @@
               <div class="accordion-item">
                 <h2 class="mb-0 rounded mb-2">
                   <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                    Where to find you? Where is your location?
+                    Puedo crear encuestas aún si soy solo un usuario?
                   </a>
                 </h2>
 
                 <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
                   <div class="accordion-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quos incidunt, perspiciatis, ad saepe, magnam error adipisci vitae ut provident alias! Odio debitis error ipsum molestiae voluptas accusantium quibusdam animi, soluta explicabo asperiores aliquid, modi natus suscipit deleniti. Corrupti, autem.</p>
+                    <p>Sí, no importa si solo has llenado encuestas como usuario, también tienes la opción de crear una encuesta siempre y cuando un administrador de agregue como evaluador.</p>
                   </div>
                 </div>
               </div>
-             
+
             </div>
 
           </div>
@@ -417,14 +425,14 @@
       </div>
     </div>
 
-   
 
-    
-    
 
-    
 
- 
+
+
+
+
+
     <div class="site-section" id="services-section">
       <div class="container">
         <div class="row justify-content-center">
@@ -437,10 +445,10 @@
 
         <div class="row">
 
-         
 
 
-         
+
+
 
 
           <div class="col-lg-4 col-md-6 mb-5">
@@ -459,7 +467,7 @@
               <div class="mr-3 icon"><span class="flaticon-measuring display-4"></span></div>
               <div class="media-body">
                 <h5 class="mt-0">Gestionar Evaluadores</h5>
-                Permitir a los evaluadores  gestionar encuestas y su perfil para posteriormente poder visualizar estadísticas para cada una de las encuestas creadas. 
+                Permitir a los evaluadores  gestionar encuestas y su perfil para posteriormente poder visualizar estadísticas para cada una de las encuestas creadas.
               </div>
             </div>
           </div>
@@ -477,9 +485,9 @@
         </div>
       </div>
     </div>
-    
 
-    
+
+
 
     <footer class="site-footer border-top">
       <div class="container">
@@ -490,10 +498,10 @@
                 <h3 class="footer-heading mb-4">Acerca de nosotros</h3>
                 <p>Somos estudiantes del programa de Ingeniería de Sistemas de la Universidad del Cauca. Cada uno de nosotros cuenta con diferentes conocimientos y actitudes que han hecho de esta aplicación web una realidad.</p>
               </div>
-            </div>            
+            </div>
           </div>
           <div class="col-lg-4">
-           
+
 
             <div class="mb-5">
               <h3 class="footer-heading mb-4">Navegación</h3>
@@ -507,9 +515,9 @@
                 </ul>
               </div>
             </div>
-            
+
           </div>
-          
+
 
           <div class="col-lg-4 mb-5 mb-lg-0">
 
@@ -525,12 +533,12 @@
               </div>
 
             <div class="row">
-              
+
             </div>
 
 
           </div>
-          
+
         </div>
         <div class="row pt-5 mt-5 text-center">
           <div class="col-md-12">
@@ -540,7 +548,7 @@
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>
-          
+
         </div>
       </div>
     </footer>
@@ -557,10 +565,10 @@
   <script src="js/aos.js"></script>
   <script src="js/jquery.sticky.js"></script>
   <script src="js/jquery.easing.1.3.js"></script>
-  
+
   <script src="js/jquery.fancybox.min.js"></script>
   <script src="js/main.js"></script>
 
-  
+
   </body>
 </html>
