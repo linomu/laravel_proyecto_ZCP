@@ -21,6 +21,7 @@ class CrearTablaUserszTests extends Migration
             $table->foreign('usersz_id','fk_usersz_tests_usersz')->references('id')->on('usersz');
             $table->date('modified');
             $table->date('created');
+            $table->timestamps();
         });
     }
 

@@ -24,6 +24,7 @@ class CrearTablaEvaluators extends Migration
             $table->string('lastname',70);
             $table->date('modified');
             $table->date('created');
+            $table->timestamps();
         });
     }
 
