@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProjectsTable extends Migration
+class CrearTablaTopics extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nombre');
-            $table->text('descripcion');
-            $table->text('usuario');
-            $table->timestamps();
+        Schema::create('topics', function (Blueprint $table) {
+            $table->integer('id')->primary();
+            $table->string('name',150);
+            $table->string('description',200);
+            $table->date('modified');
+            $table->date('created');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('topics');
     }
 }
