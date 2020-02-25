@@ -20,7 +20,6 @@ class CrearTablaTopics extends Migration
             $table->date('modified');
             $table->date('created');
             $table->timestamps();
-            $table->timestamps();
         });
     }
 
