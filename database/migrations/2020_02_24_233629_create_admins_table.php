@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaQuestionsTypes extends Migration
+class CrearTablaAdmins extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CrearTablaQuestionsTypes extends Migration
      */
     public function up()
     {
-        Schema::create('questions_types', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->string('name',100);
-            $table->string('description',200);
-            $table->date('modified');
-            $table->date('created');
+        Schema::create('admins', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('personal_id',40)->unique();
+            $table->string('name',250);
+            $table->string('lastname',150);
+            $table->string('email',70);
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CrearTablaQuestionsTypes extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questions_types');
+        Schema::dropIfExists('admins');
     }
 }
