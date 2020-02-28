@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaAdmins extends Migration
+class CreateAdminsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,11 +15,12 @@ class CrearTablaAdmins extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('personal_id',40)->unique();
-            $table->string('name',250);
-            $table->string('lastname',150);
-            $table->string('email',70);
+            $table->string('personal_id')->unique();
+            $table->string('name');
+            $table->string('lastname');
+            $table->string('email');
             $table->timestamps();
+
         });
     }
 
