@@ -42,3 +42,5 @@ Route::put('/admin/{id}','AdminController@update')->name('admin.update');
 //Eliminar un administrador en particular
 Route::delete('/admin/{id}','AdminController@destroy')->name('admin.destroy');
 
+
+//Lo primero sera crear el formulario
