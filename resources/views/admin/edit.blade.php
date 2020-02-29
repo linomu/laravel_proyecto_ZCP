@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
 
+@section('nav')
+    @include("../layouts/navadmin")
+@endsection
 
 @section('content')
 <div class="container">
@@ -32,7 +35,7 @@
           <label class="font-weight-bold" for="fullname">Cédula</label>
         <input type="text" name="txt_personal_id" class="form-control" placeholder="Cédula" value="{{$admin->personal_id}}">
         </div>
-      </div>  
+      </div>
       <div class="row form-group">
         @error('txt_name')
         <div class="alert alert-danger">El Nombre es obligatorio
@@ -72,7 +75,7 @@
           <input type="email" name="txt_email" class="form-control" placeholder="Email Address" value="{{$admin->email}}">
           </div>
         </div>
-    
+
         <div class="row form-group">
           <div class="col-md-12">
             <input type="submit" value="Modificar" class="btn btn-primary rounded-0 btn-lg">

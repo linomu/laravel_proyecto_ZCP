@@ -11,7 +11,7 @@
     <title>Gentelella Alela! | </title>
 
     <!-- Bootstrap -->
-    
+
     <link href="../public/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="../public/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -19,7 +19,7 @@
     <link href="../public/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="../public/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	
+
     <!-- bootstrap-progressbar -->
     <link href="../public/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
@@ -56,39 +56,13 @@
 
             <br />
 
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
-                <h3>General</h3>
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Perfil <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="index.html">Ver</a></li>
-                      <li><a href="index2.html">Editar</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-edit"></i> Encuestas <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="{{route('pag_crear')}}">Crear</a></li>
-                      <li><a href="{{ route('pag_listar')}}">Listar</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-desktop"></i>Historial de Encuestas<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="general_elements.html">Listar</a></li>
-                    </ul>
-                  </li>
-                 
-                </ul>
-              </div>
-            
-            </div>
+
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-             
-             
+
+
               <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
@@ -111,7 +85,7 @@
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="javascript:;"> Mi Perfil</a>
-                    
+
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
@@ -121,11 +95,11 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                    
+
                   </div>
                 </li>
 
-             
+
               </ul>
             </nav>
           </div>
@@ -189,6 +163,6 @@
 
     <!-- Custom Theme Scripts -->
     <script src="../public/build/js/custom.min.js"></script>
-	
+
   </body>
 </html>

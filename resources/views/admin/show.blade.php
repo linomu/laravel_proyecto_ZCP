@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
-
+@section('nav')
+    @include("../layouts/navadmin")
+@endsection
 
 @section('content')
 <div class="container">

@@ -1,4 +1,8 @@
-@extends('layouts.encuestador')
+@extends('layouts.master')
+
+@section('nav')
+    @include("../layouts/navevaluator")
+    @endsection
 
 @section('content')
 <div class="container">
