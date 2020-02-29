@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaUserszLocalizations extends Migration
+class CreateUserzsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CrearTablaUserszLocalizations extends Migration
      */
     public function up()
     {
-        Schema::create('usersz_localizations', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('usersz_id');
-            $table->foreign('usersz_id','fk_usersz_localizations_usersz')->references('id')->on('usersz');
+        Schema::create('userzs', function (Blueprint $table) {
+            $table->integer('id')->primary();
+            $table->string('email',100);
             $table->integer('localizations_id');
-            $table->foreign('localizations_id','fk_usersz_localizations_localizations')->references('id')->on('localizations');
+            $table->foreign('localizations_id','fk_userzs__localizations')->references('id')->on('localizations');
             $table->date('modified');
             $table->date('created');
             $table->timestamps();
@@ -32,6 +31,6 @@ class CrearTablaUserszLocalizations extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usersz_localizations');
+        Schema::dropIfExists('userzs');
     }
 }

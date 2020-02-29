@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaQuestionsAnswers extends Migration
+class CreateTopicTestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CrearTablaQuestionsAnswers extends Migration
      */
     public function up()
     {
-        Schema::create('questions_answers', function (Blueprint $table) {
+        Schema::create('topic_tests', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('questions_id');
-            $table->foreign('questions_id','fk_questions_answers_questions')->references('id')->on('questions');
-            $table->integer('answers_id');
-            $table->foreign('answers_id','fk_questions_answers_answers')->references('id')->on('answers');
+            $table->integer('tests_id');
+            $table->foreign('tests_id','fk_topic__tests_tests')->references('id')->on('tests');
+            $table->integer('topics_id');
+            $table->foreign('topics_id','fk_topic__testss_topics')->references('id')->on('topics');
             $table->date('modified');
             $table->date('created');
             $table->timestamps();
@@ -32,6 +32,6 @@ class CrearTablaQuestionsAnswers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questions_answers');
+        Schema::dropIfExists('topic_tests');
     }
 }

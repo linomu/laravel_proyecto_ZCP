@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaUsersz extends Migration
+class CreateUserzTestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,17 @@ class CrearTablaUsersz extends Migration
      */
     public function up()
     {
-        Schema::create('usersz', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->string('email',100);
-            $table->string('ipadress',40);
+        Schema::create('userz_tests', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('tests_id');
+            $table->foreign('tests_id','fk_userz_tests_tests')->references('id')->on('tests');
+            $table->integer('userzs_id');
+            $table->foreign('userzs_id','fk_userz_tests_userzs')->references('id')->on('userzs');
             $table->date('participationdate');
             $table->date('participationhour');
-            $table->string('accessdevice',100);
+            $table->string('ipadress',40);
             $table->date('modified');
             $table->date('created');
-            $table->integer('age');
-            $table->char('gender');
-            $table->string('firstname',100);
-            $table->string('lastname',100);
             $table->timestamps();
         });
     }
@@ -37,6 +35,6 @@ class CrearTablaUsersz extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usersz');
+        Schema::dropIfExists('userz_tests');
     }
 }

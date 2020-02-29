@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaLocalizations extends Migration
+class CreateAdminsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CrearTablaLocalizations extends Migration
      */
     public function up()
     {
-        Schema::create('localizations', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->integer('id')->primary();
-            $table->string('country',100);
-            $table->string('city',100);
-            $table->string('region',100);
+            $table->string('username',40);
+            $table->string('password',250);
+            $table->string('email',150);
+            $table->string('firstname',70);
+            $table->string('lastname',70);
             $table->date('modified');
             $table->date('created');
             $table->timestamps();
@@ -31,6 +33,6 @@ class CrearTablaLocalizations extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('localizations');
+        Schema::dropIfExists('admins');
     }
 }

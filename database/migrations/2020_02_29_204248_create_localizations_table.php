@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaEvaluators extends Migration
+class CreateLocalizationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CrearTablaEvaluators extends Migration
      */
     public function up()
     {
-        Schema::create('evaluators', function (Blueprint $table) {
+        Schema::create('localizations', function (Blueprint $table) {
             $table->integer('id')->primary();
-            $table->integer('admins_id');
-            $table->foreign('admins_id','fk_evaluators_admins')->references('id')->on('admins');;
-            $table->string('username',40);
-            $table->string('password',250);
-            $table->string('email',150);
-            $table->string('firstname',70);
-            $table->string('lastname',70);
+            $table->string('country',100);
+            $table->string('city',100);
+            $table->string('region',100);
             $table->date('modified');
             $table->date('created');
             $table->timestamps();
@@ -35,6 +31,6 @@ class CrearTablaEvaluators extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evaluators');
+        Schema::dropIfExists('localizations');
     }
 }

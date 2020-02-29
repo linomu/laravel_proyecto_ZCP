@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaTests extends Migration
+class CreateTopicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CrearTablaTests extends Migration
      */
     public function up()
     {
-        Schema::create('tests', function (Blueprint $table) {
+        Schema::create('topics', function (Blueprint $table) {
             $table->integer('id')->primary();
-            $table->integer('evaluators_id');
-            $table->foreign('evaluators_id','fk_test_evaluators')->references('id')->on('evaluators')->onDelete('restrict')->onUpdate('restrict');
-            $table->integer('topics_id');
-            $table->foreign('topics_id','fk_test_topics')->references('id')->on('topics')->onDelete('restrict')->onUpdate('restrict');       
-            $table->string('name',150);
             $table->string('description',200);
             $table->date('modified');
             $table->date('created');
@@ -34,6 +29,6 @@ class CrearTablaTests extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tests');
+        Schema::dropIfExists('topics');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaAnswers extends Migration
+class CreateAnswersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,9 @@ class CrearTablaAnswers extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->integer('id')->primary();
-            $table->string('value',255);
+            $table->integer('questions_id');
+            $table->foreign('questions_id','fk_answers_questions')->references('id')->on('questions');
+            $table->string('description',100);
             $table->date('modified');
             $table->date('created');
             $table->timestamps();
