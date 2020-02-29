@@ -1,4 +1,10 @@
-@extends('layouts.encuestador')
+@extends('layouts.master')
+
+@include("../layouts/userInformation")
+
+@section('nav')
+    @include("../layouts/navevaluator")
+    @endsection
 
 @section('content')
 <div class="container">

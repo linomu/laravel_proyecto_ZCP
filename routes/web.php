@@ -18,11 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 
+Route::resource('/pollster','PollsterController');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/listarEncuestas','encuestadorPaginas@listar')->name('pag_listar');
-
-Route::get('/crearEncuesta','encuestadorPaginas@crear')->name('pag_crear');
+Route::resource('/survey','SurveyController');
+Route::get('/enviarEncuesta','SurveyController@enviarEncuesta')->name('pag_env_encuesta');
 
 
 //Route::resource('/admin','AdminController');
@@ -42,3 +43,5 @@ Route::put('/admin/{id}','AdminController@update')->name('admin.update');
 //Eliminar un administrador en particular
 Route::delete('/admin/{id}','AdminController@destroy')->name('admin.destroy');
 
+
+//Lo primero sera crear el formulario

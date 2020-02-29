@@ -1,6 +1,10 @@
 @extends('layouts.master')
 
+@include("../layouts/userInformation")
 
+@section('nav')
+    @include("../layouts/navadmin")
+@endsection
 
 @section('content')
 <div class="container">
@@ -17,14 +21,14 @@
         {{session('mensaje')}}
       </div>
     @endif
-  
+
     <div class="col-sm-6">
-      
+
       <form action="{{route('admin.store')}}" method="POST" class="">
 
       @csrf
         <div class="row form-group">
-          
+
           @error('txt_personal_id')
           <div class="alert alert-danger">El Documento es obligatorio {{ $message }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -36,7 +40,7 @@
             <label class="font-weight-bold" for="fullname">Cédula</label>
           <input type="text" name="txt_personal_id" class="form-control" placeholder="Cédula" value="{{old('txt_personal_id')}}">
           </div>
-        </div>  
+        </div>
         <div class="row form-group">
           @error('txt_name')
           <div class="alert alert-danger">El Nombre es obligatorio
@@ -76,7 +80,7 @@
             <input type="email" name="txt_email" value="{{old('txt_email')}}" class="form-control" placeholder="Email Address">
             </div>
           </div>
-      
+
           <div class="row form-group">
             <div class="col-md-12">
               <input type="submit" value="Guadar" class="btn btn-primary rounded-0 btn-lg">
@@ -84,7 +88,7 @@
           </div>
         </form>
     </div>
-  
+
 
 
 </div>

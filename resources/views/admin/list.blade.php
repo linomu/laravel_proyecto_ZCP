@@ -1,5 +1,11 @@
 @extends('layouts.master')
 
+@include("../layouts/userInformation")
+
+@section('nav')
+    @include("../layouts/navadmin")
+@endsection
+
 @section('content')
 <div class="container">
     @if (session('status'))
@@ -30,7 +36,7 @@
   </thead>
   <tbody>
     @foreach ($admins as $admin)
-    
+
     <tr>
         <th scope="row">{{$admin->id}}</th>
         <td  class="clickable-row" data-href="{{route('admin.show',$admin->id)}}">{{$admin->personal_id}}</td>
@@ -45,11 +51,11 @@
             <button class="btnDelete btn btn-danger btn-sm ">Eliminar</button>
           </form>
         </td>
-   
+
       </tr>
-    
+
     @endforeach
-  
+
   </tbody>
 </table>
 {{$admins->links()}}
