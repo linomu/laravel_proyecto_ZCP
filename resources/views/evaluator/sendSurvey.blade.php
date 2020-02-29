@@ -9,6 +9,7 @@
 
 @section('content')
     <h1>Elige el cuestionario y decide a quienes quieres encuestar!</h1>
+    <h2>{{$data}}</h2>
     <br>
     <form class="" action="{{route('survey.send')}}" method="POST">
             @csrf
@@ -17,8 +18,10 @@
                 <label class="col-md-2 control-label" for="selectbasic">Tipo de Formulario</label>
                 <div class="col-md-6">
                     <select id="selectbasic" name="selectTest" class="form-control">
-                        <option value="1">Option one</option>
-                        <option value="2">Option two</option>
+                        @foreach($data as $options)
+                            <option value="{{$options->id}}">{{$options->name}}</option>
+                        @endforeach
+
                     </select>
                 </div>
             </div>
