@@ -49,7 +49,14 @@ class SurveyController extends Controller
     }
 
     //Enviar Encuesta a los usuarios
-    public function enviarEncuesta(){
+    public function enviarEncuesta(Request $request){
+        print($request->selectTest);
+        print ($request->textUsuarios);
+        print ($request->txtPage);
+        //return view('evaluator.sendSurvey');
+    }
+    //Enviar Encuesta a los usuarios
+    public function organizarEncuesta(){
         return view('evaluator.sendSurvey');
     }
 }
