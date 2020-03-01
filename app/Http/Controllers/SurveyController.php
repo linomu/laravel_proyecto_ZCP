@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App;
+use mysql_xdevapi\Table;
 
 class SurveyController extends Controller
 {
@@ -58,43 +59,60 @@ class SurveyController extends Controller
 
     //Enviar Encuesta a los usuarios
     public function enviarEncuesta(Request $request){
-        print($request->selectTest);
-        print ($request->textUsuarios);
-        print ($request->txtPage);
+       // print($request->selectTest);
+        //print ($request->textUsuarios);
+        //print ($request->txtPage);
+        //Obtener la lista de correos
+        //var_dump($request->textUsuarios);
+        $correosSinEspacio = trim($request->textUsuarios);
+        //var_dump($correosSinEspacio);
+        $arrayListaCorreos = explode(",",$correosSinEspacio);
+        //var_dump($arrayListaCorreos);
+
+
+
         $idTest = $request->selectTest;
 
         //Save the website in topics
         $newTopic = new App\Topic;
         $newTopic->name = "Defecto";
         $newTopic->description = $request->txtPage;
-        $newTopic->save();
+        //$newTopic->save();
 
         //Save into topic_tests($idTest, $idTopic:consultar la ultima instancia de la tabla topics)
         $idTopic = DB::table('topics')->latest('topics.id')->select('topics.id')->first();
-        print($idTopic->id);
+        //print($idTopic->id);
         $newTopicTest = new App\Topic_test;
         $newTopicTest->topics_id = $idTopic->id;
         $newTopicTest->tests_id = $idTest;
-        $newTopicTest->save();
-
-
+        //$newTopicTest->save();
 
         // $tipo Join between tests and survey to get tipo from survey
-        $ruta = 'www.000webhost.com/zorros/public/$tipo/$idTest';
+        $tipo = DB::table('tests')
+            ->join('surveys','surveys.id','tests.survey_id')
+            ->select('surveys.tipo AS type')
+            ->where('tests.id', $idTest)->get();
 
-       // $this->enviarEmail($ruta);
+        $ruta = "www.000webhost.com/zorros/public/".$tipo[0]->type."/".$idTest;
+        print($ruta);
+        echo "<br>";
+        foreach ($arrayListaCorreos as $correo){
+            //$this->enviarEmail($ruta,$correo);
+            echo "Correo a : ".$correo."<br>";
+        }
+
     }
 
-    public function enviarEmail($ruta){
+    public function enviarEmail($ruta, $correo){
         $data = array(
-            'name'=>"Curso Laravel",
+            'name'=>$ruta,
         );
-        Mail::send('evaluator.surveyEmail',$data,function ($messaje){
+        Mail::send('evaluator.surveyEmail',$data,function ($messaje) use ($correo){
             $messaje->from('alejandro1094@gmail.com','Curso Laravel');
-            $messaje->to('linomu@unicauca.edu.co')->subject('Test email');
+            $messaje->to($correo)->subject('Test email');
         });
 
-        return "Tu email ha sido enviado";
+        //return "Tu email ha sido enviado";
         //return view('evaluator.sendSurvey');
     }
 
