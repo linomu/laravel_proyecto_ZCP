@@ -11,6 +11,22 @@ use mysql_xdevapi\Table;
 class SurveyController extends Controller
 {
 
+
+    private function encriptar($valor) {
+        $iv = base64_decode("SNwNhfHVDSvnkw8RTMtavw==");
+        $clave  = '$%·$%34g4tg3456(/%&)5464·8$%$&$$//(13';
+        $method = 'aes-256-cbc';
+        return openssl_encrypt ($valor, $method, $clave, false, $iv);
+    }
+
+    private function desencriptar ($valor) {
+        $clave  = '$%·$%34g4tg3456(/%&)5464·8$%$&$$//(13';
+        $method = 'aes-256-cbc';
+        $iv = base64_decode("SNwNhfHVDSvnkw8RTMtavw==");
+        $encrypted_data = base64_decode($valor);
+        return openssl_decrypt($valor, $method, $clave, false, $iv);
+    }
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -93,9 +109,14 @@ class SurveyController extends Controller
             ->select('surveys.tipo AS type')
             ->where('tests.id', $idTest)->get();
 
-        $ruta = "www.000webhost.com/zorros/public/".$tipo[0]->type."/".$idTest;
-        print($ruta);
+
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $paginaEncriptada = $this->encriptar($request->txtPage);
+        $ruta = $ip."/LaravelEmail/project/public/".$tipo[0]->type."/".$idTest."?page=".$paginaEncriptada;
+        print("Ruta encriptada: ".$ruta);
         echo "<br>";
+        print("Pagina descriptada: ".$this->desencriptar($paginaEncriptada));
+
         foreach ($arrayListaCorreos as $correo){
             $this->enviarEmail($ruta,$correo);
             //echo "Correo a : ".$correo."<br>";
