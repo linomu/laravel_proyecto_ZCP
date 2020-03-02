@@ -97,8 +97,8 @@ class SurveyController extends Controller
         print($ruta);
         echo "<br>";
         foreach ($arrayListaCorreos as $correo){
-            //$this->enviarEmail($ruta,$correo);
-            echo "Correo a : ".$correo."<br>";
+            $this->enviarEmail($ruta,$correo);
+            //echo "Correo a : ".$correo."<br>";
         }
 
     }
@@ -111,6 +111,7 @@ class SurveyController extends Controller
             $messaje->from('alejandro1094@gmail.com','Curso Laravel');
             $messaje->to($correo)->subject('Test email');
         });
+
 
         //return "Tu email ha sido enviado";
         //return view('evaluator.sendSurvey');
