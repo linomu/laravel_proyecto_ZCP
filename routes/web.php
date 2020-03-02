@@ -23,7 +23,11 @@ Route::resource('/pollster','PollsterController');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/survey','SurveyController');
-Route::get('/enviarEncuesta','SurveyController@enviarEncuesta')->name('pag_env_encuesta');
+
+//Rutas usadas por Lino
+Route::get('/enviarEncuesta','SurveyController@organizarEncuesta')->name('pag_env_encuesta');
+Route::post('/survey/email','SurveyController@enviarEncuesta')->name('survey.send');
+
 
 
 //Route::resource('/admin','AdminController');

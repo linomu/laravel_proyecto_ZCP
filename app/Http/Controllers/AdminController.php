@@ -8,7 +8,12 @@ use App;
 
 class AdminController extends Controller
 {
-    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
         //$admins = App\Admin::all();
@@ -16,13 +21,13 @@ class AdminController extends Controller
         return view('admin.list',compact('admins'));
     }
 
-    
+
     public function create()
     {
         return view('admin.create');
     }
 
-    
+
     public function store(Request $request)
     {
         //Con $request->all(); podemos saber todo lo que nos llega en el objeto request
@@ -33,7 +38,7 @@ class AdminController extends Controller
             'txt_email'=>'required'
         ]);
 
-        
+
         $newAdmin = new App\Admin;
         $newAdmin->personal_id=$request->txt_personal_id;
         $newAdmin->name = $request->txt_name;
@@ -43,7 +48,7 @@ class AdminController extends Controller
         $newAdmin->save();
         return back()->with('mensaje','Administrador Agregado!');
 
-       
+
     }
 
     public function show($id = 1)
@@ -58,7 +63,7 @@ class AdminController extends Controller
         return view('admin.edit', compact('admin'));
     }
 
-    
+
     public function update(Request $request, $id)
     {
         $admin = App\Admin::findOrFail($id);
@@ -93,7 +98,7 @@ class AdminController extends Controller
             return response()->json([
                 'mensaje'=>$admin->name.' fue eliminado satisfactoriamente!'
             ]);
-            
+
         }
     }
 }
