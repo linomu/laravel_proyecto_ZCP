@@ -80,6 +80,13 @@ class SurveyController extends Controller
         //print ($request->txtPage);
         //Obtener la lista de correos
         //var_dump($request->textUsuarios);
+
+        $request->validate([
+            'textUsuarios'=>'required',
+            'txtPage'=>'required',
+        ]);
+
+
         $correosSinEspacio = trim($request->textUsuarios);
         //var_dump($correosSinEspacio);
         $arrayListaCorreos = explode(",",$correosSinEspacio);
@@ -113,15 +120,16 @@ class SurveyController extends Controller
         $ip = $_SERVER['REMOTE_ADDR'];
         $paginaEncriptada = $this->encriptar($request->txtPage);
         $ruta = $ip."/LaravelEmail/project/public/".$tipo[0]->type."/".$idTest."?page=".$paginaEncriptada;
-        print("Ruta encriptada: ".$ruta);
-        echo "<br>";
-        print("Pagina descriptada: ".$this->desencriptar($paginaEncriptada));
+        //print("Ruta encriptada: ".$ruta);
+        //echo "<br>";
+        //print("Pagina descriptada: ".$this->desencriptar($paginaEncriptada));
 
         foreach ($arrayListaCorreos as $correo){
             $this->enviarEmail($ruta,$correo);
             //echo "Correo a : ".$correo."<br>";
         }
 
+        return back()->with('mensaje','Correos Enviados!');
     }
 
     public function enviarEmail($ruta, $correo){
@@ -129,8 +137,8 @@ class SurveyController extends Controller
             'name'=>$ruta,
         );
         Mail::send('evaluator.surveyEmail',$data,function ($messaje) use ($correo){
-            $messaje->from('alejandro1094@gmail.com','Curso Laravel');
-            $messaje->to($correo)->subject('Test email');
+            $messaje->from('alejandro1094@gmail.com','Zorros Privativos Comunes');
+            $messaje->to($correo)->subject('Encuesta de Satisfacción de Usuario.');
         });
 
 
