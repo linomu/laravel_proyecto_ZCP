@@ -8,9 +8,16 @@
 
 
 @section('content')
-    <h1>Elige el cuestionario y decide a quienes quieres encuestar!</h1>
-    <h2>{{$data}}</h2>
+    <h1>Envía tus encuestas!</h1>
+
     <br>
+    @if(session('mensaje'))
+        <div class="alert alert-success">   {{session('mensaje')}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
     <form class="" action="{{route('survey.send')}}" method="POST">
             @csrf
              <!-- Select Basic -->
@@ -27,7 +34,15 @@
             </div>
 
             <!-- Textarea -->
+            @error('textUsuarios')
+            <div class="alert alert-danger">No ha ingresado usuarios
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @enderror
             <div class="row form-group">
+
                 <label class="col-md-2 control-label" for="textarea">Usuarios</label>
                 <div class="col-md-6">
                     <textarea class="form-control" id="textarea" name="textUsuarios"></textarea>
@@ -35,6 +50,13 @@
             </div>
 
             <!-- Text input-->
+            @error('textUsuarios')
+            <div class="alert alert-danger">No ha ingresado un Sitio Web
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @enderror
             <div class="row form-group">
                 <label class="col-md-2 control-label" for="textinput">Sitio Web</label>
                 <div class="col-md-6">
