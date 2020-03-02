@@ -19,8 +19,6 @@ class CreateTopicTestsTable extends Migration
             $table->foreign('tests_id','fk_topic__tests_tests')->references('id')->on('tests');
             $table->integer('topics_id');
             $table->foreign('topics_id','fk_topic__testss_topics')->references('id')->on('topics');
-            $table->date('modified');
-            $table->date('created');
             $table->timestamps();
         });
     }

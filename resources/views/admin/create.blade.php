@@ -79,7 +79,36 @@
               <label class="font-weight-bold" for="email">Email</label>
             <input type="email" name="txt_email" value="{{old('txt_email')}}" class="form-control" placeholder="Email Address">
             </div>
+            </div>
+
+          <div class="row form-group">
+              @error('txt_user')
+              <div class="alert alert-danger">El Usuarios obligatorio
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              @enderror
+              <div class="col-md-12">
+                  <label class="font-weight-bold" for="txt_user">Usuario</label>
+                  <input type="text" name="txt_user" value="{{old('txt_user')}}" class="form-control" placeholder="Usuario">
+              </div>
           </div>
+
+          <div class="row form-group">
+              @error('txt_pass')
+              <div class="alert alert-danger">La contraseña es obligatoria
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              @enderror
+              <div class="col-md-12">
+                  <label class="font-weight-bold" for="password">Usuario</label>
+                  <input type="password" name="txt_pass" value="{{old('txt_pass')}}" class="form-control" placeholder="Password">
+              </div>
+          </div>
+
 
           <div class="row form-group">
             <div class="col-md-12">

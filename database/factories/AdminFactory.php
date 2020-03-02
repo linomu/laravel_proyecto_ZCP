@@ -7,8 +7,10 @@ use Faker\Generator as Faker;
 
 $factory->define(Admin::class, function (Faker $faker) {
     return [
-        'personal_id'=>rand(1, 1000),
-        'name'=>$faker->name,
+        'id'=>rand(1,5000),
+        'username'=>$faker->userName,
+        'password'=>$faker->password,
+        'firstname'=>$faker->firstName,
         'lastname'=>$faker->lastName,
         'email'=>$faker->email,
     ];

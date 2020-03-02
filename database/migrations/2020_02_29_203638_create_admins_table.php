@@ -20,8 +20,6 @@ class CreateAdminsTable extends Migration
             $table->string('email',150);
             $table->string('firstname',70);
             $table->string('lastname',70);
-            $table->date('modified');
-            $table->date('created');
             $table->timestamps();
         });
     }

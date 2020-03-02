@@ -18,8 +18,6 @@ class CreateAnswersTable extends Migration
             $table->integer('questions_id');
             $table->foreign('questions_id','fk_answers_questions')->references('id')->on('questions');
             $table->string('description',100);
-            $table->date('modified');
-            $table->date('created');
             $table->timestamps();
         });
     }

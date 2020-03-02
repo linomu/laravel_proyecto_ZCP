@@ -33,17 +33,21 @@ class AdminController extends Controller
         //Con $request->all(); podemos saber todo lo que nos llega en el objeto request
         $request->validate([
             'txt_name'=>'required',
-            'txt_personal_id'=>'required|unique:admins,personal_id',
+            'txt_personal_id'=>'required|unique:admins,id',
             'txt_last_name'=>'required',
-            'txt_email'=>'required'
+            'txt_email'=>'required',
+            'txt_user'=>'required',
+            'txt_pass'=>'required',
         ]);
 
 
         $newAdmin = new App\Admin;
-        $newAdmin->personal_id=$request->txt_personal_id;
-        $newAdmin->name = $request->txt_name;
+        $newAdmin->id=$request->txt_personal_id;
+        $newAdmin->firstname = $request->txt_name;
         $newAdmin->lastname = $request->txt_last_name;
         $newAdmin->email = $request->txt_email;
+        $newAdmin->username = $request->txt_user;
+        $newAdmin->password = $request->txt_pass;
 
         $newAdmin->save();
         return back()->with('mensaje','Administrador Agregado!');
@@ -66,18 +70,23 @@ class AdminController extends Controller
 
     public function update(Request $request, $id)
     {
+
+
         $admin = App\Admin::findOrFail($id);
         $request->validate([
             'txt_name'=>'required',
-            'txt_personal_id'=>'required',
             'txt_last_name'=>'required',
-            'txt_email'=>'required'
+            'txt_email'=>'required',
+            'txt_user'=>'required',
+            'txt_pass'=>'required',
         ]);
 
-        $admin->personal_id=$request->txt_personal_id;
-        $admin->name = $request->txt_name;
+        $admin->id=$request->id;
+        $admin->firstname = $request->txt_name;
         $admin->lastname = $request->txt_last_name;
         $admin->email = $request->txt_email;
+        $admin->username = $request->txt_user;
+        $admin->password = $request->txt_pass;
         $admin->save();
 
         return back()->with('mensaje','Administrador Actualizado!');

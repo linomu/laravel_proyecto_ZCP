@@ -22,8 +22,6 @@ class CreateUserzTestsTable extends Migration
             $table->date('participationdate');
             $table->date('participationhour');
             $table->string('ipadress',40);
-            $table->date('modified');
-            $table->date('created');
             $table->timestamps();
         });
     }
