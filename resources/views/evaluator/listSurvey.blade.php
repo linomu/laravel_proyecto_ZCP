@@ -8,5 +8,24 @@
 
 
 @section('content')
-    <h1>Ey Juano, Here is where you have to build your html to show the surveys</h1>
+    <div>
+    	<div>
+    		<div>
+    			<table>
+    				<tr>
+    					<td>Nombre Encuesta</td>
+    				</tr>
+    				<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    				</tr>
+    			</table>
+    		</div>
+    		<div>
+    		<input type="submit" value="{{ (' Refrescar ') }}">
+    		</div>
+    	</div>
+    </div>
 @endsection
