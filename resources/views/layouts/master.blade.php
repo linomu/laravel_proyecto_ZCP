@@ -36,6 +36,8 @@
     <!-- Custom Theme Style -->
 
     <link href="{{ URL::asset('build/css/custom.min.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleEnc.css') }}">
   </head>
 
   <body class="nav-md">
