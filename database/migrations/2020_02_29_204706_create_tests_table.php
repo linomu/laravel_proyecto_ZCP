@@ -14,11 +14,11 @@ class CreateTestsTable extends Migration
     public function up()
     {
         Schema::create('tests', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('evaluators_id')->unique()->nullable();
-            $table->unsignedInteger('surveys_id')->unique()->nullable();
+           $table->increments('id');
+            $table->integer('evaluators_id')->nullable();
+            $table->unsignedInteger('surveys_id')->nullable();
             $table->foreign('evaluators_id','fk_test_evaluators')->references('id')->on('evaluators')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('surveys_id','fk_test_surveys')->references('id')->on('surveys')->onDelete('cascade')->onUpdate('cascade');  
+            $table->foreign('surveys_id','fk_test_surveys')->references('id')->on('surveys')->onDelete('cascade')->onUpdate('cascade');
             $table->string('name',150);
             $table->string('description',200);
             $table->timestamps();
