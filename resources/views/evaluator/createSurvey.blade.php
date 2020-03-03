@@ -12,7 +12,7 @@
 		<form method="GET">
 			<div class="espaciado">
 				<label for="txtNameSurvey">Nombre de la encuesta</label>
-	    		<input type="text" class="form-control" id="txtNameSurvey">
+	    		<input name="nombre" type="text" class="form-control" id="txtNameSurvey">
 		 	</div>
 
 		 	<div>
