@@ -15,9 +15,9 @@ class CreateUserzTestsTable extends Migration
     {
         Schema::create('userz_tests', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('tests_id')->unique()->nullable();
+            $table->unsignedInteger('tests_id')->nullable();
             $table->foreign('tests_id','fk_userz_tests_tests')->references('id')->on('tests');
-            $table->unsignedInteger('userzs_id')->unique()->nullable();
+            $table->unsignedInteger('userzs_id')->nullable();
             $table->foreign('userzs_id','fk_userz_tests_userzs')->references('id')->on('userzs');
             $table->date('participationdate');
             $table->date('participationhour');
