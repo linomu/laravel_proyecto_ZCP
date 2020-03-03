@@ -26,21 +26,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('vendors/animate/animate.css') }}">
-<<<<<<< HEAD
-<!--===============================================================================================-->  
-=======
 <!--===============================================================================================-->
->>>>>>> CreateListSurveyByJuano
     <link rel="stylesheet" type="text/css" href="{{ asset('vendors/css-hamburgers/hamburgers.min.css') }}">
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('vendors/animsition/css/animsition.min.css') }}">
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('vendors/select2/select2.min.css') }}">
-<<<<<<< HEAD
-<!--===============================================================================================-->  
-=======
 <!--===============================================================================================-->
->>>>>>> CreateListSurveyByJuano
     <link rel="stylesheet" type="text/css" href="{{ asset('vendors/daterangepicker/daterangepicker.css') }}">
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
