@@ -18,7 +18,7 @@ class CreateLocalizationsTable extends Migration
             $table->string('country',100);
             $table->string('city',100);
             $table->string('region',100);
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 
