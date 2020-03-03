@@ -10,7 +10,10 @@ use mysql_xdevapi\Table;
 
 class SurveyController extends Controller
 {
-
+    public function listarEncuestas(){
+        $surveys = App\Survey::all();
+        return view('evaluator.listSurvey', compact('surveys'));
+    }
 
     private function encriptar($valor) {
         $iv = base64_decode("SNwNhfHVDSvnkw8RTMtavw==");
@@ -152,4 +155,6 @@ class SurveyController extends Controller
 
         return view('evaluator.sendSurvey',compact('data'));
     }
+
+    
 }

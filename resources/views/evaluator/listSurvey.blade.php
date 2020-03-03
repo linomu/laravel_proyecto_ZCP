@@ -10,25 +10,26 @@
 @section('content')
 <div>
 	<div>
-		<div>
-			<table>
+		<table>
+			<thead>
 				<tr>
 					<td>Nombre Encuesta</td>
 				</tr>
-				<?php 
-				$sql="SELECT * from "
-				 ?>
+			</thead>
+			<tbody>
+			@foreach ($surveys as $item)
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<th scope="row">{{$item->id}}</td>
+					<td>{{$item->nombre}}</td>
+					<td>{{$item->descripcion}}</td>
 				</tr>
-			</table>
-		</div>
-		<div>
-		<input type="submit" value="{{ (' Refrescar ') }}">
-		</div>
+			@endforeach()
+			</tbody>
+		</table>
+	</div>
+	<div>
+	<input type="submit" value="{{ (' Refrescar ') }}">
 	</div>
 </div>
+
 @endsection
