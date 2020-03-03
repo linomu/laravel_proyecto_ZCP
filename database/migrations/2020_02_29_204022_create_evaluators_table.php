@@ -14,8 +14,14 @@ class CreateEvaluatorsTable extends Migration
     public function up()
     {
         Schema::create('evaluators', function (Blueprint $table) {
+<<<<<<< HEAD
             $table->integerIncrements('id')->primary();
             $table->integer('admins_id');
+=======
+            $table->integer('id');
+            $table->primary('id');
+            $table->integer('admins_id')->unique()->nullable();
+>>>>>>> ede5f389bfb28ef5fd5f6a417a2041c2f0c2c993
             $table->foreign('admins_id')->references('id')->on('admins');;
             $table->string('username',40);
             $table->string('password',250);

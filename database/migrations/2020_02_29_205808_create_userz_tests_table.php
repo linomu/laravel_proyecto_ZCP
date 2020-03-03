@@ -14,11 +14,21 @@ class CreateUserzTestsTable extends Migration
     public function up()
     {
         Schema::create('userz_tests', function (Blueprint $table) {
+<<<<<<< HEAD
             $table->integerIncrements('id');
             $table->integer('tests_id')->unsigned();
             $table->foreign('tests_id')->references('id')->on('tests');
             $table->integer('userzs_id')->unsigned();
             $table->foreign('userzs_id')->references('id')->on('userzs');
+=======
+            $table->increments('id');
+            $table->unsignedInteger('tests_id')->unique()->nullable();
+            $table->foreign('tests_id','fk_userz_tests_tests')->references('id')->on('tests');
+            $table->unsignedInteger('userzs_id')->unique()->nullable();
+            $table->foreign('userzs_id','fk_userz_tests_userzs')->references('id')->on('userzs');
+            $table->date('participationdate');
+            $table->date('participationhour');
+>>>>>>> ede5f389bfb28ef5fd5f6a417a2041c2f0c2c993
             $table->string('ipadress',40);
             $table->timestamps();
         });
