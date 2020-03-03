@@ -87,7 +87,7 @@ class SurveyController extends Controller
         ]);
 
 
-        $correosSinEspacio = trim($request->textUsuarios);
+        $correosSinEspacio = str_replace(" ","", $request->textUsuarios);
         //var_dump($correosSinEspacio);
         $arrayListaCorreos = explode(",",$correosSinEspacio);
         //var_dump($arrayListaCorreos);
