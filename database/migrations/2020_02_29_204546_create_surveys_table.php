@@ -14,10 +14,8 @@ class CreateSurveysTable extends Migration
     public function up()
     {
         Schema::create('surveys', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->increments('id');
             $table->string('tipo',100);
-            $table->date('modified');
-            $table->date('created');
             $table->timestamps();
         });
     }

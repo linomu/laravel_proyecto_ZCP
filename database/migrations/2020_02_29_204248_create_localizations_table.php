@@ -14,12 +14,10 @@ class CreateLocalizationsTable extends Migration
     public function up()
     {
         Schema::create('localizations', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->increments('id');
             $table->string('country',100);
             $table->string('city',100);
             $table->string('region',100);
-            $table->date('modified');
-            $table->date('created');
             $table->timestamps();
         });
     }

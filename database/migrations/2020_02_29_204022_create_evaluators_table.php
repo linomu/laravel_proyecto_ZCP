@@ -14,16 +14,15 @@ class CreateEvaluatorsTable extends Migration
     public function up()
     {
         Schema::create('evaluators', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->integer('admins_id');
-            $table->foreign('admins_id','fk_evaluators_admins')->references('id')->on('admins');;
+            $table->integer('id');
+            $table->primary('id');
+            $table->integer('admins_id')->unique()->nullable();
+            $table->foreign('admins_id')->references('id')->on('admins');;
             $table->string('username',40);
             $table->string('password',250);
             $table->string('email',150);
             $table->string('firstname',70);
             $table->string('lastname',70);
-            $table->date('modified');
-            $table->date('created');
             $table->timestamps();
         });
     }
