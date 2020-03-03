@@ -29,11 +29,10 @@
 		 	<div class="espaciado">
 				<label>Preguntas</label>
 				<input type="text" class="ip-questions form-control" id="txtQuestions1">
-				<input type="text" class="ip-questions form-control" id="txtQuestions2"
->				<input type="text" class="ip-questions form-control" id="txtQuestions3">
+				<input type="text" class="ip-questions form-control" id="txtQuestions2">
+				<input type="text" class="ip-questions form-control" id="txtQuestions3">
 		 	</div>
 
-		 	
 			<button type="submit" class="btn-env">
 		    {{ __('Enviar') }}
 	        </button>

@@ -143,11 +143,8 @@
           </div>
           <div class="col-lg-4 ml-auto">
             <h3 class="mb-4" style="color:#ff5733">Acerca de nosotros</h3>
-<<<<<<< HEAD
             <p class="mb-4">Somo un equipo de desarrollo. Estamos formándonos en Ingeniería de Sistemas en la Universidad del Cauca. Nuestro equipo tiene solidas bases en diferentes áreas del desarrollo web, las cuáles aplicamos con su respectivo seguimiento en este sitio web. <br>Nuestros fuertes son: </p>
-=======
             <p class="mb-4">Somo un equipo de desarrollo. Estamos formándonos en Ingeniería de Sistemas en la Universidad del Cauca. Nuestro equipo tiene solidas bases en diferentes áreas del desarrollo web, las cuáles aplicamos con su respectivo seguimiento en este sitio web. <br>Somos fuertes en: </p>
->>>>>>> 467a0eb07e642252faf9a6dfad9a40fe329ae7a7
             <ul class="list-unstyled ul-check text-left success mb-5">
                 <li>Trabajo en equipo y bajo presión</li>
                 <li>Buena comunicación en el equipo</li>
@@ -189,11 +186,8 @@
               </div>
               <h2>Juan Felipe Muñoz</h2>
               <span class="sub-title d-block mb-3">Front End</span>
-<<<<<<< HEAD
               <p>Decidí estudiar ingeniería porque me gusta administrar sistemas tecnológicos enfocados hacia distintas áreas para encontrar una solución con aplicación en dicha área</p>
-=======
               <p>Decidí estudiar ingeniería porque me gusta administrar sistemas tecnológicos enfocados hacia distintas áreas para encontrar una solución con aplicación en esa área</p>
->>>>>>> 467a0eb07e642252faf9a6dfad9a40fe329ae7a7
             </div>
           </div>
 
