@@ -96,23 +96,24 @@ class SurveyController extends Controller
 
         $idTest = $request->selectTest;
 
+
         //Save the website in topics
         $newTopic = new App\Topic;
-        $newTopic->name = "Defecto";
         $newTopic->description = $request->txtPage;
-        //$newTopic->save();
+        $newTopic->save();
 
         //Save into topic_tests($idTest, $idTopic:consultar la ultima instancia de la tabla topics)
         $idTopic = DB::table('topics')->latest('topics.id')->select('topics.id')->first();
-        //print($idTopic->id);
+        //  print($idTopic->id);
+
         $newTopicTest = new App\Topic_test;
         $newTopicTest->topics_id = $idTopic->id;
         $newTopicTest->tests_id = $idTest;
-        //$newTopicTest->save();
+        $newTopicTest->save();
 
         // $tipo Join between tests and survey to get tipo from survey
         $tipo = DB::table('tests')
-            ->join('surveys','surveys.id','tests.survey_id')
+            ->join('surveys','surveys.id','tests.surveys_id')
             ->select('surveys.tipo AS type')
             ->where('tests.id', $idTest)->get();
 

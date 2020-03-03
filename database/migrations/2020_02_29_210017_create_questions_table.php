@@ -19,8 +19,6 @@ class CreateQuestionsTable extends Migration
             $table->unsignedInteger('tests_id')->unique()->nullable();
             $table->foreign('tests_id','fk_questions_tests')->references('id')->on('tests');
             $table->string('description',100);
-            $table->date('modified');
-            $table->date('created');
             $table->timestamps();
         });
     }
