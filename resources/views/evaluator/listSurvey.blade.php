@@ -8,12 +8,14 @@
 
 
 @section('content')
-<div>
+<div class="container-enc">
 	<div>
-		<table>
+		<table class="table table-striped">
 			<thead>
 				<tr>
-					<td>Nombre Encuesta</td>
+					<th>Id</th>
+					<th>Nombre</th>
+					<th>Tipo</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -21,14 +23,11 @@
 				<tr>
 					<th scope="row">{{$item->id}}</td>
 					<td>{{$item->nombre}}</td>
-					<td>{{$item->descripcion}}</td>
+					<td>{{$item->tipo}}</td>
 				</tr>
 			@endforeach()
 			</tbody>
 		</table>
-	</div>
-	<div>
-	<input type="submit" value="{{ (' Refrescar ') }}">
 	</div>
 </div>
 
