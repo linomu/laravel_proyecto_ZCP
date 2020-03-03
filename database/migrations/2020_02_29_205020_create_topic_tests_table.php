@@ -14,10 +14,10 @@ class CreateTopicTestsTable extends Migration
     public function up()
     {
         Schema::create('topic_tests', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('tests_id')->unique()->nullable();
+           $table->increments('id');
+            $table->unsignedInteger('tests_id')->nullable();
             $table->foreign('tests_id','fk_topic__tests_tests')->references('id')->on('tests');
-            $table->unsignedInteger('topics_id')->unique()->nullable();
+            $table->unsignedInteger('topics_id')->nullable();
             $table->foreign('topics_id','fk_topic__testss_topics')->references('id')->on('topics');
             $table->timestamps();
         });
