@@ -14,9 +14,9 @@ class CreateAnswersTable extends Migration
     public function up()
     {
         Schema::create('answers', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->integer('questions_id');
-            $table->foreign('questions_id','fk_answers_questions')->references('id')->on('questions');
+            $table->integerIncrements('id');
+            $table->integer('questions_id')->unsigned();
+            $table->foreign('questions_id')->references('id')->on('questions');
             $table->string('description',100);
             $table->timestamps();
         });

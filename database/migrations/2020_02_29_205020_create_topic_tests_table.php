@@ -14,11 +14,11 @@ class CreateTopicTestsTable extends Migration
     public function up()
     {
         Schema::create('topic_tests', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('tests_id');
-            $table->foreign('tests_id','fk_topic__tests_tests')->references('id')->on('tests');
-            $table->integer('topics_id');
-            $table->foreign('topics_id','fk_topic__testss_topics')->references('id')->on('topics');
+            $table->integerIncrements('id');
+            $table->integer('tests_id')->unsigned();
+            $table->foreign('tests_id')->references('id')->on('tests');
+            $table->integer('topics_id')->unsigned();
+            $table->foreign('topics_id')->references('id')->on('topics');
             $table->timestamps();
         });
     }
