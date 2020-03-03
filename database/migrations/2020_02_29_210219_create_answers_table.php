@@ -15,15 +15,12 @@ class CreateAnswersTable extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
 
-            $table->integerIncrements('id');
-            $table->integer('questions_id')->unsigned();
-            $table->foreign('questions_id')->references('id')->on('questions');
-
             $table->increments('id');
             $table->unsignedInteger('questions_id')->unique()->nullable();
             $table->foreign('questions_id','fk_answers_questions')->references('id')->on('questions');
-
             $table->string('description',100);
+            $table->date('modified');
+            $table->date('created');
             $table->timestamps();
         });
     }

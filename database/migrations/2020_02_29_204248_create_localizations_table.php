@@ -15,10 +15,7 @@ class CreateLocalizationsTable extends Migration
     {
         Schema::create('localizations', function (Blueprint $table) {
 
-            $table->integerIncrements('id');
-
             $table->increments('id');
-
             $table->string('country',100);
             $table->string('city',100);
             $table->string('region',100);

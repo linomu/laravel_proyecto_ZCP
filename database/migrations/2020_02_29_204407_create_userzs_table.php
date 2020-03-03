@@ -15,16 +15,10 @@ class CreateUserzsTable extends Migration
     {
         Schema::create('userzs', function (Blueprint $table) {
 
-            $table->integerIncrements('id');
-            $table->string('email',100);
-            $table->integer('localizations_id')->unsigned();
-            $table->foreign('localizations_id')->references('id')->on('localizations');
-
             $table->increments('id');
-            $table->string('email',100);
             $table->unsignedInteger('localizations_id')->unique()->nullable();
             $table->foreign('localizations_id','fk_userzs__localizations')->references('id')->on('localizations');
-
+            $table->string('email',100);
             $table->timestamps();
         });
     }
