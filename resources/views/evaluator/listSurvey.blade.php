@@ -8,24 +8,27 @@
 
 
 @section('content')
-    <div>
-    	<div>
-    		<div>
-    			<table>
-    				<tr>
-    					<td>Nombre Encuesta</td>
-    				</tr>
-    				<tr>
-    					<td></td>
-    					<td></td>
-    					<td></td>
-    					<td></td>
-    				</tr>
-    			</table>
-    		</div>
-    		<div>
-    		<input type="submit" value="{{ (' Refrescar ') }}">
-    		</div>
-    	</div>
-    </div>
+<div>
+	<div>
+		<div>
+			<table>
+				<tr>
+					<td>Nombre Encuesta</td>
+				</tr>
+				<?php 
+				$sql="SELECT * from "
+				 ?>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+		<input type="submit" value="{{ (' Refrescar ') }}">
+		</div>
+	</div>
+</div>
 @endsection
