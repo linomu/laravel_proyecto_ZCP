@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -14,12 +15,11 @@ class CreateLocalizationsTable extends Migration
     public function up()
     {
         Schema::create('localizations', function (Blueprint $table) {
-
-            $table->increments('id');
+             $table->increments('id');
             $table->string('country',100);
             $table->string('city',100);
             $table->string('region',100);
-            $table->timestamps(); 
+            $table->timestamps();
         });
     }
 
@@ -33,3 +33,4 @@ class CreateLocalizationsTable extends Migration
         Schema::dropIfExists('localizations');
     }
 }
+
