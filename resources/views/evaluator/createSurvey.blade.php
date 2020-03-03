@@ -18,13 +18,6 @@
 
 		 	<div>
 				<label for="cbTypeSurvey">Tipo de encuesta</label>
-				<!--
-				<select id="selectbasic" name="selectTest" class="form-control">
-					@foreach($surveys as $item)
-						<option value="{{$item->id}}">{{$item->name}}</option>
-					@endforeach
-				</select> 
-				-->
 			</div>
 			<div class="espaciado">
 				<input class="cb-ts form-control mb-2" type="text" name="tipo" id="cbTypeSurvey" list="exampleList" placeholder="Seleccione el tipo de encuesta">

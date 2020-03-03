@@ -14,7 +14,7 @@ class SurveyController extends Controller
         //return $request->all();
         $survey = new App\Survey;
         $survey->nombre = $request->nombre;
-        $survey->tipo = $request->request;
+        $survey->tipo = $request->tipo;
 
         $survey->save();
 

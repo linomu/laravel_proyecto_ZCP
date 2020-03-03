@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/survey','SurveyController');
 
-Route::post('/crear', 'SurveyController@listarTipoEncuestas')->name('survey.crear');
+Route::post('/crear', 'SurveyController@crear')->name('survey.crear');
 
 Route::get('/listar', 'SurveyController@listarEncuestas')->name('surveys_list');
 
