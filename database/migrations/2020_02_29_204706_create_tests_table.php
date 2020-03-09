@@ -15,7 +15,7 @@ class CreateTestsTable extends Migration
     {
         Schema::create('tests', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('evaluators_id')->unique()->nullable();
+            $table->string('evaluators_id')->unique()->nullable();
             $table->foreign('evaluators_id','fk_test_evaluators')->references('id')->on('evaluators')->onDelete('cascade')->onUpdate('cascade');
             $table->string('name',150);
             $table->string('description',200);
