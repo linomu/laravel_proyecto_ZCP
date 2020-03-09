@@ -32,7 +32,7 @@ class SurveyController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except('prueba');
+        $this->middleware('evaluator')->except('prueba');
         //$this->middleware('auth')->only('index');
     }
 
