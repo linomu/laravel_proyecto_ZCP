@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App;
 
 class PollsterController extends Controller
 {
@@ -15,7 +16,7 @@ class PollsterController extends Controller
 
     public function index()
     {
-        //
+      
     }
 
 
