@@ -23,6 +23,10 @@ class CreateEvaluatorsTable extends Migration
             $table->string('email',150);
             $table->string('firstname',70);
             $table->string('lastname',70);
+            $table->enum('gender', ['f', 'm']);
+            $table->integer('phonenumber');
+            $table->date('birth_date');
+            $table->integer('age');
             $table->timestamps();
         });
     }
