@@ -17,7 +17,7 @@ class AdminController extends Controller
     public function index()
     {
         //$admins = App\Admin::all();
-        $admins = App\Admin::paginate(5);
+        $admins = App\Actors::paginate(5);
         return view('admin.list',compact('admins'));
     }
 
