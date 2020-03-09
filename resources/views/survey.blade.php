@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    <p> Hello {{ $page }}</p>
+    <p> Hello {{ $page }} con id de test {{$id}}</p>
 </body>
 </html>

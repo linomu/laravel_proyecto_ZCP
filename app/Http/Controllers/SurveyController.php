@@ -32,7 +32,8 @@ class SurveyController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('prueba');
+        //$this->middleware('auth')->only('index');
     }
 
     public function index()
@@ -76,7 +77,7 @@ class SurveyController extends Controller
         //
     }
 
-    public function prueba(Request $request){
+    public function prueba(Request $request, $id){
 
         //print($request->getRequestUri());
         //$page = $request->get('page');
@@ -85,8 +86,8 @@ class SurveyController extends Controller
         if($page == null){
             abort(404);
         }else{
-            print("Pagina descriptada: ".$page);
-            return view('survey',compact('page'));
+            //print("Pagina descriptada: ".$page);
+            return view('survey',compact('page','id'));
         }
 
     }
