@@ -68,8 +68,11 @@
             <br />
 
             <!-- sidebar menu -->
-           @yield('nav')
-
+              @if(auth()->user()->rol == "evaluator")
+                  @include("../layouts/navevaluator")
+              @else
+                    @include("../layouts/navadmin")
+             @endif
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->

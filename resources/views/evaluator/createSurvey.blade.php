@@ -2,9 +2,7 @@
 
 @include("../layouts/userInformation")
 
-@section('nav')
-    @include("../layouts/navevaluator")
-@endsection
+
 
 
 @section('content')
@@ -21,7 +19,7 @@
 			<div class="espaciado">
 				<input class="cb-ts" type="text" name="TypeSurvey" id="cbTypeSurvey" list="exampleList" placeholder="Seleccione el tipo de encuesta">
 				<datalist id="exampleList">
-			  		<option value="SUS">  
+			  		<option value="SUS">
 				  	<option value="Other">
 				</datalist>
 		 	</div>
@@ -36,6 +34,6 @@
 			<button type="submit" class="btn-env">
 		    {{ __('Enviar') }}
 	        </button>
-	    </form>	
+	    </form>
 	</div>
 @endsection
