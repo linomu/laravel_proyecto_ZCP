@@ -17,7 +17,11 @@ class CreateAdminsTable extends Migration
             $table->integer('id')->primary();
             $table->string('firstname',70);
             $table->string('lastname',70);
-            $table->timestamps(); 
+            $table->enum('gender', ['f', 'm']);
+            $table->integer('phonenumber');
+            $table->date('birth_date');
+            $table->integer('age');
+            $table->timestamps();
         });
     }
 
