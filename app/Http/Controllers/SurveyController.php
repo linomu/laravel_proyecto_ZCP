@@ -105,7 +105,8 @@ class SurveyController extends Controller
             'txtPage'=>'required',
         ]);
 
-
+        dd($request);
+        /*
         //Obtener los correos del textArea en un arreglo
         $arrayListaCorreos = explode("\n", $request->textUsuarios);
 
@@ -152,6 +153,7 @@ class SurveyController extends Controller
         }
 
         return back()->with('mensaje','Correos Enviados!');*/
+
     }
 
     public function enviarEmail($ruta, $correo){
