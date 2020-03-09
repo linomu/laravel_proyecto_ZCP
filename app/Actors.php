@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Evaluator extends Model
+class Actors extends Model
 {
     //
 }

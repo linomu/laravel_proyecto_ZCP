@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEvaluatorsTable extends Migration
+class CreateActorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateEvaluatorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('evaluators', function (Blueprint $table) {
-            $table->string('id',20)->primary();
-            $table->string('admins_id')->unique()->nullable();
-            $table->foreign('admins_id')->references('id')->on('admins');
+        Schema::create('actors', function (Blueprint $table) {
+            $table->string('id')->primary();
+            #$table->string('admin_id')->unique()->nullable();
+            #$table->foreign('admin_id')->references('id')->on('actors');
             $table->string('firstname',70);
             $table->string('lastname',70);
             $table->enum('gender', ['f', 'm']);
@@ -33,6 +33,6 @@ class CreateEvaluatorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evaluators');
+        Schema::dropIfExists('actors');
     }
 }
