@@ -15,8 +15,6 @@ class CreateActorsTable extends Migration
     {
         Schema::create('actors', function (Blueprint $table) {
             $table->string('id')->primary();
-            #$table->string('admin_id')->unique()->nullable();
-            #$table->foreign('admin_id')->references('id')->on('actors');
             $table->string('firstname',70);
             $table->string('lastname',70);
             $table->enum('gender', ['f', 'm']);
