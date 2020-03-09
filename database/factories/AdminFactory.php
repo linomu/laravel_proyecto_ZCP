@@ -1,4 +1,3 @@
-
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
@@ -17,4 +16,3 @@ $factory->define(Admin::class, function (Faker $faker) {
         'email'=>$faker->email,
     ];
 });
-

@@ -10,6 +10,22 @@ use mysql_xdevapi\Table;
 
 class SurveyController extends Controller
 {
+    public function crear(Request $request){
+        //return $request->all();
+        $survey = new App\Survey;
+        $survey->nombre = $request->nombre;
+        $survey->tipo = $request->tipo;
+
+        $survey->save();
+
+        return back();
+    }
+
+    public function listarTipoEncuestas(){
+        $topics = App\Topic::all();
+        return view('evaluator.createSurvey', compact('topics'));
+    }
+
     public function listarEncuestas(){
         $surveys = App\Survey::all();
         return view('evaluator.listSurvey', compact('surveys'));
@@ -75,6 +91,8 @@ class SurveyController extends Controller
     {
         //
     }
+
+    
 
     //Enviar Encuesta a los usuarios
     public function enviarEncuesta(Request $request){

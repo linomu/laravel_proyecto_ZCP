@@ -14,12 +14,12 @@ class CreateUserzsTable extends Migration
     public function up()
     {
         Schema::create('userzs', function (Blueprint $table) {
-
             $table->increments('id');
-
             $table->unsignedInteger('localizations_id')->nullable();
             $table->foreign('localizations_id','fk_userzs__localizations')->references('id')->on('localizations');
             $table->string('email',100);
+            $table->enum('gender', ['f', 'm']);
+            $table->integer('age');
             $table->timestamps();
         });
     }

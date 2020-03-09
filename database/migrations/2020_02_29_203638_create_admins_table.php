@@ -14,13 +14,14 @@ class CreateAdminsTable extends Migration
     public function up()
     {
         Schema::create('admins', function (Blueprint $table) {
-            $table->Integer('id')->primary();
-            $table->string('username',40);
-            $table->string('password',250);
-            $table->string('email',150);
+            $table->integer('id')->primary();
             $table->string('firstname',70);
             $table->string('lastname',70);
-            $table->timestamps(); 
+            $table->enum('gender', ['f', 'm']);
+            $table->integer('phonenumber');
+            $table->date('birth_date');
+            $table->integer('age');
+            $table->timestamps();
         });
     }
 
