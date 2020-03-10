@@ -18,10 +18,12 @@ class SurveyController extends Controller
             'nombre'=>'required',
             'descripcion'=>'required',
             'selectTest'=>'required',
+            'textQuestions'=>'required',
         ]);
 
         $test = new App\Test;
         $test->name = $request->nombre;
+        $test->actors_id = auth()->user()->actors_id;
         $test->description = $request->descripcion;
         $test->kindSurvey = $request->selectTest;
 

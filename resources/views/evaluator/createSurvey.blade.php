@@ -22,7 +22,7 @@
 
 			<div class="espaciado">
 				<label for="txtNameSurvey">Nombre de la encuesta</label>
-				<input name="nombre" type="text" class="form-control mb-2" id="txtNameSurvey">
+				<input name="nombre" type="text" class="form-control mb-2" id="txtNameSurvey" value="{{old('nombre')}}">
 			</div>
 
 			@error('nombre')
@@ -36,7 +36,7 @@
 			<div class="espaciado">
 				<label for="txtDescSurvey">Descripción de la encuesta</label>
 				<textarea name="descripcion" class="form-control mb-2" id="txtDescSurvey"></textarea>
-			</div>	
+			</div>
 
 			@error('descripcion')
             <div class="alert alert-danger">Falta la descripción de la encuesta
@@ -72,11 +72,11 @@
                 </button>
             </div>
             @enderror
-			
+
 			<button type="submit" class="btn btn-primary btn-block">
 				{{ __('Enviar') }}
 			</button>
 
-		</form>	
+		</form>
 	</div>
 @endsection
