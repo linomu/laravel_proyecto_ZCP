@@ -22,7 +22,7 @@
 			<div class="espaciado">
 				<input class="cb-ts form-control mb-2" type="text" name="tipo" id="cbTypeSurvey" list="exampleList" placeholder="Seleccione el tipo de encuesta">
 				<datalist id="exampleList">
-			  		<option value="SUS">  
+			  		<option value="SUS">
 				  	<option value="Other">
 				</datalist>
 		 	</div>
