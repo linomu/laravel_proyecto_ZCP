@@ -34,7 +34,7 @@ class SurveyController extends Controller
         //var_dump($preguntasSinEspacio);
         $arrayListaPreguntas = explode(",",$preguntasSinEspacio);
         var_dump($arrayListaPreguntas);
-        
+
         foreach ($arrayListaPreguntas as $pregunta){
             if ($pregunta == "") {
                 continue;

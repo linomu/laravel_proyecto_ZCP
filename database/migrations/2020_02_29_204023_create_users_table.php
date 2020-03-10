@@ -22,6 +22,9 @@ class CreateUsersTable extends Migration
             $table->enum('rol', ['admin', 'evaluator'])->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+
+
         });
     }
 
