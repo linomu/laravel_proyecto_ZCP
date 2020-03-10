@@ -20,7 +20,6 @@ class CreateTestsTable extends Migration
             $table->string('name',150);
             $table->string('description',200);
             $table->enum('kindSurvey', ['SUS']);
-            $table->date('deadline');
             $table->timestamps();
         });
     }
