@@ -112,7 +112,7 @@
 
           <div class="row form-group">
             <div class="col-md-12">
-              <input type="submit" value="Guadar" class="btn btn-primary rounded-0 btn-lg">
+              <input type="submit" value="Guardar" class="btn btn-primary rounded-0 btn-lg">
             </div>
           </div>
         </form>
