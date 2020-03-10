@@ -2,9 +2,7 @@
 
 @include("../layouts/userInformation")
 
-@section('nav')
-    @include("../layouts/navevaluator")
-@endsection
+
 
 
 @section('content')
@@ -32,6 +30,17 @@
                     </select>
                 </div>
             </div>
+
+
+                   <div class="row form-group">
+
+                       <label class="col-md-2 control-label" for="deadLine">Fecha Límite de respuesta:</label>
+                       <div class="col-md-6">
+                           <input type="date" id="deadline" name="deadLine"  value=""
+                                  min="" max="">
+                       </div>
+                     </div>
+
 
             <!-- Textarea -->
             @error('textUsuarios')
@@ -75,4 +84,8 @@
 
     </form>
 
+@endsection
+
+@section('script_section')
+    <script src="{{URL::asset('js/functionsByLino.js') }}"></script>
 @endsection

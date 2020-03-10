@@ -30,6 +30,7 @@ Route::get('/listar', 'SurveyController@listarEncuestas')->name('surveys_list');
 //Rutas usadas por Lino
 Route::get('/enviarEncuesta','SurveyController@organizarEncuesta')->name('pag_env_encuesta');
 Route::post('/survey/email','SurveyController@enviarEncuesta')->name('survey.send');
+Route::get('/SUS/{id?}', 'SurveyController@prueba' );
 
 
 

@@ -48,7 +48,8 @@ class SurveyController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('evaluator')->except('prueba');
+        //$this->middleware('auth')->only('index');
     }
 
     public function index()
@@ -92,7 +93,21 @@ class SurveyController extends Controller
         //
     }
 
-    
+    public function prueba(Request $request, $id){
+
+        //print($request->getRequestUri());
+        //$page = $request->get('page');
+        $pag = explode('=',$request->getRequestUri());
+        $page= $this->desencriptar($pag[1]);
+        if($page == null){
+            abort(404);
+        }else{
+            //print("Pagina descriptada: ".$page);
+            return view('survey',compact('page','id'));
+        }
+
+    }
+
 
     //Enviar Encuesta a los usuarios
     public function enviarEncuesta(Request $request){
@@ -107,11 +122,10 @@ class SurveyController extends Controller
             'txtPage'=>'required',
         ]);
 
-
-        $correosSinEspacio = str_replace(" ","", $request->textUsuarios);
-        //var_dump($correosSinEspacio);
-        $arrayListaCorreos = explode(",",$correosSinEspacio);
-        //var_dump($arrayListaCorreos);
+        dd($request);
+        /*
+        //Obtener los correos del textArea en un arreglo
+        $arrayListaCorreos = explode("\n", $request->textUsuarios);
 
 
 
@@ -141,17 +155,22 @@ class SurveyController extends Controller
 
         $ip = $_SERVER['REMOTE_ADDR'];
         $paginaEncriptada = $this->encriptar($request->txtPage);
-        $ruta = $ip."/LaravelEmail/project/public/".$tipo[0]->type."/".$idTest."?page=".$paginaEncriptada;
+        $ruta = $ip."/laravel_proyecto_ZCP/public/".$tipo[0]->type."/".$idTest."?page=".$paginaEncriptada;
         //print("Ruta encriptada: ".$ruta);
         //echo "<br>";
-        //print("Pagina descriptada: ".$this->desencriptar($paginaEncriptada));
+        print ($paginaEncriptada);
+        print("Pagina descriptada: ".$this->desencriptar($paginaEncriptada));
 
+        /*
         foreach ($arrayListaCorreos as $correo){
-            $this->enviarEmail($ruta,$correo);
+            $email = str_replace("\r","",$correo);
+            $email2 = str_replace(" ","",$email);
+            $this->enviarEmail($ruta,$email2);
             //echo "Correo a : ".$correo."<br>";
         }
 
-        return back()->with('mensaje','Correos Enviados!');
+        return back()->with('mensaje','Correos Enviados!');*/
+
     }
 
     public function enviarEmail($ruta, $correo){
@@ -183,5 +202,5 @@ class SurveyController extends Controller
         return view('evaluator.sendSurvey',compact('data'));
     }
 
-    
+
 }
