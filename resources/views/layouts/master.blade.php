@@ -58,6 +58,7 @@
                         var txt = '<li><input name="txtQuestions[]" class="field" style="border:0px" value="'+ $("#txtQuestions").val() +'"></li>';
                         //Agregar el correo a la lista de correos
                         $("#listQuestions").append(txt);
+                        txtQuestions.value = "";
                     }
                 } // missing closing if brace
             );

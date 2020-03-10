@@ -7,12 +7,15 @@
     color: #000;
 }
 .espaciado{
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 }
 
 .txtarea-containt{
-    width: 100%;
-    height: 100%;
+    float: left;
+    width: 1000px;
+    height: 80px;
+    border: 0.1px solid lightgray;
+    position: initial;
 }
 
 .btn-env{
@@ -51,9 +54,9 @@
     cursor: text;
     margin: 0em;
     font: 400 13.3333px Arial;
-    padding: 1px 0px;
-    border-width: 2px;
-    margin-bottom: 12px;
+    padding: 0.5px 0px;
+    border-width: 1px;
+    margin-bottom: 1px;
 }
 
 .cb-ts{

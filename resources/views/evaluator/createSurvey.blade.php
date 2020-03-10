@@ -37,15 +37,16 @@
 
 			<div class="espaciado">
 				<label>Preguntas</label>
-				<input type="text" class="ip-questions form-control" id="txtQuestions">
+				<input type="text" class="form-control mb-2" id="txtQuestions1">
+				<input type="text" class="form-control mb-2" id="txtQuestions2">
+				<input type="text" class="form-control mb-2" id="txtQuestions3">
+				<input type="text" class="form-control mb-2" id="txtQuestions4">
 			</div>
-
-			<div class="espaciado">
-				<ol id="listQuestions" class="txtarea-containt">
-				</ol>
-			</div>
-
 			
+			<button type="submit" class="btn btn-primary btn-block">
+				{{ __('Enviar') }}
+			</button>
+
 		</form>	
 	</div>
 @endsection
