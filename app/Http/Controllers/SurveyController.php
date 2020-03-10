@@ -29,11 +29,26 @@ class SurveyController extends Controller
 
         $question = new App\Question;
         $idTest = DB::table('tests')->latest('tests.id')->select('tests.id')->first();
-        $question->tests_id = $idTest->id;
-        $question->description = $request->txtQuestions1;
-        $question->save();
-        #return back();
-        return 'Completado';
+
+        $preguntasSinEspacio = str_replace("  "," ", $request->textQuestions);
+        //var_dump($preguntasSinEspacio);
+        $arrayListaPreguntas = explode(",",$preguntasSinEspacio);
+        var_dump($arrayListaPreguntas);
+        
+        foreach ($arrayListaPreguntas as $pregunta){
+            if ($pregunta == "") {
+                continue;
+            }
+            else {
+                $question->description = $pregunta;
+                DB::table('questions')->insert(
+                    ['tests_id' => $idTest->id, 'description' => $pregunta]
+                );
+            }
+        }
+
+        return back()->with('mensaje','Encuesta registrada satisfactoriamente!');
+        #return 'Completado';
     }
 
     public function listarEncuestas(){

@@ -19,10 +19,26 @@
 				<input name="nombre" type="text" class="form-control mb-2" id="txtNameSurvey">
 			</div>
 
+			@error('nombre')
+            <div class="alert alert-danger">Falta el nombre de la encuesta
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @enderror
+
 			<div class="espaciado">
 				<label for="txtDescSurvey">Descripción de la encuesta</label>
 				<textarea name="descripcion" class="form-control mb-2" id="txtDescSurvey"></textarea>
 			</div>	
+
+			@error('descripcion')
+            <div class="alert alert-danger">Falta la descripción de la encuesta
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @enderror
 
 			<div>
 				<label for="cbTypeSurvey">Tipo de encuesta</label>
@@ -42,8 +58,16 @@
 			<div class="espaciado">
 				<textarea class="form-control txtarea-containt" id="textarea" name="textQuestions" placeholder="Ingrese cada pregunta separada de una coma (,)"></textarea>
 			</div>
+
+			@error('descripcion')
+            <div class="alert alert-danger">Falta ingresar preguntas
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @enderror
 			
-			<button type="submit" class="btn btn-primary btn-block">
+			<button type="submit" class="btn btn-primary btn-block btn-success">
 				{{ __('Enviar') }}
 			</button>
 
