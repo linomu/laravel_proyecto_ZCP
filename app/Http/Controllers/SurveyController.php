@@ -27,8 +27,8 @@ class SurveyController extends Controller
     }
 
     public function listarEncuestas(){
-        $surveys = App\Survey::all();
-        return view('evaluator.listSurvey', compact('surveys'));
+        $tests = App\Test::all();
+        return view('evaluator.listSurvey', compact('tests'));
     }
 
     private function encriptar($valor) {
@@ -59,7 +59,16 @@ class SurveyController extends Controller
 
     public function create()
     {
-        return view('evaluator.createSurvey');
+        #$tests = App\Test::all();
+        $tests = DB::select(DB::raw('SHOW COLUMNS FROM tests WHERE Field = "kindSurvey"'))[0]->Type;
+        preg_match('/^enum\((.*)\)$/', $tests, $matches);
+        $enum = array();
+        foreach(explode(',', $matches[1]) as $value){
+            $v = trim( $value, "'" );
+            $enum[] = $v;
+        }
+        #dd($enum[0]);
+        return view('evaluator.createSurvey', compact('enum'));
     }
 
 

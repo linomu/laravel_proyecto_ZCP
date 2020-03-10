@@ -11,20 +11,28 @@
 	<div class="container-enc">
 		<form action="{{ route('survey.crear') }}" method="POST">
 			@csrf
+
+			<h1>Crear Encuesta</h1>
+
 			<div class="espaciado">
 				<label for="txtNameSurvey">Nombre de la encuesta</label>
 	    		<input name="nombre" type="text" class="form-control mb-2" id="txtNameSurvey">
+		 	</div>
+
+			<div class="espaciado">
+				<label for="txtDescSurvey">Descripción de la encuesta</label>
+	    		<textarea name="descripcion" class="form-control mb-2" id="txtDescSurvey"></textarea>
 		 	</div>
 
 		 	<div>
 				<label for="cbTypeSurvey">Tipo de encuesta</label>
 			</div>
 			<div class="espaciado">
-				<input class="cb-ts form-control mb-2" type="text" name="tipo" id="cbTypeSurvey" list="exampleList" placeholder="Seleccione el tipo de encuesta">
-				<datalist id="exampleList">
-			  		<option value="SUS">
-				  	<option value="Other">
-				</datalist>
+				<select id="selectbasic" name="selectTest" class="form-control">
+					@foreach($enum as $item)
+						<option value="{{$item}}">{{$item}}</option>
+					@endforeach
+				</select>
 		 	</div>
 
 		 	<div class="espaciado">
