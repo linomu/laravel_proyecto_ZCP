@@ -8,7 +8,7 @@ class DatabaseSeeder extends Seeder
     
     public function run()
     {
-        #$this->call(AdminsTableSeeder::class);
+        #$this->call(ActorsTableSeeder::class);
         DB::table('actors')->insert([
             'id' => '1061809263',
             'admin_id' => '1061809263',
@@ -28,6 +28,5 @@ class DatabaseSeeder extends Seeder
             'phonenumber'  => '235453452',
             'birth_date' => Carbon::create('2001', '05', '03')
         ]);
-
     }
 }
