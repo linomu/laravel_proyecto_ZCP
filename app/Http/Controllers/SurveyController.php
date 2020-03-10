@@ -11,7 +11,15 @@ use mysql_xdevapi\Table;
 class SurveyController extends Controller
 {
     public function crear(Request $request){
+
         //return $request->all();
+
+        $request->validate([
+            'nombre'=>'required',
+            'descripcion'=>'required',
+            'selectTest'=>'required',
+        ]);
+
         $test = new App\Test;
         $test->name = $request->nombre;
         $test->description = $request->descripcion;
@@ -19,6 +27,11 @@ class SurveyController extends Controller
 
         $test->save();
 
+        $question = new App\Question;
+        $idTest = DB::table('tests')->latest('tests.id')->select('tests.id')->first();
+        $question->tests_id = $idTest->id;
+        $question->description = $request->txtQuestions1;
+        $question->save();
         #return back();
         return 'Completado';
     }

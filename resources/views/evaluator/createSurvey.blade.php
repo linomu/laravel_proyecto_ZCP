@@ -37,10 +37,10 @@
 
 			<div class="espaciado">
 				<label>Preguntas</label>
-				<input type="text" class="form-control mb-2" id="txtQuestions1">
-				<input type="text" class="form-control mb-2" id="txtQuestions2">
-				<input type="text" class="form-control mb-2" id="txtQuestions3">
-				<input type="text" class="form-control mb-2" id="txtQuestions4">
+			</div>
+
+			<div class="espaciado">
+				<textarea class="form-control txtarea-containt" id="textarea" name="textQuestions" placeholder="Ingrese cada pregunta separada de una coma (,)"></textarea>
 			</div>
 			
 			<button type="submit" class="btn btn-primary btn-block">
