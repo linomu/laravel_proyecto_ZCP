@@ -92,13 +92,13 @@ class SurveyController extends Controller
         //
     }
 
-    
+
 
     //Enviar Encuesta a los usuarios
     public function enviarEncuesta(Request $request){
-       // print($request->selectTest);
-        //print ($request->textUsuarios);
-        //print ($request->txtPage);
+       print($request->selectTest);
+        print ($request->textUsuarios);
+        print ($request->txtPage);
         //Obtener la lista de correos
         //var_dump($request->textUsuarios);
 
@@ -183,5 +183,19 @@ class SurveyController extends Controller
         return view('evaluator.sendSurvey',compact('data'));
     }
 
-    
+   // function is_valid_emaill($str)
+    //{
+      //  $matches = null;
+        //return (1 === preg_match('/^[A-z0-9\\._-]+@[A-z0-9][A-z0-9-]*(\\.[A-z0-9_-]+)*\\.([A-z]{2,6})$/', $str, $matches));
+    //
+
+    function is_valid_email($str)
+    {
+        return (false !== strpos($str, "@") && false !== strpos($str, "."));
+    }
+
+    function validaremail($str)
+    {
+        return (false !== strpos($str, "@") && false !== strpos($str, "."));
+    }
 }

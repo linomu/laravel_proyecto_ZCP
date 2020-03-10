@@ -8,6 +8,9 @@
 
 
 @section('content')
+
+    1
+    <script src=”validae_email.js” language=”Javascript”></script>
     <h1>Envía tus encuestas!</h1>
 
     <br>
@@ -34,10 +37,13 @@
             </div>
 
             <!-- Textarea -->
+
+
             @error('textUsuarios')
-            <div class="alert alert-danger">No ha ingresado usuarios
+            <div class="alert alert-danger">No ha ingresado usuarios o los correos estan las ecritos
+
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times; sdd</span>
                 </button>
             </div>
             @enderror
@@ -45,7 +51,11 @@
 
                 <label class="col-md-2 control-label" for="textarea">Usuarios</label>
                 <div class="col-md-6">
-                    <textarea class="form-control" id="textarea" name="textUsuarios"></textarea>
+                    <div  id=correo> ss</div>
+                    <label  id=mensaje  class="col-md-2 control-label" for="selectbasic"></label>
+                    <textarea class="form-control" id="textUsuarios" name="textUsuarios"></textarea>
+
+
                 </div>
             </div>
 
@@ -69,10 +79,17 @@
                 <label class="col-md-4 control-label" for="btnSendSurvey"></label>
                 <div class="col-md-4">
                     <button id="btnSendSurvey" name="btnSendSurvey" class="btn btn-success">Enviar</button>
+
                 </div>
             </div>
 
 
+
     </form>
 
+
+@endsection
+
+@section('script_section')
+    <script src="{{URL::asset('js/validae_email.js') }}"></script>
 @endsection
