@@ -47,7 +47,7 @@ class SurveyController extends Controller
             }
         }
 
-        return back()->with('mensaje','Encuesta registrada satisfactoriamente!');
+        return back()->with('mensaje','¡Encuesta registrada satisfactoriamente!');
         #return 'Completado';
     }
 
