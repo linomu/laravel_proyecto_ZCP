@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class EvaluatorsTableSeeder extends Seeder
+class ActorsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
