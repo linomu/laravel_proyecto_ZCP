@@ -58,7 +58,7 @@
 
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
+                <span>Bienvenido,</span>
                 @yield('userName')
 
               </div>

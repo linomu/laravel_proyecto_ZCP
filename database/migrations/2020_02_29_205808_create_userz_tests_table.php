@@ -15,6 +15,7 @@ class CreateUserzTestsTable extends Migration
     {
         Schema::create('userz_tests', function (Blueprint $table) {
 
+
             $table->increments('id');
             $table->unsignedInteger('tests_id');
             $table->foreign('tests_id','fk_userz_tests_tests')->references('id')->on('tests');
