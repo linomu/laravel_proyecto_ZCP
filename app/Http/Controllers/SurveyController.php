@@ -11,24 +11,49 @@ use mysql_xdevapi\Table;
 class SurveyController extends Controller
 {
     public function crear(Request $request){
+
         //return $request->all();
-        $survey = new App\Survey;
-        $survey->nombre = $request->nombre;
-        $survey->tipo = $request->tipo;
 
-        $survey->save();
+        $request->validate([
+            'nombre'=>'required',
+            'descripcion'=>'required',
+            'selectTest'=>'required',
+        ]);
 
-        return back();
-    }
+        $test = new App\Test;
+        $test->name = $request->nombre;
+        $test->description = $request->descripcion;
+        $test->kindSurvey = $request->selectTest;
 
-    public function listarTipoEncuestas(){
-        $topics = App\Topic::all();
-        return view('evaluator.createSurvey', compact('topics'));
+        $test->save();
+
+        $question = new App\Question;
+        $idTest = DB::table('tests')->latest('tests.id')->select('tests.id')->first();
+
+        $preguntasSinEspacio = str_replace("  "," ", $request->textQuestions);
+        //var_dump($preguntasSinEspacio);
+        $arrayListaPreguntas = explode(",",$preguntasSinEspacio);
+        var_dump($arrayListaPreguntas);
+        
+        foreach ($arrayListaPreguntas as $pregunta){
+            if ($pregunta == "") {
+                continue;
+            }
+            else {
+                $question->description = $pregunta;
+                DB::table('questions')->insert(
+                    ['tests_id' => $idTest->id, 'description' => $pregunta]
+                );
+            }
+        }
+
+        return back()->with('mensaje','¡Encuesta registrada satisfactoriamente!');
+        #return 'Completado';
     }
 
     public function listarEncuestas(){
-        $surveys = App\Survey::all();
-        return view('evaluator.listSurvey', compact('surveys'));
+        $tests = App\Test::all();
+        return view('evaluator.listSurvey', compact('tests'));
     }
 
     private function encriptar($valor) {
@@ -60,7 +85,16 @@ class SurveyController extends Controller
 
     public function create()
     {
-        return view('evaluator.createSurvey');
+        #$tests = App\Test::all();
+        $tests = DB::select(DB::raw('SHOW COLUMNS FROM tests WHERE Field = "kindSurvey"'))[0]->Type;
+        preg_match('/^enum\((.*)\)$/', $tests, $matches);
+        $enum = array();
+        foreach(explode(',', $matches[1]) as $value){
+            $v = trim( $value, "'" );
+            $enum[] = $v;
+        }
+        #dd($enum[0]);
+        return view('evaluator.createSurvey', compact('enum'));
     }
 
 

@@ -38,8 +38,32 @@
     <link href="{{ URL::asset('build/css/custom.min.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleEnc.css') }}">
-  </head>
 
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+    </script>
+  </head>
+  <script>
+    $(document).ready(
+        function()
+        {  
+            $("#txtQuestions").keyup(
+                function(e)
+                { 
+                    e.preventDefault();
+                    var code = e.key;
+                    if(code==="Enter")
+                    {
+                        console.log("entró");
+                        var txt = '<li><input name="txtQuestions[]" class="field" style="border:0px" value="'+ $("#txtQuestions").val() +'"></li>';
+                        //Agregar el correo a la lista de correos
+                        $("#listQuestions").append(txt);
+                        txtQuestions.value = "";
+                    }
+                } // missing closing if brace
+            );
+        });
+  </script>
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
@@ -207,6 +231,8 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{ URL::asset('build/js/custom.min.js')}}"></script>
+
+
 
   </body>
 </html>
