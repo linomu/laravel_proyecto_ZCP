@@ -12,7 +12,7 @@
     	<link rel="stylesheet" href="css/owl.carousel.min.css">
     	<link rel="stylesheet" href="css/owl.theme.default.min.css">
     	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
-
+        <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 
@@ -25,66 +25,51 @@
 		<title>Encuesta</title>
 	</head>
 	<body>
-		
-    <div class="jumbotron bg-primary text-light ml-4 mr-4">
-        <form class="form-inline mb-2 mx-sm-3">
-        <label class="mb-2 mx-sm-3">Género:</label>
-        <div class="form-group mb-2 mx-sm-3">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-        <label class="form-check-label" for="exampleRadios1">
-         F
-        </label>
-        </div>
 
-        <div class="form-group mb-2 mx-sm-3">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-        <label class="form-check-label" for="exampleRadios1">
-         M
-        </label>
-      </div>
+        <iframe class="jumbotron mr-4" height="2000" width="800" align="right" src="{{$page}}"></iframe>
+        <div class="container-fluid bg-light col-4 ml-4 text-center">
+             <h3>Datos del Usuario</h3>
+            <form id="encuesta_form" name="encuesta" action="{{route('sus.send_answers')}}" method="POST">
+                <label class="mx-sm-3">Género:</label>
+                <div class="form-group row mx-sm-3">
+                    <input class="form-check-input" type="radio" name="femenino" id="radioFemenino" value="f" checked>
+                    <label class="form-check-label" for="exampleRadios1">F</label>
+                </div>
 
-        <div class="form-group mb-2 mx-sm-3">
-        <label for="example-datetime-local-input" class="col-form-label">Fecha de nacimiento:</label>
-         <input class="form-control mx-sm-3" type="date" id="example-date-input">
-        </div>
-        </form>
-    </div>
+                <div class="form-group row mx-sm-2">
+                    <input class="form-check-input" type="radio" name="masculino" id="radioMasculino" value="m" checked>
+                    <label class="form-check-label" for="exampleRadios1">M</label>
+                </div>
 
-  <h1 class="text-uppercase">{{$test->name}}</h1>
-  <h2>{{$test->description}}</h2>
-        <iframe class="jumbotron mr-4" height="2000" width="800" align="right" src="http://bajalogratis.com/">
-            
-        </iframe>
+                <div class="form-group row mx-sm-3">
+                    <label for="date" class="col-form-label mb-2 mx-sm-3">Fecha de nacimiento:</label>
+                    <input class="form-control mx-sm-3" type="date" id="date-input" name="birthdate">
+                </div>
 
-        <div class="jumbotron bg-light col-4 ml-4">
-        @foreach ($questions as $question)
-           <p>{{$question->description}}</p>
-              <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>NO</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th>YES</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><input  type = "button" class="btn btn-danger" value=1></input></td>
-                            <td><input  type = "button" class="btn btn-warning" value=2></input></td>
-                            <td><input  type = "button" class="btn btn-success" value=3></input></td>
-                            <td><input  type = "button" class="btn btn-info" value=4></input></td>
-                            <td><input  type = "button" class="btn btn-primary" value=5></input></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="form-group row mx-sm-3">
+                    <label for="exampleInputEmail1" class="mx-sm-3">Email:</label>
+                    <input type="email" class="form-control" id="InputEmail" name="useremail" aria-describedby="emailHelp" value="example@email.com">
+                </div>
+
+             <h3 class="text-uppercase text-primary text-center">{{$name[0]->description}}</h3>
+                @foreach ($preguntas as $pregunta)
+                <div class="container text-center">
+                <p>* {{$pregunta->description}}</p>
+                 <div class="mb-2 mt-2">
+                    <label for="inputState">Seleccione de 1 a 5</label>
+                    <select id="rta" name="respuesta" class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
             </div>
-            </div>
-            @endforeach
+                @endforeach
+                <input type="button" id="btnEnviar" name="enviar" class="btn btn-primary col-4 ml-4 mt-4" value="Enviar" align="center">
+            </form>
         </div>
-
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
