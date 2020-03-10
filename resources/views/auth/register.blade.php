@@ -10,14 +10,6 @@
                     Registrarse
                 </span>
 
-                <div class="wrap-input100 validate-input m-b-16" data-validate="Por favor ingrese su nombre">
-                    <input id="name" type="text" class="input100 form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nombre">
-                    @error('name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror   
-                </div>
 
                 <div class="wrap-input100 validate-input m-b-16" data-validate="Por favor ingrese su dirección de correo">
                     <input id="email" type="email" class="input100 form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Dirección de correo">

@@ -100,7 +100,11 @@
                     @if (Route::has('login'))
 
                     @auth
+                        @if(auth()->user()->rol=="admin")
                         <li><a href="{{ url('/admin') }}" class="nav-link">Dashboard</a></li>
+                        @else
+                              <li><a href="{{ url('/home') }}" class="nav-link">Dashboard</a></li>
+                            @endif
                     @else
                         <li><a href="{{ route('login') }}" class="nav-link">Ingresar</a></li>
 

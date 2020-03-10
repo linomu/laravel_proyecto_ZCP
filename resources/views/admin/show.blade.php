@@ -2,9 +2,7 @@
 
 @include("../layouts/userInformation")
 
-@section('nav')
-    @include("../layouts/navadmin")
-@endsection
+
 
 @section('content')
 <div class="container">

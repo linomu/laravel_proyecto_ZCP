@@ -29,7 +29,7 @@
                         </span>
                     @enderror
                 </div>
-                
+
                 <div class="form-group row" style="margin:12px -50px;">
                     <div class="col-md-6 offset-md-4">
                         <div class="form-check">
@@ -44,7 +44,7 @@
 
                 <div class="text-right p-t-13 p-b-23">
                     <span class="txt1">
-                        ¿Olvidaste tu 
+                        ¿Olvidaste tu
                     </span>
                     @if (Route::has('password.request'))
                         <a class="btn btn-link txt2" href="{{ route('password.request') }}">
