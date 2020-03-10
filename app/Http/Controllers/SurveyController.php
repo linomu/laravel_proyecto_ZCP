@@ -11,24 +11,49 @@ use mysql_xdevapi\Table;
 class SurveyController extends Controller
 {
     public function crear(Request $request){
+
         //return $request->all();
-        $survey = new App\Survey;
-        $survey->nombre = $request->nombre;
-        $survey->tipo = $request->tipo;
 
-        $survey->save();
+        $request->validate([
+            'nombre'=>'required',
+            'descripcion'=>'required',
+            'selectTest'=>'required',
+        ]);
 
-        return back();
-    }
+        $test = new App\Test;
+        $test->name = $request->nombre;
+        $test->description = $request->descripcion;
+        $test->kindSurvey = $request->selectTest;
 
-    public function listarTipoEncuestas(){
-        $topics = App\Topic::all();
-        return view('evaluator.createSurvey', compact('topics'));
+        $test->save();
+
+        $question = new App\Question;
+        $idTest = DB::table('tests')->latest('tests.id')->select('tests.id')->first();
+
+        $preguntasSinEspacio = str_replace("  "," ", $request->textQuestions);
+        //var_dump($preguntasSinEspacio);
+        $arrayListaPreguntas = explode(",",$preguntasSinEspacio);
+        var_dump($arrayListaPreguntas);
+        
+        foreach ($arrayListaPreguntas as $pregunta){
+            if ($pregunta == "") {
+                continue;
+            }
+            else {
+                $question->description = $pregunta;
+                DB::table('questions')->insert(
+                    ['tests_id' => $idTest->id, 'description' => $pregunta]
+                );
+            }
+        }
+
+        return back()->with('mensaje','¡Encuesta registrada satisfactoriamente!');
+        #return 'Completado';
     }
 
     public function listarEncuestas(){
-        $surveys = App\Survey::all();
-        return view('evaluator.listSurvey', compact('surveys'));
+        $tests = App\Test::all();
+        return view('evaluator.listSurvey', compact('tests'));
     }
 
     private function encriptar($valor) {
@@ -48,7 +73,8 @@ class SurveyController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('evaluator')->except('prueba');
+        //$this->middleware('auth')->only('index');
     }
 
     public function index()
@@ -59,7 +85,16 @@ class SurveyController extends Controller
 
     public function create()
     {
-        return view('evaluator.createSurvey');
+        #$tests = App\Test::all();
+        $tests = DB::select(DB::raw('SHOW COLUMNS FROM tests WHERE Field = "kindSurvey"'))[0]->Type;
+        preg_match('/^enum\((.*)\)$/', $tests, $matches);
+        $enum = array();
+        foreach(explode(',', $matches[1]) as $value){
+            $v = trim( $value, "'" );
+            $enum[] = $v;
+        }
+        #dd($enum[0]);
+        return view('evaluator.createSurvey', compact('enum'));
     }
 
 
@@ -92,29 +127,41 @@ class SurveyController extends Controller
         //
     }
 
-    
+    public function prueba(Request $request, $id){
+
+        //print($request->getRequestUri());
+        //$page = $request->get('page');
+        $pag = explode('=',$request->getRequestUri());
+        $page= $this->desencriptar($pag[1]);
+        if($page == null){
+            abort(404);
+        }else{
+            //print("Pagina descriptada: ".$page);
+            return view('survey',compact('page','id'));
+        }
+
+    }
+
 
     //Enviar Encuesta a los usuarios
-    public function enviarEncuesta(Request $request){
-       // print($request->selectTest);
+    public function enviarEncuesta(Request $request)
+    {
+        // print($request->selectTest);
         //print ($request->textUsuarios);
         //print ($request->txtPage);
         //Obtener la lista de correos
         //var_dump($request->textUsuarios);
 
         $request->validate([
-            'textUsuarios'=>'required',
-            'txtPage'=>'required',
+            'textUsuarios' => 'required',
+            'txtPage' => 'required',
         ]);
 
+        //dd($request);
 
-        $correosSinEspacio = str_replace(" ","", $request->textUsuarios);
-        //var_dump($correosSinEspacio);
-        $arrayListaCorreos = explode(",",$correosSinEspacio);
-        //var_dump($arrayListaCorreos);
-
-
-
+        //Obtener los correos del textArea en un arreglo
+        $arrayListaCorreos = explode("\n", $request->textUsuarios);
+        //Id del test
         $idTest = $request->selectTest;
 
 
@@ -125,8 +172,6 @@ class SurveyController extends Controller
 
         //Save into topic_tests($idTest, $idTopic:consultar la ultima instancia de la tabla topics)
         $idTopic = DB::table('topics')->latest('topics.id')->select('topics.id')->first();
-        //  print($idTopic->id);
-
         $newTopicTest = new App\Topic_test;
         $newTopicTest->topics_id = $idTopic->id;
         $newTopicTest->tests_id = $idTest;
@@ -134,24 +179,28 @@ class SurveyController extends Controller
 
         // $tipo Join between tests and survey to get tipo from survey
         $tipo = DB::table('tests')
-            ->join('surveys','surveys.id','tests.surveys_id')
-            ->select('surveys.tipo AS type')
+            ->select('kindSurvey AS type')
             ->where('tests.id', $idTest)->get();
-
+//        var_dump($tipo);
 
         $ip = $_SERVER['REMOTE_ADDR'];
         $paginaEncriptada = $this->encriptar($request->txtPage);
-        $ruta = $ip."/LaravelEmail/project/public/".$tipo[0]->type."/".$idTest."?page=".$paginaEncriptada;
+        $ruta = $ip."/laravel_proyecto_ZCP/public/".$tipo[0]->type."/".$idTest."?page=".$paginaEncriptada;
         //print("Ruta encriptada: ".$ruta);
         //echo "<br>";
-        //print("Pagina descriptada: ".$this->desencriptar($paginaEncriptada));
+        print ($paginaEncriptada);
+        print("Pagina descriptada: ".$this->desencriptar($paginaEncriptada));
+
 
         foreach ($arrayListaCorreos as $correo){
-            $this->enviarEmail($ruta,$correo);
+            $email = str_replace("\r","",$correo);
+            $email2 = str_replace(" ","",$email);
+            $this->enviarEmail($ruta,$email2);
             //echo "Correo a : ".$correo."<br>";
         }
 
         return back()->with('mensaje','Correos Enviados!');
+
     }
 
     public function enviarEmail($ruta, $correo){
@@ -183,5 +232,5 @@ class SurveyController extends Controller
         return view('evaluator.sendSurvey',compact('data'));
     }
 
-    
+
 }

@@ -2,9 +2,7 @@
 
 @include("../layouts/userInformation")
 
-@section('nav')
-    @include("../layouts/navevaluator")
-@endsection
+
 
 
 @section('content')
@@ -15,15 +13,17 @@
 				<tr>
 					<th>Id</th>
 					<th>Nombre</th>
+					<th>Descripción</th>
 					<th>Tipo</th>
 				</tr>
 			</thead>
 			<tbody>
-			@foreach ($surveys as $item)
+			@foreach ($tests as $item)
 				<tr>
 					<th scope="row">{{$item->id}}</td>
-					<td>{{$item->nombre}}</td>
-					<td>{{$item->tipo}}</td>
+					<td>{{$item->name}}</td>
+					<td>{{$item->description}}</td>
+					<td>{{$item->kindSurvey}}</td>
 				</tr>
 			@endforeach()
 			</tbody>

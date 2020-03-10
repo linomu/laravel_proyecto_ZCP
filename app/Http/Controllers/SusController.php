@@ -80,23 +80,22 @@ class SusController extends Controller
     public function send_answers(Request $request){
         //guardar los datos del usuario
         
-        $user = new App\Userz;
+       //$user = new App\Userz;
 
-        $user->email = $request->InputEmail;
-        $user->gender = $request->;
-        $user->birth_date = $request->; 
-        $user->save();
+        //$user->email = $request->InputEmail;
+        //$user->gender = $request->;
+        //$user->birth_date = $request->; 
+        //$user->save();
 
         //int i = 0;
         //guardar los datos de las respuestas
-        $answers = $request->
-        foreach ($answers as $answer) {
+        //$answers = $request->
+        //foreach ($answers as $answer) {
             
-            $answer->userz_tests_id = $testid;
-            $answer->questions_id = $questions[i]->id;
-            $answer->description = $answers[i];
-            $answer->save();   
-        }
+            //$answer->userz_tests_id = $testid;
+            //$answer->questions_id = $questions[i]->id;
+            //$answer->description = $answers[i];
+            //$answer->save();   
 
         return back()->with('mensaje','respuestas enviadas!');
     }
