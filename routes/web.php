@@ -56,3 +56,7 @@ Route::delete('/admin/{id}','AdminController@destroy')->name('admin.destroy');
 
 
 //Lo primero sera crear el formulario
+
+//Ruta usada por isabella
+Route::get('/SUS/{id?}','SusController@index')->name('sus.index');
+Route::post('/SUS','SusController@send_answers')->name('sus.send_answers');

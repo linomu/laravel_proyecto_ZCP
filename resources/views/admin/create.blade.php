@@ -160,11 +160,20 @@
               </div>
           </div>
 
+<<<<<<< HEAD
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <input type="submit" value="Guardar" class="btn btn-primary rounded-0 btn-lg">
+            </div>
+          </div>
+=======
             <div class="row form-group">
                 <div class="col-md-12">
                   <input type="submit" value="Guardar" class="btn btn-primary rounded-0 btn-lg">
                 </div>
               </div>
+>>>>>>> 6dc26fb72759bc0d0e0b12e4d38ef31b3c2d181a
         </form>
     </div>
 
