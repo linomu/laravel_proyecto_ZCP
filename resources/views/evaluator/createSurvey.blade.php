@@ -16,15 +16,15 @@
 
 			<div class="espaciado">
 				<label for="txtNameSurvey">Nombre de la encuesta</label>
-	    		<input name="nombre" type="text" class="form-control mb-2" id="txtNameSurvey">
-		 	</div>
+				<input name="nombre" type="text" class="form-control mb-2" id="txtNameSurvey">
+			</div>
 
 			<div class="espaciado">
 				<label for="txtDescSurvey">Descripción de la encuesta</label>
-	    		<textarea name="descripcion" class="form-control mb-2" id="txtDescSurvey"></textarea>
-		 	</div>
+				<textarea name="descripcion" class="form-control mb-2" id="txtDescSurvey"></textarea>
+			</div>	
 
-		 	<div>
+			<div>
 				<label for="cbTypeSurvey">Tipo de encuesta</label>
 			</div>
 			<div class="espaciado">
@@ -33,18 +33,18 @@
 						<option value="{{$item}}">{{$item}}</option>
 					@endforeach
 				</select>
-		 	</div>
+			</div>
 
-		 	<div class="espaciado">
+			<div class="espaciado">
 				<label>Preguntas</label>
 				<input type="text" class="ip-questions form-control" id="txtQuestions1">
 				<input type="text" class="ip-questions form-control" id="txtQuestions2">
 				<input type="text" class="ip-questions form-control" id="txtQuestions3">
-		 	</div>
+			</div>
 
 			<button type="submit" class="btn btn-primary btn-block">
-		    {{ __('Enviar') }}
-	        </button>
-	    </form>	
+			{{ __('Enviar') }}
+			</button>
+		</form>	
 	</div>
 @endsection

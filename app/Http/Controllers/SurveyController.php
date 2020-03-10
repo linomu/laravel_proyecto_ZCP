@@ -12,18 +12,15 @@ class SurveyController extends Controller
 {
     public function crear(Request $request){
         //return $request->all();
-        $survey = new App\Survey;
-        $survey->nombre = $request->nombre;
-        $survey->tipo = $request->tipo;
+        $test = new App\Test;
+        $test->name = $request->nombre;
+        $test->description = $request->descripcion;
+        $test->kindSurvey = $request->selectTest;
 
-        $survey->save();
+        $test->save();
 
-        return back();
-    }
-
-    public function listarTipoEncuestas(){
-        $topics = App\Topic::all();
-        return view('evaluator.createSurvey', compact('topics'));
+        #return back();
+        return 'Completado';
     }
 
     public function listarEncuestas(){
