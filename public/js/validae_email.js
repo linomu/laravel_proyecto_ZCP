@@ -19,14 +19,37 @@ function inicializarEventos(){
             }
             else {
                 correosErroneos.push(arreCorreos[i])
+
                 console.log("incorrecto");
+
             }
 
 
         }
         //por cada linea, la valida, si no es correo , saca un mensaje
         console.log(correosErroneos);
-       alert("tiene "+correosErroneos);
+
+        coreos = document.getElementById("mensaje");
+
+        var cantidad_de_correos = correosErroneos.length;
+
+        if(cantidad_de_correos>0){
+                    var primer_posicion=correosErroneos[0];
+                    var aux="";
+                    if (primer_posicion===aux){
+                        coreos.innerHTML="";
+                    }else
+                    {
+                        console.log(primer_posicion)
+                        var advertencia=correos => 'revisar los siguientes correos    '+correos;
+                        coreos.innerHTML=advertencia(correosErroneos);
+                    }
+
+
+        } else{
+            coreos.innerHTML="";
+        }
+
     });
 }
 

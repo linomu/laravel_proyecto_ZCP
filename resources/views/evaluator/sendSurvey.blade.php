@@ -12,7 +12,7 @@
     1
     <script src=”validae_email.js” language=”Javascript”></script>
     <h1>Envía tus encuestas!</h1>
-
+    <title>Document Object Model</title>
     <br>
     @if(session('mensaje'))
         <div class="alert alert-success">   {{session('mensaje')}}
@@ -50,9 +50,14 @@
             <div class="row form-group">
 
                 <label class="col-md-2 control-label" for="textarea">Usuarios</label>
-                <div class="col-md-6">
-                    <div  id=correo> ss</div>
-                    <label  id=mensaje  class="col-md-2 control-label" for="selectbasic"></label>
+
+                <div class="col-md-6"><div  id=correo></div>
+
+                    <div class="alert alert-secondary" role="alert">
+                         <a id="mensaje" href="#" class="alert-link"></a>
+                    </div>
+
+
                     <textarea class="form-control" id="textUsuarios" name="textUsuarios"></textarea>
 
 
