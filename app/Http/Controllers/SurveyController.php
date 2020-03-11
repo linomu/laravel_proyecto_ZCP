@@ -208,6 +208,7 @@ class SurveyController extends Controller
     public function enviarEmail($ruta, $correo){
         $data = array(
             'name'=>$ruta,
+
         );
         Mail::send('evaluator.surveyEmail',$data,function ($messaje) use ($correo){
             $messaje->from('alejandro1094@gmail.com','Zorros Privativos Comunes');

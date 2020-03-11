@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class PollsterController extends Controller
 {
@@ -37,7 +38,6 @@ class PollsterController extends Controller
             'txt_personal_id'=>'required|unique:actors,id',
             'txt_last_name'=>'required',
             'txt_email'=>'required',
-            'txt_pass'=>'required',
             'txt_number'=>'required',
             'gender'=>'required',
             'birthday'=>'required',
@@ -59,16 +59,36 @@ class PollsterController extends Controller
         $newEvaluator->save();
 
         $user = new App\User;
+        $pass = substr(md5(microtime()), 1, 8);
         $user->actors_id =$request->txt_personal_id;
         $user->email = $request->txt_email;
-        $user->password = Hash::make($request->txt_pass);
+        $user->password = Hash::make($pass);
         $user->rol = "evaluator";
         $user->save();
 
+        $this->enviarEmail($pass,$request->txt_email,  $request->txt_name);
 
-        return back()->with('mensaje','Evaluador Agregado!');
+        return back()->with('mensaje','El Evaluador ha sido agregado correctamente! Recibirá un correo con su correspondiente contraseña');
     }
 
+
+    public function enviarEmail($pass, $correo, $firstname){
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $ruta = $ip."/laravel_proyecto_ZCP/public/";
+        $data = array(
+            'pass'=>$pass,
+            'path'=>$ruta,
+            'name'=>$firstname,
+        );
+        Mail::send('email.newUserEmail',$data,function ($messaje) use ($correo){
+            $messaje->from('alejandro1094@gmail.com','Zorros Privativos Comunes');
+            $messaje->to($correo)->subject('Bienvenido a nuestro Sistema');
+        });
+
+
+        //return "Tu email ha sido enviado";
+        //return view('evaluator.sendSurvey');
+    }
 
     public function show($id)
     {
