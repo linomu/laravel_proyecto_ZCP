@@ -105,8 +105,6 @@
 
 @section('script_section')
     <script src="{{URL::asset('js/validae_email.js') }}"></script>
-@endsection
-
-@section('script_section')
     <script src="{{URL::asset('js/functionsByLino.js') }}"></script>
 @endsection
+

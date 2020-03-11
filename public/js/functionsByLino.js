@@ -3,6 +3,8 @@ x=$(document);
 x.ready(inicializarEventos);
 
 function inicializarEventos() {
+
+
     var today = new Date();
     var month = (today.getMonth()+1);
     var day = today.getDate();
@@ -17,4 +19,6 @@ function inicializarEventos() {
     //alert(date);
     $("#deadline").attr("min",date);
     $("#deadline").attr("value",date);
+
+
 }
