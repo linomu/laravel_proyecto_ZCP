@@ -5,7 +5,7 @@ x=$(document);
 x.ready(inicializarEventos);
 function inicializarEventos(){
 
-    $("#textUsuarios").keyup(function()
+    $("#textUsuarios").keyup(function(ww)
     {
 
         //convierte en un array todas las lineas del mensaje
@@ -49,8 +49,46 @@ function inicializarEventos(){
         } else{
             coreos.innerHTML="";
         }
+    });
+
+
+    $("#textinput").keyup(function()
+    {
+
+        var url = $(this).val();
+        console.log(url);
+        mensaje_url = document.getElementById("mensajeUrl");
+        if(isValidURL(url)){
+            console.log("entro");
+            mensaje_url.innerHTML="";
+        }else{
+            console.log(" no entro");
+
+            var advertencia=correos => 'tiene que tener el formato https://www.***.**** ';
+            mensaje_url.innerHTML=advertencia(url);
+        }
+         var aux="";
+        if(url===aux) {
+            console.log("entro");
+            mensaje_url.innerHTML = "";
+        }
+
 
     });
+
+    $("#textinput").bind('paste', function() {
+
+        console.log("entro");
+    });
+    $("#textUsuarios").bind('paste', function() {
+        console.log("holaa");
+        var correosErroneos = new Array();
+        var losCorreos = $(this).valueOf('textUsuarios');
+        console.log(losCorreos);
+
+    });
+
+
 }
 
 
@@ -58,4 +96,19 @@ function validar_email(email )
 {
     var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return regex.test(email) ? true : false;
+}
+
+function isValidURL(str) {
+    var pattern = new RegExp('^((https?:)?\\/\\/)?'+ // protocol
+        '(?:\\S+(?::\\S*)?@)?' + // authentication
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+        '(\\#[-a-z\\d_]*)?$','i'); // fragment locater
+    if (!pattern.test(str)) {
+        return false;
+    } else {
+        return true;
+    }
 }
