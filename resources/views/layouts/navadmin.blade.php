@@ -11,8 +11,7 @@
       <li><a><i class="fa fa-edit"></i> Evaluador <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
           <li><a href="{{route('pollster.create')}}">Crear</a></li>
-          <li><a href="form_validation.html">Administradores</a></li>
-          <li><a href="form_wizards.html">Buscar</a></li>
+          <li><a href="{{route('pollster.index')}}">Evaluadores</a></li>
         </ul>
       </li>
       <li><a><i class="fa fa-desktop"></i>Cuestionarios<span class="fa fa-chevron-down"></span></a>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 use App;
@@ -20,7 +20,15 @@ class AdminController extends Controller
     public function index()
     {
         //$admins = App\Admin::all();
-        $admins = App\Actors::paginate(5);
+        //$admins = App\Actors::paginate(5);
+      // $admins = App\Actors::query()->where('admin_id', auth()->user()->actors_id)->paginate(5);
+        $admins = DB::table('actors')
+        ->join('users','actors.id','users.actors_id')
+        ->select('actors.firstname as firstname', 'actors.lastname AS lastname', 'users.email as email', 'actors.id as id')
+        ->where('actors.admin_id',auth()->user()->actors_id)
+            ->where('users.rol','admin')
+        ->paginate(5);
+
         return view('admin.list',compact('admins'));
     }
 

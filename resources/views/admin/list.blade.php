@@ -12,7 +12,7 @@
     </div>
 @endif
 
-<h1>List admins</h1>
+<h1>Administradores que tú has creado</h1>
 @if(session('mensaje'))
 <div class="alert alert-success">
   {{session('mensaje')}}
@@ -38,7 +38,9 @@
     <tr>
 
         <td  class="clickable-row" data-href="{{route('admin.show',$admin->id)}}">{{$admin->id}}</td>
-        <!--<td><a href="{{route('admin.show',$admin->id)}}">{{$admin->name}}</a></td>-->
+    <?php   /*
+    <!--<td><a href="{{route('admin.show',$admin->id)}}">{{$admin->name}}</a></td>--> */
+        ?>
         <td  class="clickable-row" data-href="{{route('admin.show',$admin->id)}}">{{$admin->firstname}}</td>
         <td  class="clickable-row" data-href="{{route('admin.show',$admin->id)}}">{{$admin->lastname}}</td>
         <td  class="clickable-row" data-href="{{route('admin.show',$admin->id)}}">{{$admin->email}}</td>

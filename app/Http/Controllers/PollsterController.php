@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
@@ -18,7 +19,14 @@ class PollsterController extends Controller
 
     public function index()
     {
-
+        //$admins = App\Actors::query()->where('admin_id', auth()->user()->actors_id)->paginate(5);
+        $admins = DB::table('actors')
+            ->join('users','actors.id','users.actors_id')
+            ->select('actors.firstname as firstname', 'actors.lastname AS lastname', 'users.email as email', 'actors.id as id')
+            ->where('actors.admin_id',auth()->user()->actors_id)
+            ->where('users.rol','evaluator')
+            ->paginate(5);
+        return view('evaluator.list',compact('admins'));
     }
 
 
