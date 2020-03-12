@@ -83,6 +83,9 @@
             <div class="row form-group">
                 <label class="col-md-2 control-label" for="textinput">Sitio Web</label>
                 <div class="col-md-6">
+                    <div class="alert alert-secondary" role="alert">
+                        <a id="mensajeUrl" href="#" class="alert-link"></a>
+                    </div>
                     <input id="textinput" name="txtPage" type="text" placeholder="Escribe una página web" class="form-control input-md">
                 </div>
             </div>
@@ -107,4 +110,7 @@
     <script src="{{URL::asset('js/validae_email.js') }}"></script>
     <script src="{{URL::asset('js/functionsByLino.js') }}"></script>
 @endsection
+
+
+
 
