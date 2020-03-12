@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'actors_id'=>'10618049761',
             'email' => 'evaluator@gmail.com',
-            'password' => Hash::make(' evaluator12345'),
+            'password' => Hash::make('evaluator12345'),
             'rol' => 'evaluator ',
         ]);
 

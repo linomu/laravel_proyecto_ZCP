@@ -50,6 +50,13 @@ class SusController extends Controller
 
         $pag = explode('=',$request->getRequestUri());
         $page = $this->desencriptar($pag[1]);
+
+        $correoEncriptado = $pag[3];
+        $correo = $this->desencriptar($correoEncriptado);
+
+        
+        print ($correo);
+
         //print("pag: ".$pag[1]);
         //$page = $pag[1];
         //$preguntas = Con el $id debes consultar la bd

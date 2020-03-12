@@ -24,6 +24,7 @@ class CreateUserzTestsTable extends Migration
             $table->date('participationdate')->nullable();
             $table->string('ipadress',40)->nullable();
             $table->date('deadline');
+            $table->integer('age')->nullable();
             $table->timestamps();
         });
     }
