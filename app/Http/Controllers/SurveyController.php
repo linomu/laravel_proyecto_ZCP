@@ -145,9 +145,33 @@ class SurveyController extends Controller
     }
 
 
+    public function registrarUbicacionDelUsuario(){
+    //$ip = $_SERVER['REMOTE_ADDR'];
+
+
+    // o haz la prueba con una IP de Google
+    //$ip = '74.125.224.72';
+        $ip = '192.168.56.1';
+    print($ip);
+
+    // Contiene el texto como JSON que retorna geoplugin a partir de la IP
+    // Puedes usar un método más sofisticado para hacer un llamado a geoplugin
+    // usando librerias como UNIREST etc
+    $informacionSolicitud = file_get_contents("http://www.geoplugin.net/json.gp?ip=".$ip);
+
+    // Convertir el texto JSON en un array
+    $dataSolicitud = json_decode($informacionSolicitud);
+
+    // Ver contenido del array
+    var_dump($dataSolicitud);
+}
     //Enviar Encuesta a los usuarios
     public function enviarEncuesta(Request $request)
     {
+
+        //$this->registrarUbicacionDelUsuario();
+
+
         // print($request->selectTest);
         //print ($request->textUsuarios);
         //print ($request->txtPage);
@@ -165,6 +189,8 @@ class SurveyController extends Controller
         $arrayListaCorreos = explode("\n", $request->textUsuarios);
         //Id del test
         $idTest = $request->selectTest;
+
+
 
 
         //Save the website in topics
@@ -190,24 +216,46 @@ class SurveyController extends Controller
         $ruta = $ip."/laravel_proyecto_ZCP/public/".$tipo[0]->type."/".$idTest."?page=".$paginaEncriptada;
         //print("Ruta encriptada: ".$ruta);
         //echo "<br>";
-        print ($paginaEncriptada);
-        print("Pagina descriptada: ".$this->desencriptar($paginaEncriptada));
+        //print ($paginaEncriptada);
+        //print("Pagina descriptada: ".$this->desencriptar($paginaEncriptada));
 
-
+        //Save en userzs and userzs_test at the same time and Send an email
         foreach ($arrayListaCorreos as $correo){
             $email = str_replace("\r","",$correo);
             $email2 = str_replace(" ","",$email);
-            $this->enviarEmail($ruta,$email2);
+
+            $newUserz = new App\Userz;
+            $newUserz->email = $email2;
+            $newUserz->save();
+            //Consulto la ultima instancia de userz
+            $idUserz = DB::table('userzs')->latest('userzs.id')->select('userzs.id')->first();
+
+            //print($idUserz);
+            $newUserz_test = new App\Userz_test;
+            $newUserz_test->tests_id = $idTest;
+            $newUserz_test->userzs_id = $idUserz->id;
+            $newUserz_test->deadline = $request->txt_deadLine;
+            //print($request->txt_deadLine);
+            $newUserz_test->save();
+
+
+
+           $this->enviarEmail($ruta,$email2);
             //echo "Correo a : ".$correo."<br>";
         }
 
         return back()->with('mensaje','Correos Enviados!');
 
+
+
     }
 
     public function enviarEmail($ruta, $correo){
+
+        $ruta=$ruta."&email=".$this->encriptar($correo);
         $data = array(
             'name'=>$ruta,
+
         );
         Mail::send('evaluator.surveyEmail',$data,function ($messaje) use ($correo){
             $messaje->from('alejandro1094@gmail.com','Zorros Privativos Comunes');

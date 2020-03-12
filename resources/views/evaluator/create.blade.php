@@ -123,10 +123,16 @@
                     </div>
                     @enderror
                     <div class="col-md-12">
-                        <label class="font-weight-bold" for="email">Email</label>
-                        <input type="email" name="txt_email" value="{{old('txt_email')}}" class="form-control" placeholder="Email Address">
+                        <label class="font-weight-bold" for="email">Correo</label>
+                        <input type="email" name="txt_email" value="{{old('txt_email')}}" class="form-control" placeholder="Escriba su correo">
                     </div>
                 </div>
+
+                <div class="col-md-12">
+                    <label class="font-weight-bold" for="email">Correo</label>
+                    <input type="email" name="txt_email2" value="" class="form-control" placeholder="Vuelva a escribir su correo">
+                </div>
+
 
 
 
@@ -145,26 +151,12 @@
                     </div>
                 </div>
 
-
-                <div class="row form-group">
-                    @error('txt_pass')
-                    <div class="alert alert-danger">La contraseña es obligatoria
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    @enderror
-                    <div class="col-md-12">
-                        <label class="font-weight-bold" for="password">Contraseña</label>
-                        <input type="password" name="txt_pass" value="{{old('txt_pass')}}" class="form-control" placeholder="Password">
-                    </div>
-                </div>
-
                 <div class="row form-group">
                     <div class="col-md-12">
                         <input type="submit" value="Guardar" class="btn btn-primary rounded-0 btn-lg">
                     </div>
                 </div>
+
             </form>
         </div>
 

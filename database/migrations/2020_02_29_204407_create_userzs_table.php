@@ -18,8 +18,8 @@ class CreateUserzsTable extends Migration
             $table->unsignedInteger('localizations_id')->nullable();
             $table->foreign('localizations_id','fk_userzs__localizations')->references('id')->on('localizations');
             $table->string('email',100);
-            $table->enum('gender', ['f', 'm']);
-            $table->date('birth_date');
+            $table->enum('gender', ['f', 'm'])->nullable();
+
             $table->timestamps();
         });
     }

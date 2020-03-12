@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class PollsterController extends Controller
 {
@@ -17,7 +19,14 @@ class PollsterController extends Controller
 
     public function index()
     {
-
+        //$admins = App\Actors::query()->where('admin_id', auth()->user()->actors_id)->paginate(5);
+        $admins = DB::table('actors')
+            ->join('users','actors.id','users.actors_id')
+            ->select('actors.firstname as firstname', 'actors.lastname AS lastname', 'users.email as email', 'actors.id as id')
+            ->where('actors.admin_id',auth()->user()->actors_id)
+            ->where('users.rol','evaluator')
+            ->paginate(5);
+        return view('evaluator.list',compact('admins'));
     }
 
 
@@ -37,7 +46,6 @@ class PollsterController extends Controller
             'txt_personal_id'=>'required|unique:actors,id',
             'txt_last_name'=>'required',
             'txt_email'=>'required',
-            'txt_pass'=>'required',
             'txt_number'=>'required',
             'gender'=>'required',
             'birthday'=>'required',
@@ -56,29 +64,52 @@ class PollsterController extends Controller
         $newEvaluator->gender = $request->gender;
         $newEvaluator->phonenumber = $request->txt_number;
         $newEvaluator->birth_date= $request->birthday;
+        $newEvaluator->ulrphoto='usuario.png';
         $newEvaluator->save();
 
         $user = new App\User;
+        $pass = substr(md5(microtime()), 1, 8);
         $user->actors_id =$request->txt_personal_id;
         $user->email = $request->txt_email;
-        $user->password = Hash::make($request->txt_pass);
+        $user->password = Hash::make($pass);
         $user->rol = "evaluator";
         $user->save();
 
+        $this->enviarEmail($pass,$request->txt_email,  $request->txt_name);
 
-        return back()->with('mensaje','Evaluador Agregado!');
+        return back()->with('mensaje','El Evaluador ha sido agregado correctamente! Recibirá un correo con su correspondiente contraseña');
     }
 
 
+    public function enviarEmail($pass, $correo, $firstname){
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $ruta = $ip."/laravel_proyecto_ZCP/public/";
+        $data = array(
+            'pass'=>$pass,
+            'path'=>$ruta,
+            'name'=>$firstname,
+        );
+        Mail::send('email.newUserEmail',$data,function ($messaje) use ($correo){
+            $messaje->from('alejandro1094@gmail.com','Zorros Privativos Comunes');
+            $messaje->to($correo)->subject('Bienvenido a nuestro Sistema');
+        });
+
+
+        //return "Tu email ha sido enviado";
+        //return view('evaluator.sendSurvey');
+    }
+
     public function show($id)
     {
-        return view('evaluator.showPollster');
+        $pollster = App\Actors::findOrFail($id);
+        return view('evaluator.showPollster', compact('pollster'));
     }
 
 
     public function edit($id)
     {
-        //
+        $pollster = App\Actors::findOrFail($id);
+        return view('evaluator.editPollster',compact('pollster'));
     }
 
 
@@ -88,8 +119,15 @@ class PollsterController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        if($request->ajax()){
+            $admin = App\Actors::findOrFail($id);
+            $admin->delete();
+            return response()->json([
+                'mensaje'=>$admin->name.' El evaluador fué eliminado satisfactoriamente!'
+            ]);
+
+        }
     }
 }
