@@ -64,6 +64,7 @@ class PollsterController extends Controller
         $newEvaluator->gender = $request->gender;
         $newEvaluator->phonenumber = $request->txt_number;
         $newEvaluator->birth_date= $request->birthday;
+        $newEvaluator->ulrphoto='usuario.png';
         $newEvaluator->save();
 
         $user = new App\User;
@@ -100,13 +101,15 @@ class PollsterController extends Controller
 
     public function show($id)
     {
-        return view('evaluator.showPollster');
+        $pollster = App\Actors::findOrFail($id);
+        return view('evaluator.showPollster', compact('pollster'));
     }
 
 
     public function edit($id)
     {
-        //
+        $pollster = App\Actors::findOrFail($id);
+        return view('evaluator.editPollster',compact('pollster'));
     }
 
 
@@ -116,8 +119,15 @@ class PollsterController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        if($request->ajax()){
+            $admin = App\Actors::findOrFail($id);
+            $admin->delete();
+            return response()->json([
+                'mensaje'=>$admin->name.' El evaluador fué eliminado satisfactoriamente!'
+            ]);
+
+        }
     }
 }

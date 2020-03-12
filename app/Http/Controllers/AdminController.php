@@ -69,6 +69,7 @@ class AdminController extends Controller
         $newAdmin->gender = $request->gender;
         $newAdmin->phonenumber = $request->txt_number;
         $newAdmin->birth_date= $request->birthday;
+        $newAdmin->ulrphoto='usuario.png';
         $newAdmin->save();
 
         $user = new App\User;

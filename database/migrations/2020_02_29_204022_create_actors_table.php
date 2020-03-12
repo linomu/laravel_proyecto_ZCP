@@ -21,6 +21,7 @@ class CreateActorsTable extends Migration
             $table->enum('gender', ['f', 'm']);
             $table->string('phonenumber',20);
             $table->date('birth_date');
+            $table->string('ulrphoto',100);
             $table->timestamps();
         });
     }

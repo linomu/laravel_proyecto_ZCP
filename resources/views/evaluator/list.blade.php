@@ -37,15 +37,16 @@
 
                 <tr>
 
-                    <td  class="clickable-row" data-href="{{route('admin.show',$admin->id)}}">{{$admin->id}}</td>
+                    <td  class="clickable-row" data-href="{{route('pollster.show',$admin->id)}}">{{$admin->id}}</td>
                     <?php   /*
     <!--<td><a href="{{route('admin.show',$admin->id)}}">{{$admin->name}}</a></td>--> */
                     ?>
-                    <td  class="clickable-row" data-href="{{route('admin.show',$admin->id)}}">{{$admin->firstname}}</td>
-                    <td  class="clickable-row" data-href="{{route('admin.show',$admin->id)}}">{{$admin->lastname}}</td>
-                    <td  class="clickable-row" data-href="{{route('admin.show',$admin->id)}}">{{$admin->email}}</td>
-                    <td><a href="{{route('admin.edit', $admin->id)}}" class="btn btn-warning btn-sm">Editar</a>
-                        <form action="{{route('admin.destroy',$admin->id)}}" class="d-inline" method="POST">
+                    <td  class="clickable-row" data-href="{{route('pollster.show',$admin->id)}}">{{$admin->firstname}}</td>
+                    <td  class="clickable-row" data-href="{{route('pollster.show',$admin->id)}}">{{$admin->lastname}}</td>
+                    <td  class="clickable-row" data-href="{{route('pollster.show',$admin->id)}}">{{$admin->email}}</td>
+                    <td>
+                        <?php //<a href="{{route('pollster.edit', $admin->id)}}" class="btn btn-warning btn-sm">Editar</a> ?>
+                        <form action="{{route('pollster.destroy',$admin->id)}}" class="d-inline" method="POST">
                             @method('DELETE')
                             @csrf
                             <button class="btnDelete btn btn-danger btn-sm ">Eliminar</button>

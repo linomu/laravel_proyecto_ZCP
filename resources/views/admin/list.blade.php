@@ -44,7 +44,8 @@
         <td  class="clickable-row" data-href="{{route('admin.show',$admin->id)}}">{{$admin->firstname}}</td>
         <td  class="clickable-row" data-href="{{route('admin.show',$admin->id)}}">{{$admin->lastname}}</td>
         <td  class="clickable-row" data-href="{{route('admin.show',$admin->id)}}">{{$admin->email}}</td>
-        <td><a href="{{route('admin.edit', $admin->id)}}" class="btn btn-warning btn-sm">Editar</a>
+        <td>
+          <?php   //<a href="{{route('admin.edit', $admin->id)}}" class="btn btn-warning btn-sm">Editar</a> ?>
           <form action="{{route('admin.destroy',$admin->id)}}" class="d-inline" method="POST">
             @method('DELETE')
             @csrf

@@ -13,7 +13,18 @@
 @endif
 
 <h1>Administrador</h1>
-<h2>Nombre: {{$admin->name}}</h2>
+        <?php
+        $id = auth()->user()->actors_id;
+        $actor = App\Actors::findOrFail($id);
+        $imagen = "images/".$actor->ulrphoto;
+        ?>
+        <img src="{{ URL::asset($imagen)}}" width="200" height="200" alt="A 200x200 image">
+        <h2>Documento: {{$admin->id}}</h2>
+        <h2>Nombre: {{$admin->firstname}}</h2>
+        <h2>Apellido: {{$admin->lastname}}</h2>
+        <h2>Género: {{$admin->gender}}</h2>
+        <h2>Número de celular: {{$admin->phonenumber}}</h2>
+        <h2>Fecha de Nacimiento: {{$admin->birth_date}}</h2>
 
 
 
