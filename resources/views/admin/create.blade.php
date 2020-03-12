@@ -123,7 +123,7 @@
             </div>
             @enderror
             <div class="col-md-12">
-              <label class="font-weight-bold" for="email">Correo</label>
+              <label class="font-weight-bold" for="email">Correo:</label>
             <input type="email" name="txt_email" value="{{old('txt_email')}}" class="form-control" placeholder="Escriba su correo">
             </div>
             </div>
