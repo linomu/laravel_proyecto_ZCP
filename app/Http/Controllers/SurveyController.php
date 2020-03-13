@@ -294,7 +294,7 @@ class SurveyController extends Controller
             $adultos = ($sumAdultos*100)/$total;
             //print("Adultos: ".$sumAdultos." Porcentaje: ".$porcentajeAdultos."%");
             //print("Jovenes: ".$sumJovenes." Porcentaje: ".$porcentajeJovenes."%");
-            
+
 
         }
 
