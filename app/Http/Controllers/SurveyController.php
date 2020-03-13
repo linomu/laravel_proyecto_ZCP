@@ -250,6 +250,60 @@ class SurveyController extends Controller
 
     }
 
+
+    public function showStatistics($id = -1)
+    {
+
+        //Validar si existe el id, para que no coloquen un id inválido
+        $test = App\Test::findOrFail($id);
+
+        //$deadLine  =  DB::table('userz_tests')->select('deadline')->where('id',$id)->limit(1)->get();
+        //Con esta consulta obtengo todas las fechas límite que ha tenido un test
+        $deadLines =
+            DB::table('userz_tests')
+            ->select(DB::raw("COUNT(userzs_id) count, deadline"))
+            ->groupBy('deadline')
+            ->where('tests_id',$id)
+            ->get();
+
+        $jovenes = 0;
+        $adultos = 0;
+
+        //Verifico si hay datos en la tabla
+        if(sizeof($deadLines)>0){
+            $sumJovenes = 0;
+            $sumAdultos =0;
+            foreach ($deadLines as $deadline){
+
+                $CantJoven = DB::table('userz_tests')
+                    ->whereDate('participationdate','<=',$deadline->deadline)
+                    ->where('deadline',$deadline->deadline)
+                    ->where('age','<',18)->count();
+                $sumJovenes  = $sumJovenes + $CantJoven;
+
+                $CantAdultos = DB::table('userz_tests')
+                    ->whereDate('participationdate','<=',$deadline->deadline)
+                    ->where('deadline',$deadline->deadline)
+                    ->where('age','>=',18)->count();
+                $sumAdultos = $sumAdultos + $CantAdultos;
+            }
+
+            $total = $sumJovenes + $sumAdultos;
+
+            $jovenes = ($sumJovenes*100)/$total;
+            $adultos = ($sumAdultos*100)/$total;
+            //print("Adultos: ".$sumAdultos." Porcentaje: ".$porcentajeAdultos."%");
+            //print("Jovenes: ".$sumJovenes." Porcentaje: ".$porcentajeJovenes."%");
+            
+
+        }
+
+
+
+        return view("evaluator.statistics", compact('jovenes','adultos'));
+
+    }
+
     public function enviarEmail($ruta, $correo){
 
         $ruta=$ruta."&email=".$this->encriptar($correo);

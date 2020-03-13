@@ -42,14 +42,21 @@
     <script
         src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
     </script>
+
+
+
+
   </head>
   <script>
     $(document).ready(
+
+
+
         function()
-        {  
+        {
             $("#txtQuestions").keyup(
                 function(e)
-                { 
+                {
                     e.preventDefault();
                     var code = e.key;
                     if(code==="Enter")
@@ -182,11 +189,11 @@
     </div>
 
     <!-- jQuery -->
-
+    @yield('script_section')
 
     <script src="{{ URL::asset('vendors/jquery/dist/jquery.min.js') }}"></script>
 
-    @yield('script_section')
+
     <!-- Bootstrap -->
 
     <script src="{{ URL::asset('vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>

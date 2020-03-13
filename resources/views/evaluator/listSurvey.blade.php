@@ -20,10 +20,11 @@
 			<tbody>
 			@foreach ($tests as $item)
 				<tr>
-					<th scope="row">{{$item->id}}</td>
-					<td>{{$item->name}}</td>
-					<td>{{$item->description}}</td>
-					<td>{{$item->kindSurvey}}</td>
+
+					<th scope="row">{{$item->id}}</th>
+					<td class="clickable-row" data-href="{{route('survey.statistics',$item->id)}}">{{$item->name}}</td>
+					<td class="clickable-row" data-href="{{route('survey.statistics',$item->id)}}">{{$item->description}}</td>
+					<td class="clickable-row" data-href="{{route('survey.statistics',$item->id)}}">{{$item->kindSurvey}}</td>
 				</tr>
 			@endforeach()
 			</tbody>
@@ -31,4 +32,8 @@
 	</div>
 </div>
 
+@endsection
+
+@section('script_section')
+    <script src="{{URL::asset('js/myscript.js') }}"></script>
 @endsection
