@@ -31,6 +31,9 @@ Route::get('/listar', 'SurveyController@listarEncuestas')->name('surveys_list');
 Route::get('/prueba',function(){
     return view ('evaluator.newUserEmail');
 });
+
+Route::get('/statistics/{id?}','SurveyController@showStatistics')->name('survey.statistics');
+
 Route::get('/enviarEncuesta','SurveyController@organizarEncuesta')->name('pag_env_encuesta');
 Route::post('/survey/email','SurveyController@enviarEncuesta')->name('survey.send');
 
