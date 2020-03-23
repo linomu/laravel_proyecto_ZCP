@@ -250,6 +250,21 @@ class SurveyController extends Controller
 
     }
 
+    public function validar(Request $request){
+        if($request->ajax()){
+            $headers = @get_headers($request->url);
+            if($headers && strpos( $headers[0], '200')) {
+                $status = "URL Existe";
+            }
+            else {
+                $status = "URL No existe";
+            }
+            return response()->json([
+                'mensaje'=> $status
+            ]);
+
+        }
+    }
 
     public function showStatistics($id = -1)
     {

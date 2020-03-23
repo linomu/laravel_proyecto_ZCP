@@ -1,6 +1,7 @@
 var x;
 x=$(document);
 x.ready(inicializarEventos);
+
 function inicializarEventos(){
 $('#alert').hide();
 
@@ -16,12 +17,12 @@ $('#alert').hide();
         $('#alert').show();
 
         console.log(url);
-        
+
         $.post(url, form.serialize(), function(result){
             row.fadeOut();
             $('#alert').html(result.mensaje);
         }).fail(function(){
-            $('#alert').html('Algo salió mal')
+            $('#alert').html('Algo salió mal');
         });
 
     });
@@ -33,8 +34,8 @@ $('#alert').hide();
 
     $('.clickable-row').mouseover(function(e){
         $(this).css('cursor', 'pointer');
-        
-        
+
+
     });
 
 

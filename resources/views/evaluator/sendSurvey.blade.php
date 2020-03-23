@@ -61,7 +61,7 @@
 
                 <div class="col-md-6"><div  id=correo></div>
 
-                    <div class="alert alert-secondary" role="alert">
+                    <div class="msgusuarios alert alert-secondary" role="alert">
                          <a id="mensaje" href="#" class="alert-link"></a>
                     </div>
 
@@ -83,10 +83,14 @@
             <div class="row form-group">
                 <label class="col-md-2 control-label" for="textinput">Sitio Web</label>
                 <div class="col-md-6">
-                    <div class="alert alert-secondary" role="alert">
+                    <div class="msgURLvalidate alert alert-secondary" role="alert">
                         <a id="mensajeUrl" href="#" class="alert-link"></a>
                     </div>
+                    <div  class="msgURLExists alert alert-secondary" role="alert">
+                        <a id="mensajeURlExists" href="#" class="alert-link"></a>
+                    </div>
                     <input id="textinput" name="txtPage" type="text" placeholder="Escribe una página web" class="form-control input-md">
+
                 </div>
             </div>
 

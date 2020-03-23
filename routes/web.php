@@ -36,6 +36,7 @@ Route::get('/statistics/{id?}','SurveyController@showStatistics')->name('survey.
 
 Route::get('/enviarEncuesta','SurveyController@organizarEncuesta')->name('pag_env_encuesta');
 Route::post('/survey/email','SurveyController@enviarEncuesta')->name('survey.send');
+Route::get('/survey/email/validar','SurveyController@validar');
 
 //Route::get('/SUS/{id?}', 'SurveyController@prueba' );
 
