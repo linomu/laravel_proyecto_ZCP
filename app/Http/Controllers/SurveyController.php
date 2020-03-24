@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use App;
 use mysql_xdevapi\Table;
 
+
 class SurveyController extends Controller
 {
     public function crear(Request $request){
@@ -266,6 +267,33 @@ class SurveyController extends Controller
         }
     }
 
+
+    public function mostrarVista(){
+        return view('evaluator.autocomplete');
+    }
+
+    function fetch(Request $request)
+    {
+        //dd($request->get('query'));
+
+
+        if($request->get('query'))
+        {
+            $query = $request->get('query');
+            $data = DB::table('topics')
+                ->where('description', 'LIKE', "%{$query}%")
+                ->get();
+            $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
+            foreach($data as $row)
+            {
+                $output .= '
+           <li><a href="#">'.$row->description.'</a></li>
+           ';
+            }
+            $output .= '</ul>';
+            echo $output;
+        }
+    }
     public function showStatistics($id = -1)
     {
 

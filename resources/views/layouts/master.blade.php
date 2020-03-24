@@ -39,10 +39,19 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleEnc.css') }}">
 
+
+
+
+      <style type="text/css">
+          .box{
+              width:600px;
+              margin:0 auto;
+          }
+      </style>
+
     <script
         src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
     </script>
-
 
 
 

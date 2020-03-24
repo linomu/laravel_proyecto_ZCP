@@ -3,14 +3,9 @@
 var x;
 x=$(document);
 x.ready(inicializarEventos);
-function inicializarEventos(){
 
-    $(".msgURLvalidate").hide();
-    $(".msgusuarios").hide();
-    $(".msgURLExists").hide();
+function  validarUsuarios() {
 
-    $("#textUsuarios").keyup(function(ww)
-    {
         $(".msgusuarios").show();
         //convierte en un array todas las lineas del mensaje
         var correosErroneos = new Array();
@@ -38,20 +33,20 @@ function inicializarEventos(){
         var cantidad_de_correos = correosErroneos.length;
 
         if(cantidad_de_correos>0){
-                    var primer_posicion=correosErroneos[0];
-                    var aux="";
-                    if (primer_posicion===aux){
-                        coreos.innerHTML="Lista de Correos vacia";
-                        $(".msgusuarios").removeClass("alert-success");
-                        $(".msgusuarios").addClass("alert-danger");
-                    }else
-                    {
-                        console.log(primer_posicion);
-                        $(".msgusuarios").removeClass("alert-success");
-                        $(".msgusuarios").addClass("alert-danger");
-                        var advertencia=correos => 'revisar los siguientes correos    '+correos;
-                        coreos.innerHTML=advertencia(correosErroneos);
-                    }
+            var primer_posicion=correosErroneos[0];
+            var aux="";
+            if (primer_posicion===aux){
+                coreos.innerHTML="Lista de Correos vacia";
+                $(".msgusuarios").removeClass("alert-success");
+                $(".msgusuarios").addClass("alert-danger");
+            }else
+            {
+                console.log(primer_posicion);
+                $(".msgusuarios").removeClass("alert-success");
+                $(".msgusuarios").addClass("alert-danger");
+                var advertencia=correos => 'revisar los siguientes correos    '+correos;
+                coreos.innerHTML=advertencia(correosErroneos);
+            }
 
 
         } else{
@@ -60,13 +55,11 @@ function inicializarEventos(){
             $(".msgusuarios").removeClass("alert-danger");
             $(".msgusuarios").addClass("alert-success");
         }
-    });
 
 
+}
+function validarURL() {
 
-
-    $("#textinput").keyup(function()
-    {
         $(".msgURLvalidate").show();
         $(".msgURLExists").show();
         var form = $(this).parents('form');
@@ -80,7 +73,7 @@ function inicializarEventos(){
         var url = $(this).val();
         console.log(url);
 
-       $.getJSON(phpPageRequest,{url: url}, llegadaDatos);
+        $.getJSON(phpPageRequest,{url: url}, llegadaDatos);
 
         mensaje_url = document.getElementById("mensajeUrl");
         if(isValidURL(url)){
@@ -100,14 +93,31 @@ function inicializarEventos(){
             $(".msgURLvalidate").removeClass("alert-success");
             $(".msgURLvalidate").addClass("alert-danger");
         }
-         var aux="";
+        var aux="";
         if(url===aux) {
             console.log("entro");
             mensaje_url.innerHTML = "URL vacia";
         }
 
 
-    });
+
+}
+function inicializarEventos(){
+
+    $(".msgURLvalidate").hide();
+    $(".msgusuarios").hide();
+    $(".msgURLExists").hide();
+
+    $("#textUsuarios").keyup(validarUsuarios);
+
+     $("#textinput").keyup(validarURL);
+
+     $("#textinput").focus(validarURL);
+
+
+
+
+
 
     $("#textinput").bind('paste', function() {
 

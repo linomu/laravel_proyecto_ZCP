@@ -90,8 +90,10 @@
                         <a id="mensajeURlExists" href="#" class="alert-link"></a>
                     </div>
                     <input id="textinput" name="txtPage" type="text" placeholder="Escribe una página web" class="form-control input-md">
-
+                    <div id="countryList">
+                    </div>
                 </div>
+                {{ csrf_field() }}
             </div>
 
             <!-- Button -->
@@ -105,14 +107,45 @@
 
 
 
+
+
     </form>
 
 
 @endsection
 
 @section('script_section')
+
+    <script>
+        $(document).ready(function(){
+
+            $('#textinput').keyup(function(){
+                var query = $(this).val();
+                if(query != '')
+                {
+                    var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                        url:"{{ route('autocomplete.fetch') }}",
+                        method:"POST",
+                        data:{query:query, _token:_token},
+                        success:function(data){
+                            $('#countryList').fadeIn();
+                            $('#countryList').html(data);
+                        }
+                    });
+                }
+            });
+
+            $(document).on('click', 'li', function(){
+                $('#textinput').val($(this).text());
+                $('#countryList').fadeOut();
+            });
+
+        });
+    </script>
     <script src="{{URL::asset('js/validae_email.js') }}"></script>
     <script src="{{URL::asset('js/functionsByLino.js') }}"></script>
+
 @endsection
 
 
