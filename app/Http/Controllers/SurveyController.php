@@ -144,7 +144,9 @@ class SurveyController extends Controller
 
         $test->save();
 
-        $idTest = DB::table('tests')->latest('tests.id')->select('tests.id')->first();
+        //$idTest = DB::table('tests')->latest('tests.id')->select('tests.id')->first();
+        $question = new App\Question;
+        DB::table('questions')->where('tests_id', '=', $id)->delete();
 
         $preguntasSinEspacio = str_replace("  "," ", $request->textQuestions);
         //var_dump($preguntasSinEspacio);
@@ -156,10 +158,9 @@ class SurveyController extends Controller
                 continue;
             }
             else {
-                $idQuestion = DB::select('SELECT id FROM questions WHERE tests_id = ?', [$idTest]);
                 $question->description = $pregunta;
                 DB::table('questions')->insert(
-                    ['tests_id' => $idTest->id, 'description' => $pregunta]
+                    ['tests_id' => $id, 'description' => $pregunta]
                 );
             }
         }
