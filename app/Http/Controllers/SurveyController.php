@@ -114,19 +114,65 @@ class SurveyController extends Controller
 
     public function edit($id)
     {
-        //
+        $test =App\Test::find($id);
+        $tests = DB::select(DB::raw('SHOW COLUMNS FROM tests WHERE Field = "kindSurvey"'))[0]->Type;
+        preg_match('/^enum\((.*)\)$/', $tests, $matches);
+        $enum = array();
+        foreach(explode(',', $matches[1]) as $value){
+            $v = trim( $value, "'" );
+            $enum[] = $v;
+        }
+        return view('evaluator.editSurvey', compact('test', 'enum'));
+        
     }
 
 
     public function update(Request $request, $id)
     {
-        //
+        $test = App\Test::findOrFail($id);
+        $request->validate([
+            'nombre'=>'required',
+            'descripcion'=>'required',
+            'selectTest'=>'required',
+            'textQuestions'=>'required',
+        ]);
+
+        $test->name = $request->nombre;
+        $test->actors_id = auth()->user()->actors_id;
+        $test->description = $request->descripcion;
+        $test->kindSurvey = $request->selectTest;
+
+        $test->save();
+
+        $idTest = DB::table('tests')->latest('tests.id')->select('tests.id')->first();
+
+        $preguntasSinEspacio = str_replace("  "," ", $request->textQuestions);
+        //var_dump($preguntasSinEspacio);
+        $arrayListaPreguntas = explode(",",$preguntasSinEspacio);
+        var_dump($arrayListaPreguntas);
+
+        foreach ($arrayListaPreguntas as $pregunta){
+            if ($pregunta == "") {
+                continue;
+            }
+            else {
+                $idQuestion = DB::select('SELECT id FROM questions WHERE tests_id = ?', [$idTest]);
+                $question->description = $pregunta;
+                DB::table('questions')->insert(
+                    ['tests_id' => $idTest->id, 'description' => $pregunta]
+                );
+            }
+        }
+
+        return redirect('/listar')->with('mensaje','¡Encuesta registrada satisfactoriamente!');
     }
 
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $test = App\Test::findOrFail($id);
+        $test->delete();
+        return redirect('/listar')->with('mensaje', 'fue eliminado satisfactoriamente!');
     }
 
     public function prueba(Request $request, $id){
