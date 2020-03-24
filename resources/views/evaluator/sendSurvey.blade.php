@@ -39,7 +39,7 @@
 
                <label class="col-md-2 control-label" for="deadLine">Fecha Límite de respuesta:</label>
                <div class="col-md-6">
-                   <input type="date" id="deadline" name="txt_deadLine"  value=""  min="" max="">
+                   <input type="date" id="deadline" name="txt_deadLine"  value=""  min="" max="" >
                </div>
              </div>
 

@@ -42,6 +42,8 @@ function inicializarEventos(){
                     var aux="";
                     if (primer_posicion===aux){
                         coreos.innerHTML="Lista de Correos vacia";
+                        $(".msgusuarios").removeClass("alert-success");
+                        $(".msgusuarios").addClass("alert-danger");
                     }else
                     {
                         console.log(primer_posicion);
@@ -126,7 +128,7 @@ function inicializarEventos(){
 function llegadaDatos(datos) {
 
     var mensaje = datos.mensaje.toString();
-    
+
     if(mensaje==("URL No existe")){
         $(".msgURLExists").removeClass("alert-success");
         $(".msgURLExists").addClass("alert-danger");

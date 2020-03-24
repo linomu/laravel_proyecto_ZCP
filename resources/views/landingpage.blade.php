@@ -449,7 +449,7 @@
 
           <div class="col-lg-4 col-md-6 mb-5">
             <div class="media custom-media">
-              <div class="mr-3 icon"><span class="flaticon-window display-4"></span></div>
+              <div class="mr-3 icon"><span class=""></span></div>
               <div class="media-body">
                 <h5 class="mt-0">Gestionar Usuarios</h5>
                 Permitir a los usuarios registrarse e ingresar en nuestro sistema con sus datos personales básicos para poder realizar encuestas.
@@ -460,7 +460,7 @@
 
           <div class="col-lg-4 col-md-6 mb-5">
             <div class="media custom-media">
-              <div class="mr-3 icon"><span class="flaticon-measuring display-4"></span></div>
+              <div class="mr-3 icon"><span class=""></span></div>
               <div class="media-body">
                 <h5 class="mt-0">Gestionar Evaluadores</h5>
                 Permitir a los evaluadores  gestionar encuestas y su perfil para posteriormente poder visualizar estadísticas para cada una de las encuestas creadas.
@@ -470,7 +470,7 @@
 
           <div class="col-lg-4 col-md-6 mb-5">
             <div class="media custom-media">
-              <div class="mr-3 icon"><span class="flaticon-sit-down display-4"></span></div>
+              <div class="mr-3 icon"><span class=""></span></div>
               <div class="media-body">
                 <h5 class="mt-0">Gestionar Administradores</h5>
                 Permitir a los administradores gestionar otros administradores y evaluadores. Además de eso, se permite ver las encuestas y ver sus propias estadísiticas.
