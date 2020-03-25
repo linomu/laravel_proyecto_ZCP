@@ -31,7 +31,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                Estadistica de Pu
+                <div id="chartContainerPu" style="height: 370px; width: 100%;"></div>
 
             </div>
             <div class="col-md-6">
@@ -60,6 +60,27 @@
 
     <script>
         window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainerPu", {
+                theme: "light1", // "light2", "dark1", "dark2"
+                animationEnabled: false, // change to true
+                title:{
+                    text: "¿Cuántos hombres y mujeres respondieron la encuesta? "
+                },
+                data: [
+                    {
+                        // Change type to "bar", "area", "spline", "pie",etc.
+                        type: "column",
+                        dataPoints: [
+
+                            { label: "Hombres",  y: {{$cantidadHombres}}  },
+                            { label: "Mujeres",  y: {{$cantidadMujeres}}  },
+
+                        ]
+                    }
+                ]
+            });
+            chart.render();
 
             var chart = new CanvasJS.Chart("chartContainerTomas", {
                 theme: "light1", // "light2", "dark1", "dark2"
@@ -99,6 +120,9 @@
                 }]
             });
             chart.render();
+
+
+
 
 
         }

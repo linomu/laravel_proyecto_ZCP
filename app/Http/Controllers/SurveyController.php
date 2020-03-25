@@ -297,12 +297,23 @@ class SurveyController extends Controller
     public function showStatistics($id = -1)
     {
 
+        $deadLines =
+            DB::table('userz_tests')
+                ->select(DB::raw("COUNT(userzs_id) count, deadline"))
+                ->groupBy('deadline')
+                ->where('tests_id',$id)
+                ->get();
 
-        /*$consulta = DB::table('tests')
+
+
+
+
+
+        $consulta = DB::table('tests')
             ->join('userz_tests','tests.id','userz_tests.tests_id')
             ->join('answers','userz_tests.id','answers.userz_tests_id')
             ->where('tests.id',$id)
-            ->get();*/
+            ->get();
         //Que preguntas tuvieron una respuesta promedio menor a 3?
         $consultaTomas = DB::table('tests')
             ->select(DB::raw("AVG(answers.description) promedio, questions_id, questions.description "))
@@ -312,7 +323,7 @@ class SurveyController extends Controller
             ->groupBy('answers.questions_id')
             ->groupBy('questions.description')
             ->where('tests.id',$id)
-            ->having('promedio','<',4)
+            ->having('promedio','<',3)
             ->get();
         //dd($consultaTomas);
 
@@ -333,10 +344,34 @@ class SurveyController extends Controller
         $adultos = 0;
 
         //Verifico si hay datos en la tabla
+
+        $cantidadMujeres=0;
+        $cantidadHombres= 0;
         if(sizeof($deadLines)>0){
             $sumJovenes = 0;
             $sumAdultos =0;
             foreach ($deadLines as $deadline){
+
+                //Consulta Cuasapud
+                //, ¿Cuántos hombres y mujeres respondieron la encuesta? ?
+                $consulta = DB::table('tests')
+                    ->select(DB::raw("COUNT(userzs_id) usuarios, userzs.gender "))
+                    ->join('userz_tests','tests.id','userz_tests.tests_id')
+                    ->join('userzs','userzs.id','userz_tests.userzs_id')
+                    ->groupBy('userzs.gender')
+                    ->where('tests.id',$id)
+                    ->where('deadline',$deadline->deadline)
+                    ->whereDate('participationdate','<=',$deadline->deadline)
+                    ->get();
+                foreach ($consulta as $query){
+                    if($query->gender=="f"){
+                        $cantidadMujeres = $cantidadMujeres + $query->usuarios;
+                    }
+                    else{
+                        $cantidadHombres = $cantidadHombres + $query->usuarios;
+                    }
+                }
+
 
                 $CantJoven = DB::table('userz_tests')
                     ->whereDate('participationdate','<=',$deadline->deadline)
@@ -370,7 +405,7 @@ class SurveyController extends Controller
 
 
 
-        return view("evaluator.statistics", compact('jovenes','adultos','consultaTomas'));
+        return view("evaluator.statistics", compact('jovenes','adultos','consultaTomas','cantidadHombres','cantidadMujeres'));
 
     }
 
