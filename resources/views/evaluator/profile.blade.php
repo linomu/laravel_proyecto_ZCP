@@ -3,7 +3,7 @@
 @include("../layouts/userInformation")
 
 @section('content')
-    
+
         @if(session('mensaje'))
             <div class="alert alert-success">
                 {{session('mensaje')}}
@@ -44,7 +44,7 @@
                                     <div id="crop-avatar">
                                         <!-- Current avatar -->
 
-                                        <img class="img-responsive avatar-view" src="{{ URL::asset( "images/".$pollster[0]->ulrphoto) }}" alt="Avatar" title="Change the avatar">
+                                        <img class="img-responsive avatar-view" src="{{ URL::asset( "images/".$pollster[0]->ulrphoto) }}" alt="Avatar" title="Change the avatar"  height="100%" width="100%">
 
                                     </div>
                                 </div>
@@ -160,7 +160,7 @@
                                         </div>
                                         <div role="tabpanel" class="tab-pane active" id="tab_content3" aria-labelledby="profile-tab">
 
-                                            <form action="{{route('pollster.update',$pollster[0]->actors_id)}}" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"  onsubmit="return validarPasswordsIguales()">
+                                            <form action="{{route('pollster.update',$pollster[0]->actors_id)}}" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"  onsubmit="return validarPasswordsIguales()" enctype="multipart/form-data">
                                                 @method('PUT')
                                                 @csrf
 

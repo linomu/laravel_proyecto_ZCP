@@ -127,6 +127,8 @@ class PollsterController extends Controller
 
     public function update(Request $request, $id)
     {
+
+
         $request->validate([
             'identification'=>'required',
             'firstname'=>'required',
@@ -134,7 +136,13 @@ class PollsterController extends Controller
             'gender'=>'required',
             'birthday'=>'required',
         ]);
+
+
         //First I must update the actor table before users
+
+
+        $file = $request->file('urlphoto');
+        $file->move(base_path('public\images'), $file->getClientOriginalName());
 
         $actor = App\Actors::findOrFail($id);
         $actor->id = $request->identification;
@@ -144,27 +152,15 @@ class PollsterController extends Controller
         $actor->phonenumber = $request->phonenumber;
         $actor->birth_date = $request->birthday;
         if($request->urlphoto == null){
-            $actor->ulrphoto = $actor->ulrphoto;
+            $actor->ulrphoto = $file->getClientOriginalName();
         }else{
-            $actor->ulrphoto = $request->urlphoto;
+            $actor->ulrphoto = $file->getClientOriginalName();
         }
-         $actor->save();
+        $actor->save();
+
+
         return redirect()->action('HomeController@index')->with('mensaje','Perfil Actualizado!');
-        /*
-        return redirect()->action(
-            'PollsterController@show', ['id' => $request->identification]
-        );*/
 
-        //Actualizar la tabla user
-        /*
-        $pollster = DB::table('actors')
-            ->join('users','actors.id','users.actors_id')
-            ->where('actors.id',$request->identification)
-            ->get();
-        //The query should bring all the information about this pollster, including the user information.
-        return view('evaluator.profile', compact('pollster'))->with('mensaje','Evaluador Actualizado!');
-
-    */
 
     }
 
