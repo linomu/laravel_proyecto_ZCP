@@ -68,4 +68,35 @@ function validar(){
     return true;
 }
 
+function validarPasswordsIguales(){
+    var password = $("#password").val();
+    var passwordConfirm = $("#passwordConfirm").val();
 
+    //validar que los dos campos esten vacios, si es asi... podemos enviar el formulario
+    if(password == "" && passwordConfirm == ""){
+        return true;
+    }
+
+    //En los dos if que siguen vamos a validar, si se ha escrito en alguna de las dos contraseñas
+    if(password != "" && passwordConfirm == ""){
+        alert("Debe completar la segunda contraseña");
+        return false;
+    }
+    if(password == "" && passwordConfirm != ""){
+        alert("Debe completar la primera contraseña");
+        return false;
+    }
+    //validar que las contraseñas coincidan
+    if(password != passwordConfirm){
+        alert("Las contraseñas no coinciden");
+        return false;
+    }
+
+
+    if(password == passwordConfirm){
+        return true;
+    }
+
+
+
+}

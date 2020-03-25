@@ -4,6 +4,12 @@
 
 @section('content')
 
+        {{$pollster}}
+        @if(session('mensaje'))
+            <div class="alert alert-success">
+                {{session('mensaje')}}
+            </div>
+        @endif
         <div class="">
             <!--
             <div class="page-title">
@@ -154,14 +160,16 @@
 
                                         </div>
                                         <div role="tabpanel" class="tab-pane active" id="tab_content3" aria-labelledby="profile-tab">
-                                            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
+                                            <form action="{{route('pollster.update',$pollster[0]->actors_id)}}" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"  onsubmit="return validarPasswordsIguales()">
+                                                @method('PUT')
+                                                @csrf
 
                                                 <div class="item form-group">
                                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="identification">Identificación: <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
-                                                        <input type="number" id="identification" required="required" class="form-control" value="{{$pollster[0]->actors_id}}">
+                                                        <input type="number" id="identification" name="identification" required="required" class="form-control" value="{{$pollster[0]->actors_id}}">
                                                     </div>
                                                 </div>
 
@@ -169,14 +177,14 @@
                                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
-                                                        <input type="text" id="first-name" required="required" class="form-control" value="{{$pollster[0]->firstname}}">
+                                                        <input type="text" id="firstname" name="firstname" required="required" class="form-control" value="{{$pollster[0]->firstname}}">
                                                     </div>
                                                 </div>
                                                 <div class="item form-group">
                                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Apellido <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
-                                                        <input type="text" id="last-name" name="last-name" required="required" class="form-control" value="{{$pollster[0]->lastname}}">
+                                                        <input type="text" id="lastname" name="lastname" required="required" class="form-control" value="{{$pollster[0]->lastname}}">
                                                     </div>
                                                 </div>
 
@@ -185,7 +193,7 @@
                                                     <label for="phonenumber" class="col-form-label col-md-3 col-sm-3 label-align">Celular <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
-                                                        <input id="phonenumber" class="form-control" type="text" name="middle-name" value="{{$pollster[0]->phonenumber}}" >
+                                                        <input id="phonenumber" name="phonenumber" class="form-control" type="text" name="middle-name" value="{{$pollster[0]->phonenumber}}" >
                                                     </div>
                                                 </div>
                                                 <div class="item form-group">
@@ -195,17 +203,17 @@
 
                                                             @if($pollster[0]->gender== "m")
                                                                 <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                                    <input type="radio" checked name="gender" value="male" class="join-btn" > &nbsp; Male &nbsp;
+                                                                    <input type="radio" checked name="gender" value="m" class="join-btn" > &nbsp; Male &nbsp;
                                                                 </label>
                                                                 <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                                    <input type="radio" name="gender" value="female" class="join-btn" > Female
+                                                                    <input type="radio" name="gender" value="f" class="join-btn" > Female
                                                                 </label>
                                                                 @else
                                                                 <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                                    <input type="radio"  name="gender" value="male" class="join-btn" > &nbsp; Male &nbsp;
+                                                                    <input type="radio"  name="gender" value="m" class="join-btn" > &nbsp; Male &nbsp;
                                                                 </label>
                                                                 <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                                    <input type="radio" checked name="gender" value="female" class="join-btn" > Female
+                                                                    <input type="radio" checked name="gender" value="f" class="join-btn" > Female
                                                                 </label>
                                                                 @endif
 
@@ -218,7 +226,7 @@
                                                     <label class="col-form-label col-md-3 col-sm-3 label-align">Fecha de nacimiento <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
-                                                        <input id="birthday" class="date-picker  form-control" required="required" type="date" value="{{$pollster[0]->birth_date}}">
+                                                        <input id="birthday" name="birthday" class="date-picker  form-control" required="required" type="date" value="{{$pollster[0]->birth_date}}">
                                                     </div>
                                                 </div>
 
@@ -226,7 +234,7 @@
                                                     <label class="col-form-label col-md-3 col-sm-3 label-align">Imagen <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
-                                                        <input id="urlphoto" class="form-control" type="file" accept=".jpg,.png">
+                                                        <input id="urlphoto" name="urlphoto" class="form-control" type="file" accept=".jpg,.png">
                                                     </div>
                                                 </div>
 
@@ -235,14 +243,14 @@
                                                     <label class="col-form-label col-md-3 col-sm-3 label-align">Contraseña <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
-                                                        <input id="password" class="form-control"  type="password">
+                                                        <input id="password" name="password" class="form-control"  type="password">
                                                     </div>
                                                 </div>
                                                 <div class="item form-group">
                                                     <label class="col-form-label col-md-3 col-sm-3 label-align">Repetir Contraseña <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
-                                                        <input id="passwordConfirm" class="form-control"  type="password">
+                                                        <input id="passwordConfirm" name="passwordConfirm" class="form-control"  type="password">
                                                     </div>
                                                 </div>
 
@@ -266,3 +274,8 @@
         </div>
 
     @endsection
+
+@section('script_section')
+
+    <script src="{{URL::asset('js/functionsByLino.js') }}"></script>
+@endsection

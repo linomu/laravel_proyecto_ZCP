@@ -7,13 +7,15 @@ use App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use mysql_xdevapi\Exception;
 
 class PollsterController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('admin')->except('show');
+        $this->middleware('admin')->except('show','update');
+        $this->middleware('evaluator')->only('update','show');
     }
 
 
@@ -102,12 +104,16 @@ class PollsterController extends Controller
     public function show($id)
     {
         //$pollster = App\Actors::findOrFail($id);
-        $pollster = DB::table('actors')
-            ->join('users','actors.id','users.actors_id')
-            ->where('actors.id',$id)
-            ->get();
-        //The query should bring all the information about this pollster, including the user information.
-        return view('evaluator.profile', compact('pollster'));
+
+            $pollster = DB::table('actors')
+                ->join('users','actors.id','users.actors_id')
+                ->where('actors.id',$id)
+                ->get();
+            //The query should bring all the information about this pollster, including the user information.
+            return view('evaluator.profile', compact('pollster'));
+
+
+
     }
 
 
@@ -121,7 +127,41 @@ class PollsterController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'identification'=>'required',
+            'firstname'=>'required',
+            'lastname'=>'required',
+            'gender'=>'required',
+            'birthday'=>'required',
+        ]);
+        //First I must update the actor table before users
+
+        $actor = App\Actors::findOrFail($id);
+        $actor->id = $request->identification;
+        $actor->firstname = $request->firstname;
+        $actor->lastname = $request->lastname;
+        $actor->gender = $request->gender;
+        $actor->phonenumber = $request->phonenumber;
+        $actor->birth_date = $request->birthday;
+        if($request->urlphoto == null){
+            $actor->ulrphoto = $actor->ulrphoto;
+        }else{
+            $actor->ulrphoto = $request->urlphoto;
+        }
+         $actor->save();
+
+
+        //Actualizar la tabla user
+
+        $pollster = DB::table('actors')
+            ->join('users','actors.id','users.actors_id')
+            ->where('actors.id',$request->identification)
+            ->get();
+        //The query should bring all the information about this pollster, including the user information.
+        return view('evaluator.profile', compact('pollster'));
+
+
+
     }
 
 
