@@ -3,8 +3,7 @@
 @include("../layouts/userInformation")
 
 @section('content')
-
-        {{$pollster}}
+    
         @if(session('mensaje'))
             <div class="alert alert-success">
                 {{session('mensaje')}}

@@ -1,7 +1,12 @@
 
 <?php
-$id = auth()->user()->actors_id;
-$actor = App\Actors::findOrFail($id);
+
+$idUsuario = auth()->user()->id;
+$id = DB::table('users')
+    ->where('users.id',$idUsuario)
+    ->get();
+
+$actor = App\Actors::findOrFail($id[0]->actors_id);
 $imagen = "images/".$actor->ulrphoto;
 
 ?>

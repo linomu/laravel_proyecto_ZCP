@@ -149,18 +149,22 @@ class PollsterController extends Controller
             $actor->ulrphoto = $request->urlphoto;
         }
          $actor->save();
-
+        return redirect()->action('HomeController@index')->with('mensaje','Perfil Actualizado!');
+        /*
+        return redirect()->action(
+            'PollsterController@show', ['id' => $request->identification]
+        );*/
 
         //Actualizar la tabla user
-
+        /*
         $pollster = DB::table('actors')
             ->join('users','actors.id','users.actors_id')
             ->where('actors.id',$request->identification)
             ->get();
         //The query should bring all the information about this pollster, including the user information.
-        return view('evaluator.profile', compact('pollster'));
+        return view('evaluator.profile', compact('pollster'))->with('mensaje','Evaluador Actualizado!');
 
-
+    */
 
     }
 
