@@ -297,6 +297,26 @@ class SurveyController extends Controller
     public function showStatistics($id = -1)
     {
 
+
+        /*$consulta = DB::table('tests')
+            ->join('userz_tests','tests.id','userz_tests.tests_id')
+            ->join('answers','userz_tests.id','answers.userz_tests_id')
+            ->where('tests.id',$id)
+            ->get();*/
+        //Que preguntas tuvieron una respuesta promedio menor a 3?
+        $consultaTomas = DB::table('tests')
+            ->select(DB::raw("AVG(answers.description) promedio, questions_id, questions.description "))
+            ->join('userz_tests','tests.id','userz_tests.tests_id')
+            ->join('answers','userz_tests.id','answers.userz_tests_id')
+            ->join('questions','questions.id','answers.questions_id')
+            ->groupBy('answers.questions_id')
+            ->groupBy('questions.description')
+            ->where('tests.id',$id)
+            ->having('promedio','<',4)
+            ->get();
+        //dd($consultaTomas);
+
+
         //Validar si existe el id, para que no coloquen un id inválido
         $test = App\Test::findOrFail($id);
 
@@ -333,8 +353,15 @@ class SurveyController extends Controller
 
             $total = $sumJovenes + $sumAdultos;
 
-            $jovenes = ($sumJovenes*100)/$total;
-            $adultos = ($sumAdultos*100)/$total;
+            if(!$total==0){
+                $jovenes = ($sumJovenes*100)/$total;
+                $adultos = ($sumAdultos*100)/$total;
+            }
+            else{
+                $jovenes = 0;
+                $adultos = 0;
+            }
+
             //print("Adultos: ".$sumAdultos." Porcentaje: ".$porcentajeAdultos."%");
             //print("Jovenes: ".$sumJovenes." Porcentaje: ".$porcentajeJovenes."%");
 
@@ -343,7 +370,7 @@ class SurveyController extends Controller
 
 
 
-        return view("evaluator.statistics", compact('jovenes','adultos'));
+        return view("evaluator.statistics", compact('jovenes','adultos','consultaTomas'));
 
     }
 
