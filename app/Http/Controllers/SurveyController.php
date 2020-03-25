@@ -316,6 +316,15 @@ class SurveyController extends Controller
         $jovenes = 0;
         $adultos = 0;
 
+        $mayor = 
+            DB::table('questions')
+            ->join('answers', 'questions.id', '=', 'answers.questions_id')
+            ->select(DB::raw("COUNT(userzs_id) count, deadline"))
+            ->where('tests_id',$id)
+            ->get();
+            
+
+
         //Verifico si hay datos en la tabla
         if(sizeof($deadLines)>0){
             $sumJovenes = 0;
