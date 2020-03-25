@@ -13,7 +13,7 @@ class PollsterController extends Controller
 
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('admin')->except('show');
     }
 
 
@@ -101,14 +101,20 @@ class PollsterController extends Controller
 
     public function show($id)
     {
-        $pollster = App\Actors::findOrFail($id);
-        return view('evaluator.showPollster', compact('pollster'));
+        //$pollster = App\Actors::findOrFail($id);
+        $pollster = DB::table('actors')
+            ->join('users','actors.id','users.actors_id')
+            ->where('actors.id',$id)
+            ->get();
+        //The query should bring all the information about this pollster, including the user information.
+        return view('evaluator.profile', compact('pollster'));
     }
 
 
     public function edit($id)
     {
         $pollster = App\Actors::findOrFail($id);
+
         return view('evaluator.editPollster',compact('pollster'));
     }
 
@@ -117,6 +123,7 @@ class PollsterController extends Controller
     {
         //
     }
+
 
 
     public function destroy(Request $request, $id)

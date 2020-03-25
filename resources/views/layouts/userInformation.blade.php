@@ -19,3 +19,5 @@ $imagen = "images/".$actor->ulrphoto;
     <img src="{{ URL::asset($imagen) }}" alt="">{{$actor->firstname." ".$actor->lastname}}
 
 @endsection
+
+
