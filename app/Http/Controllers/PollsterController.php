@@ -106,12 +106,12 @@ class PollsterController extends Controller
     {
         //$pollster = App\Actors::findOrFail($id);
 
-            $pollster = DB::table('actors')
+            $actor = DB::table('actors')
                 ->join('users','actors.id','users.actors_id')
                 ->where('actors.id',$id)
                 ->get();
             //The query should bring all the information about this pollster, including the user information.
-            return view('evaluator.profile', compact('pollster'));
+            return view('layouts.profile', compact('actor'));
 
 
 
@@ -168,7 +168,23 @@ class PollsterController extends Controller
 
 
             //Actualizar user solo la password
-            
+
+            if($request->password != ""){
+                $user = DB::table('users')
+                    ->where('users.actors_id',$request->identification)
+                    ->get();
+                $idUser =  $user[0]->id;
+                $user = App\User::findOrFail($idUser);
+
+                $user->id = $user->id;
+                $user->actors_id = $user->actors_id;
+                $user->email = $user->email;
+                $user->password = Hash::make($request->password);
+                $user->rol = $user->rol;
+                $user->save();
+            }
+
+
             return redirect()->action('HomeController@index')->with('mensaje','Perfil Actualizado!');
 
 

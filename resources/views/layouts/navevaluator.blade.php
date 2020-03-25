@@ -15,11 +15,7 @@
                     <li><a href="{{ route('pag_env_encuesta')}}">Enviar Formulario</a></li>
                 </ul>
             </li>
-            <li><a><i class="fa fa-desktop"></i>Historial de Encuestas<span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                    <li><a href="general_elements.html">Listar</a></li>
-                </ul>
-            </li>
+
 
         </ul>
     </div>

@@ -54,25 +54,25 @@
                                     <div id="crop-avatar">
                                         <!-- Current avatar -->
 
-                                        <img class="img-responsive avatar-view" src="{{ URL::asset( "images/".$pollster[0]->ulrphoto) }}" alt="Avatar" title="Change the avatar"  height="100%" width="100%">
+                                        <img class="img-responsive avatar-view" src="{{ URL::asset( "images/".$actor[0]->ulrphoto) }}" alt="Avatar" title="Change the avatar"  height="100%" width="100%">
 
                                     </div>
                                 </div>
-                                <h3>{{$pollster[0]->firstname." ".$pollster[0]->lastname}}</h3>
+                                <h3>{{$actor[0]->firstname." ".$actor[0]->lastname}}</h3>
 
                                 <ul class="list-unstyled user_data">
-                                    <li><i class="fa fa-envelope user-profile-icon"></i> {{$pollster[0]->email}}
+                                    <li><i class="fa fa-envelope user-profile-icon"></i> {{$actor[0]->email}}
                                     </li>
 
                                     <li>
-                                        <i class="fa fa-birthday-cake user-profile-icon"></i> {{$pollster[0]->birth_date}}
+                                        <i class="fa fa-birthday-cake user-profile-icon"></i> {{$actor[0]->birth_date}}
                                     </li>
 
                                     <li>
-                                        <i class="fa fa-phone user-profile-icon"></i> {{$pollster[0]->phonenumber}}
+                                        <i class="fa fa-phone user-profile-icon"></i> {{$actor[0]->phonenumber}}
                                     </li>
 
-                                    @if($pollster[0]->gender=="m")
+                                    @if($actor[0]->gender=="m")
                                         <li>
                                             <i class="fa fa-male user-profile-icon"></i> Hombre
                                         </li>
@@ -170,7 +170,12 @@
                                         </div>
                                         <div role="tabpanel" class="tab-pane active" id="tab_content3" aria-labelledby="profile-tab">
 
-                                            <form action="{{route('pollster.update',$pollster[0]->actors_id)}}" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"  onsubmit="return validarPasswordsIguales()" enctype="multipart/form-data">
+                                            @if(auth()->user()->rol=="evaluator")
+                                                <form action="{{route('pollster.update',$actor[0]->actors_id)}}" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"  onsubmit="return validarPasswordsIguales()" enctype="multipart/form-data">
+                                                @else
+                                                        <form action="{{route('admin.update',$actor[0]->actors_id)}}" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"  onsubmit="return validarPasswordsIguales()" enctype="multipart/form-data">
+                                            @endif
+
                                                 @method('PUT')
                                                 @csrf
 
@@ -178,7 +183,7 @@
                                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="identification">Identificación: <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
-                                                        <input type="number" id="identification" name="identification" required="required" class="form-control" value="{{$pollster[0]->actors_id}}">
+                                                        <input type="number" id="identification" name="identification" required="required" class="form-control" value="{{$actor[0]->actors_id}}">
                                                     </div>
                                                 </div>
 
@@ -186,23 +191,23 @@
                                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
-                                                        <input type="text" id="firstname" name="firstname" required="required" class="form-control" value="{{$pollster[0]->firstname}}">
+                                                        <input type="text" id="firstname" name="firstname" required="required" class="form-control" value="{{$actor[0]->firstname}}">
                                                     </div>
                                                 </div>
                                                 <div class="item form-group">
                                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Apellido <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
-                                                        <input type="text" id="lastname" name="lastname" required="required" class="form-control" value="{{$pollster[0]->lastname}}">
+                                                        <input type="text" id="lastname" name="lastname" required="required" class="form-control" value="{{$actor[0]->lastname}}">
                                                     </div>
                                                 </div>
 
 
                                                 <div class="item form-group">
-                                                    <label for="phonenumber" class="col-form-label col-md-3 col-sm-3 label-align">Celular <span class="required">*</span>
+                                                    <label for="phonenumber" class="col-form-label col-md-3 col-sm-3 label-align">Celular
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
-                                                        <input id="phonenumber" name="phonenumber" class="form-control" type="text" name="middle-name" value="{{$pollster[0]->phonenumber}}" >
+                                                        <input id="phonenumber" name="phonenumber" class="form-control" type="text" name="middle-name" value="{{$actor[0]->phonenumber}}" >
                                                     </div>
                                                 </div>
                                                 <div class="item form-group">
@@ -210,7 +215,7 @@
                                                     <div class="col-md-6 col-sm-6 ">
                                                         <div id="gender" class="btn-group" data-toggle="buttons">
 
-                                                            @if($pollster[0]->gender== "m")
+                                                            @if($actor[0]->gender== "m")
                                                                 <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                                                                     <input type="radio" checked name="gender" value="m" class="join-btn" > &nbsp; Male &nbsp;
                                                                 </label>
@@ -235,12 +240,12 @@
                                                     <label class="col-form-label col-md-3 col-sm-3 label-align">Fecha de nacimiento <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
-                                                        <input id="birthday" name="birthday" class="date-picker  form-control" required="required" type="date" value="{{$pollster[0]->birth_date}}">
+                                                        <input id="birthday" name="birthday" class="date-picker  form-control" required="required" type="date" value="{{$actor[0]->birth_date}}">
                                                     </div>
                                                 </div>
 
                                                 <div class="item form-group">
-                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Imagen <span class="required">*</span>
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Imagen
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
                                                         <input id="urlphoto" name="urlphoto" class="form-control" type="file" accept=".jpg,.png">
@@ -249,14 +254,14 @@
 
 
                                                 <div class="item form-group">
-                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Contraseña <span class="required">*</span>
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Contraseña
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
                                                         <input id="password" name="password" class="form-control"  type="password">
                                                     </div>
                                                 </div>
                                                 <div class="item form-group">
-                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Repetir Contraseña <span class="required">*</span>
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Repetir Contraseña
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 ">
                                                         <input id="passwordConfirm" name="passwordConfirm" class="form-control"  type="password">

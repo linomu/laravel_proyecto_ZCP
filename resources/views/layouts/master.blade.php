@@ -163,7 +163,7 @@
                           <a class="dropdown-item"  href="{{route('pollster.show',$id=auth()->user()->actors_id)}}"> Mi Perfil</a>
 
                          @else
-                          <a class="dropdown-item"  href=""> Mi Perfil</a>
+                          <a class="dropdown-item"  href="{{route('admin.show',$id=auth()->user()->actors_id)}}"> Mi Perfil</a>
                          @endif
 
 
