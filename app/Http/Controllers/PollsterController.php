@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use mysql_xdevapi\Exception;
+use Validator;
 
 class PollsterController extends Controller
 {
@@ -137,29 +138,41 @@ class PollsterController extends Controller
             'birthday'=>'required',
         ]);
 
+        $validacion = Validator::make($request->all(), [
+            'urlphoto'=> 'max:500',//indicamos el valor maximo
+        ]);
 
-        //First I must update the actor table before users
+        if ($validacion->fails()) {
+            return back()->with('mensajeError','El tamaño máximo es 500kb, debes seleccionar otra foto o modificarla.   ');
+        } else {
+            //First I must update the actor table before users
 
 
-        $file = $request->file('urlphoto');
-        $file->move(base_path('public\images'), $file->getClientOriginalName());
+            $file = $request->file('urlphoto');
 
-        $actor = App\Actors::findOrFail($id);
-        $actor->id = $request->identification;
-        $actor->firstname = $request->firstname;
-        $actor->lastname = $request->lastname;
-        $actor->gender = $request->gender;
-        $actor->phonenumber = $request->phonenumber;
-        $actor->birth_date = $request->birthday;
-        if($request->urlphoto == null){
-            $actor->ulrphoto = $file->getClientOriginalName();
-        }else{
-            $actor->ulrphoto = $file->getClientOriginalName();
+
+            $actor = App\Actors::findOrFail($id);
+            $actor->id = $request->identification;
+            $actor->firstname = $request->firstname;
+            $actor->lastname = $request->lastname;
+            $actor->gender = $request->gender;
+            $actor->phonenumber = $request->phonenumber;
+            $actor->birth_date = $request->birthday;
+            if($file == null){
+                $actor->ulrphoto = $actor->ulrphoto;
+            }else{
+                $actor->ulrphoto = $file->getClientOriginalName();
+                $file->move(base_path('public\images'), $file->getClientOriginalName());
+            }
+            $actor->save();
+
+
+            //Actualizar user solo la password
+            
+            return redirect()->action('HomeController@index')->with('mensaje','Perfil Actualizado!');
+
+
         }
-        $actor->save();
-
-
-        return redirect()->action('HomeController@index')->with('mensaje','Perfil Actualizado!');
 
 
     }

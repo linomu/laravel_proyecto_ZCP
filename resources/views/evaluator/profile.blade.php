@@ -9,6 +9,8 @@
                 {{session('mensaje')}}
             </div>
         @endif
+
+
         <div class="">
             <!--
             <div class="page-title">
@@ -23,6 +25,14 @@
             <div class="clearfix"></div>
 
             <div class="row">
+                @if(session('mensajeError'))
+                    <div class="alert alert-warning">
+                        {{session('mensajeError')}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
                 <div class="col-md-12 col-sm-12 ">
                     <div class="x_panel">
                         <div class="x_title">
