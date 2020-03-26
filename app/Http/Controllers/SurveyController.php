@@ -58,6 +58,11 @@ class SurveyController extends Controller
         return view('evaluator.listSurvey', compact('tests'));
     }
 
+    public function listarPreguntas($id){
+        $questions = App\Question::all();
+        return view('evaluator.listQuestions', compact('questions'));
+    }
+
     private function encriptar($valor) {
         $iv = base64_decode("SNwNhfHVDSvnkw8RTMtavw==");
         $clave  = '$%·$%34g4tg3456(/%&)5464·8$%$&$$//(13';

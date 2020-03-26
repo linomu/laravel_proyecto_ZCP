@@ -47,8 +47,10 @@
 							@method('DELETE')
 							<button class="btn btn-danger" type="submit">Eliminar</button>
 						</form>
-						
 					</td>
+					<td>
+                		<a href="{{ route('survey.questions_list',$item->id)}}" class="btn btn-secondary">Ver preguntas</a>
+            		</td>
 				</tr>
 			@endforeach()
 			</tbody>

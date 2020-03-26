@@ -25,6 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/survey','SurveyController');
 Route::post('/crear', 'SurveyController@crear')->name('survey.crear');
 Route::get('/listar', 'SurveyController@listarEncuestas')->name('surveys_list');
+Route::get('/listarQuestions/{id}', 'SurveyController@listarPreguntas')->name('survey.questions_list');
 //Eliminar una encuesta en particular
 Route::delete('/survey/{id}','SurveyController@destroy')->name('survey.destroy');
 //Editar una encuesta en particular
