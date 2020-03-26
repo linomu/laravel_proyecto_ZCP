@@ -49,16 +49,16 @@ class SusController extends Controller
 
 
         $pag = explode('=',$request->getRequestUri());
-        $page = $this->desencriptar($pag[1]);
+        //$page = $this->desencriptar($pag[1]);
 
-        $correoEncriptado = $pag[3];
-        $correo = $this->desencriptar($correoEncriptado);
+        //$correoEncriptado = $pag[3];
+        //$correo = $this->desencriptar($correoEncriptado);
 
         
-        print ($correo);
+        //print ($correo);
 
         //print("pag: ".$pag[1]);
-        //$page = $pag[1];
+         $page = $pag[1];
         //$preguntas = Con el $id debes consultar la bd
         //para saber que preguntas estan relacionadas a ese numero de test
         //nombre del test
@@ -70,8 +70,7 @@ class SusController extends Controller
         $preguntas = DB::table('questions')->select('description')->where('tests_id',$id)->get();
 
         if($page ==null){
-             abort(404);
-
+             return view('error');
             //return view('encuestasus', compact('page','name','preguntas'));
         }
         else{
