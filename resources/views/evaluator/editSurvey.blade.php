@@ -22,7 +22,7 @@
 
         <div class="espaciado">
             <label for="txtNameSurvey">Nombre de la encuesta</label>
-            <input name="nombre" type="text" class="form-control mb-2" id="txtNameSurvey" value="{{old('nombre')}}">
+            <input name="nombre" type="text" class="form-control mb-2" id="txtNameSurvey" value="{{$test->name}}">
         </div>
 
         @error('nombre')
@@ -35,7 +35,7 @@
 
         <div class="espaciado">
             <label for="txtDescSurvey">Descripción de la encuesta</label>
-            <textarea name="descripcion" class="form-control mb-2" id="txtDescSurvey"></textarea>
+            <textarea name="descripcion" class="form-control mb-2" id="txtDescSurvey">{{$test->description}}</textarea>
         </div>
 
         @error('descripcion')
@@ -62,7 +62,8 @@
         </div>
 
         <div class="espaciado">
-            <textarea class="form-control txtarea-containt" id="textarea" name="textQuestions" placeholder="Ingrese cada pregunta separada de una coma (,)"></textarea>
+            <textarea class="form-control txtarea-containt" id="textarea" name="textQuestions" placeholder="Ingrese cada pregunta separada de una coma (,)">@foreach($questions as $question){{$question->description}},@endforeach
+            </textarea>
         </div>
 
         @error('descripcion')
