@@ -299,8 +299,16 @@ class SurveyController extends Controller
         }
 
 
+        //consulta de cuantos usuarios respondieron y No respondieron el test
+        $totalu = DB::table('userzs')->count();
+        $c1 = DB::table('answers')->select('userzs_id')->get();
+        $yes = DB::table('userz_tests')->where('id','in',$c1)->count('userzs_id');
+        $no = DB::table('userz_tests')->where('id','not in',$c1)->count('userzs_id');
 
-        return view("evaluator.statistics", compact('jovenes','adultos'));
+        $porcentajesi= ($yes*100)/$totalu;
+        $porcentajeno=($no*100)/$totalu;
+
+        return view("evaluator.statistics", compact('jovenes','adultos','porcentajesi','porcentajeno'));
 
     }
 
