@@ -7,38 +7,18 @@
 @section('content')
 
     <div class="container">
-        <h1>Usuarios que contestaron y que No contestaron la encuesta</h1>
+
         <div class="row">
             <div class="col-md-6">
-                <div id="chartContainer" style="height: 400px; width: 400px"></div>
+                <div id="chartContainerLino" style="height: 400px; width: 400px"></div>
             </div>
-            <div class="col-md-6">Estadistica de Viviana</div>
-            <script>
-window.onload = function () {
+            <div class="col-md-6">
 
-var chart = new CanvasJS.Chart("chartContainer", {
-    animationEnabled: true,
-    title:{
-        text: "Estadisticas",
-        horizontalAlign: "center"
-    },
-    data: [{
-        type: "doughnut",
-        startAngle: 60,
-        //innerRadius: 60,
-        indexLabelFontSize: 17,
-        indexLabel: "{label} - #percent%",
-        toolTipContent: "<b>{label}:</b> {y} (#percent%)",
-        dataPoints: [
-            { y: {{$porcentajesi}}, label: "Sí contestaron" },
-            { y: {{$porcentajeno}}, label: "No contestaron" }
-        ]
-    }]
-});
-chart.render();
 
-}
-</script>
+                <div id="chartContainerViviana" style="height: 400px; width: 400px"></div>
+
+            </div>
+
         </div>
 
         <div class="row">
@@ -129,7 +109,7 @@ chart.render();
 
 
 
-            var chart = new CanvasJS.Chart("chartContainer", {
+            var chart = new CanvasJS.Chart("chartContainerLino", {
                 animationEnabled: true,
                 title: {
                     text: "¿Qué porcenteje de ciudadanos respondieron más a tus preguntas?"
@@ -147,7 +127,26 @@ chart.render();
             });
             chart.render();
 
-
+            var chart = new CanvasJS.Chart("chartContainerViviana", {
+                animationEnabled: true,
+                title:{
+                    text: "Usuarios que contestaron y que No contestaron la encuesta",
+                    horizontalAlign: "center"
+                },
+                data: [{
+                    type: "doughnut",
+                    startAngle: 60,
+                    //innerRadius: 60,
+                    indexLabelFontSize: 17,
+                    indexLabel: "{label} - #percent%",
+                    toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+                    dataPoints: [
+                        { y: {{$porcentajesi}}, label: "Sí contestaron" },
+                        { y: {{$porcentajeno}}, label: "No contestaron" }
+                    ]
+                }]
+            });
+            chart.render();
 
 
 
