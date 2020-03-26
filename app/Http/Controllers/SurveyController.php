@@ -58,6 +58,11 @@ class SurveyController extends Controller
         return view('evaluator.listSurvey', compact('tests'));
     }
 
+    public function listarPreguntas($id){
+        $questions = App\Question::all();
+        return view('evaluator.listQuestions', compact('questions'));
+    }
+
     private function encriptar($valor) {
         $iv = base64_decode("SNwNhfHVDSvnkw8RTMtavw==");
         $clave  = '$%·$%34g4tg3456(/%&)5464·8$%$&$$//(13';
@@ -114,19 +119,66 @@ class SurveyController extends Controller
 
     public function edit($id)
     {
-        //
+        $test =App\Test::find($id);
+        $tests = DB::select(DB::raw('SHOW COLUMNS FROM tests WHERE Field = "kindSurvey"'))[0]->Type;
+        preg_match('/^enum\((.*)\)$/', $tests, $matches);
+        $enum = array();
+        foreach(explode(',', $matches[1]) as $value){
+            $v = trim( $value, "'" );
+            $enum[] = $v;
+        }
+        return view('evaluator.editSurvey', compact('test', 'enum'));
+        
     }
 
 
     public function update(Request $request, $id)
     {
-        //
+        $test = App\Test::findOrFail($id);
+        $request->validate([
+            'nombre'=>'required',
+            'descripcion'=>'required',
+            'selectTest'=>'required',
+            'textQuestions'=>'required',
+        ]);
+
+        $test->name = $request->nombre;
+        $test->actors_id = auth()->user()->actors_id;
+        $test->description = $request->descripcion;
+        $test->kindSurvey = $request->selectTest;
+
+        $test->save();
+
+        //$idTest = DB::table('tests')->latest('tests.id')->select('tests.id')->first();
+        $question = new App\Question;
+        DB::table('questions')->where('tests_id', '=', $id)->delete();
+
+        $preguntasSinEspacio = str_replace("  "," ", $request->textQuestions);
+        //var_dump($preguntasSinEspacio);
+        $arrayListaPreguntas = explode(",",$preguntasSinEspacio);
+        var_dump($arrayListaPreguntas);
+
+        foreach ($arrayListaPreguntas as $pregunta){
+            if ($pregunta == "") {
+                continue;
+            }
+            else {
+                $question->description = $pregunta;
+                DB::table('questions')->insert(
+                    ['tests_id' => $id, 'description' => $pregunta]
+                );
+            }
+        }
+
+        return redirect('/listar')->with('mensaje','¡Encuesta registrada satisfactoriamente!');
     }
 
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $test = App\Test::findOrFail($id);
+        $test->delete();
+        return redirect('/listar')->with('mensaje', 'fue eliminado satisfactoriamente!');
     }
 
     public function prueba(Request $request, $id){
@@ -268,7 +320,37 @@ class SurveyController extends Controller
 
         $jovenes = 0;
         $adultos = 0;
+        $valueMax = 0;
+        $valueMin = 0;
+        $descMax = "";
+        $descMin = "";
 
+        $mayor = 
+            DB::table('questions')
+            ->join('answers', 'questions.id', '=', 'answers.questions_id')
+            ->select(DB::raw("MAX(answers.description) max, questions.description"))
+            ->groupBy('questions.description')
+            ->where('tests_id',$id)
+            ->orderBy('questions.description', 'desc')
+            ->take(1)
+            ->get();
+        
+        $valueMax = $mayor[0]->max;
+        $descMax = $mayor[0]->description;
+            
+        $menor = 
+            DB::table('questions')
+            ->join('answers', 'questions.id', '=', 'answers.questions_id')
+            ->select(DB::raw("MIN(answers.description) min, questions.description"))
+            ->groupBy('questions.description')
+            ->where('tests_id',$id)
+            ->orderBy('questions.description', 'asc')
+            ->take(1)
+            ->get(); 
+
+        $valueMin = $menor[0]->min;
+        $descMin = $menor[0]->description;
+            
         //Verifico si hay datos en la tabla
         if(sizeof($deadLines)>0){
             $sumJovenes = 0;
@@ -295,6 +377,7 @@ class SurveyController extends Controller
             //print("Adultos: ".$sumAdultos." Porcentaje: ".$porcentajeAdultos."%");
             //print("Jovenes: ".$sumJovenes." Porcentaje: ".$porcentajeJovenes."%");
             
+            
 
         }
 
@@ -308,7 +391,7 @@ class SurveyController extends Controller
         $porcentajesi= ($yes*100)/$totalu;
         $porcentajeno=($no*100)/$totalu;
 
-        return view("evaluator.statistics", compact('jovenes','adultos','porcentajesi','porcentajeno'));
+        return view("evaluator.statistics", compact('jovenes','adultos','porcentajesi','porcentajeno', 'valueMax', 'valueMin', 'descMin', 'descMax'));
 
     }
 

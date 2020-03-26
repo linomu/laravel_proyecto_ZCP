@@ -21,11 +21,17 @@ Route::resource('/pollster','PollsterController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Rutas Juano
 Route::resource('/survey','SurveyController');
-
 Route::post('/crear', 'SurveyController@crear')->name('survey.crear');
-
 Route::get('/listar', 'SurveyController@listarEncuestas')->name('surveys_list');
+Route::get('/listarQuestions/{id}', 'SurveyController@listarPreguntas')->name('survey.questions_list');
+//Eliminar una encuesta en particular
+Route::delete('/survey/{id}','SurveyController@destroy')->name('survey.destroy');
+//Editar una encuesta en particular
+Route::get('/survey/{id}/edit', 'SurveyController@edit')->name('survey.edit');
+//Actualizar una encuesta en particular
+Route::put('/survey/{id}','SurveyController@update')->name('survey.update');
 
 //Rutas usadas por Lino
 Route::get('/prueba',function(){
