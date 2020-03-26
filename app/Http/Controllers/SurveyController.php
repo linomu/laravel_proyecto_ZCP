@@ -289,7 +289,7 @@ class SurveyController extends Controller
             }
 
             $total = $sumJovenes + $sumAdultos;
-
+            
             $jovenes = ($sumJovenes*100)/$total;
             $adultos = ($sumAdultos*100)/$total;
             //print("Adultos: ".$sumAdultos." Porcentaje: ".$porcentajeAdultos."%");
