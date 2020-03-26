@@ -13,12 +13,6 @@
     </div>
 @endif
 
-@if(session('mensaje'))
-<div class="alert alert-success">
-  {{session('mensaje')}}
-</div>
-@endif
-
 <div class="container-enc">
 	<div>
 		<table class="table table-striped">
@@ -57,7 +51,11 @@
 		</table>
 	</div>
 </div>
-
+@if(session('mensaje'))
+<div class="alert alert-success">
+  {{session('mensaje')}}
+</div>
+@endif
 @endsection
 
 @section('script_section')

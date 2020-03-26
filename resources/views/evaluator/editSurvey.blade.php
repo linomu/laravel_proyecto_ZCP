@@ -7,13 +7,6 @@
 
 @section('content')
 <div class="container-enc">
-    @if(session('mensaje'))
-        <div class="alert-success" style="heigth:25px;text-align:center;">   {{session('mensaje')}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
     <form method="POST" action="{{ route('survey.update', $test->id) }}">
         @method('PUT')
         @csrf
@@ -77,7 +70,13 @@
         <button type="submit" class="btn btn-primary btn-block">
             {{ __('Enviar') }}
         </button>
-
+        @if(session('mensaje'))
+            <div class="alert-success" style="heigth:25px;text-align:center;">   {{session('mensaje')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
     </form>
 </div>
 @endsection

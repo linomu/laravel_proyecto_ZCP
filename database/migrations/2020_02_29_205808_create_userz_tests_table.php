@@ -18,7 +18,7 @@ class CreateUserzTestsTable extends Migration
 
             $table->increments('id');
             $table->unsignedInteger('tests_id');
-            $table->foreign('tests_id','fk_userz_tests_tests')->references('id')->on('tests');
+            $table->foreign('tests_id','fk_userz_tests_tests')->references('id')->on('tests')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedInteger('userzs_id');
             $table->foreign('userzs_id','fk_userz_tests_userzs')->references('id')->on('userzs');
             $table->date('participationdate')->nullable();

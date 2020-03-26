@@ -18,7 +18,7 @@ class CreateTopicTestsTable extends Migration
             $table->increments('id');
 
             $table->unsignedInteger('tests_id')->nullable();
-            $table->foreign('tests_id','fk_topic__tests_tests')->references('id')->on('tests');
+            $table->foreign('tests_id','fk_topic__tests_tests')->references('id')->on('tests')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedInteger('topics_id')->nullable();
             $table->foreign('topics_id','fk_topic__testss_topics')->references('id')->on('topics');
             $table->timestamps();
