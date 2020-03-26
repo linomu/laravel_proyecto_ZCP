@@ -19,8 +19,7 @@
 
         <div class="row">
             <div class="col-md-6">
-                Estadistica de Juan
-
+                <div id="chartMinMax" style="margin: 20px; height: 300px; width: 100%;"></div>
             </div>
             <div class="col-md-6">
                 Estadistica de Tomas
@@ -51,7 +50,7 @@
 
 
 
-
+    
 
 @endsection()
 
@@ -60,10 +59,6 @@
 
     <script>
         window.onload = function () {
-
-
-
-
             var chart = new CanvasJS.Chart("chartContainer", {
                 animationEnabled: true,
                 title: {
@@ -82,7 +77,28 @@
             });
             chart.render();
 
-
+            var chart = new CanvasJS.Chart("chartMinMax", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                title: {
+                    text: "¿Cuál fue la pregunta con mayor y menor puntuación?"
+                },
+                axisY: {
+                    title: "Puntuación",
+                    includeZero: false
+                },
+                axisX: {
+                    title: "Preguntas"
+                },
+                data: [{
+                    type: "column",
+                    dataPoints: [
+                        { label: "{{$descMax}}", y: {{$valueMax}}},
+                        { label: "{{$descMin}}", y: {{$valueMin}}}
+                    ]
+                }]
+            });
+            chart.render();
         }
     </script>
 

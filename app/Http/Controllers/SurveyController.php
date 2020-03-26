@@ -315,8 +315,37 @@ class SurveyController extends Controller
 
         $jovenes = 0;
         $adultos = 0;
+        $valueMax = 0;
+        $valueMin = 0;
+        $descMax = "";
+        $descMin = "";
 
+        $mayor = 
+            DB::table('questions')
+            ->join('answers', 'questions.id', '=', 'answers.questions_id')
+            ->select(DB::raw("MAX(answers.description) max, questions.description"))
+            ->groupBy('questions.description')
+            ->where('tests_id',$id)
+            ->orderBy('questions.description', 'desc')
+            ->take(1)
+            ->get();
         
+        $valueMax = $mayor[0]->max;
+        $descMax = $mayor[0]->description;
+            
+        $menor = 
+            DB::table('questions')
+            ->join('answers', 'questions.id', '=', 'answers.questions_id')
+            ->select(DB::raw("MIN(answers.description) min, questions.description"))
+            ->groupBy('questions.description')
+            ->where('tests_id',$id)
+            ->orderBy('questions.description', 'asc')
+            ->take(1)
+            ->get(); 
+
+        $valueMin = $menor[0]->min;
+        $descMin = $menor[0]->description;
+            
         //Verifico si hay datos en la tabla
         if(sizeof($deadLines)>0){
             $sumJovenes = 0;
@@ -343,12 +372,14 @@ class SurveyController extends Controller
             //print("Adultos: ".$sumAdultos." Porcentaje: ".$porcentajeAdultos."%");
             //print("Jovenes: ".$sumJovenes." Porcentaje: ".$porcentajeJovenes."%");
             
+            
 
         }
 
 
 
-        return view("evaluator.statistics", compact('jovenes','adultos'));
+        return view("evaluator.statistics", compact('jovenes','adultos', 'valueMax', 'valueMin', 'descMin', 'descMax'));
+        #'valueMax', 'valueMin', 'descMin', 'descMax'
 
     }
 
