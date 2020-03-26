@@ -15,7 +15,7 @@
 				</button>
 			</div>
 		@endif
-		<form action="{{ route('survey.crear') }}" method="POST">
+		<form action="{{ route('survey.crear') }}" method="post">
 			@csrf
 
 			<h1>Crear Encuesta</h1>
