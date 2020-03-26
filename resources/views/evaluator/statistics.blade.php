@@ -7,11 +7,7 @@
 @section('content')
 
     <div class="container">
-<<<<<<< HEAD
 
-=======
-
->>>>>>> 05c5d055469c980cd63c4fc39abdb6928cfa9480
         <div class="row">
             <div class="col-md-6">
                 <div id="chartContainerLino" style="height: 400px; width: 400px"></div>
@@ -22,12 +18,6 @@
                 <div id="chartContainerViviana" style="height: 400px; width: 400px"></div>
 
             </div>
-<<<<<<< HEAD
-
-=======
-            <div class="col-md-6">Estadistica de Viviana</div>
-            <h1>Usuarios que contestaron y que No contestaron la encuesta</h1>
->>>>>>> 05c5d055469c980cd63c4fc39abdb6928cfa9480
         </div>
 
         <div class="row">
