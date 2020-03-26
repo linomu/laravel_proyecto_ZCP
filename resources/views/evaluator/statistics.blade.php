@@ -7,6 +7,7 @@
 @section('content')
 
     <div class="container">
+
         <div class="row">
             <div class="col-md-6">
                 <div id="chartContainerLino" style="height: 400px; width: 400px"></div>
@@ -52,7 +53,7 @@
 
 
 
-    
+
 
 @endsection()
 
@@ -171,7 +172,7 @@
         }
 </script>
 
-    
+
 
 
 

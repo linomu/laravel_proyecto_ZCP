@@ -134,8 +134,8 @@ class SurveyController extends Controller
             $enum[] = $v;
         }
         return view('evaluator.editSurvey', compact('test', 'enum', 'questions'));
-        
-    } 
+
+    }
 
 
 
@@ -354,24 +354,10 @@ class SurveyController extends Controller
     }
     public function showStatistics($id = -1)
     {
-
-        $deadLines =
-            DB::table('userz_tests')
-                ->select(DB::raw("COUNT(userzs_id) count, deadline"))
-                ->groupBy('deadline')
-                ->where('tests_id',$id)
-                ->get();
+        //Validar si existe el id, para que no coloquen un id inválido
+        $test = App\Test::findOrFail($id);
 
 
-
-
-
-
-        $consulta = DB::table('tests')
-            ->join('userz_tests','tests.id','userz_tests.tests_id')
-            ->join('answers','userz_tests.id','answers.userz_tests_id')
-            ->where('tests.id',$id)
-            ->get();
         //Que preguntas tuvieron una respuesta promedio menor a 3?
         $consultaTomas = DB::table('tests')
             ->select(DB::raw("AVG(answers.description) promedio, questions_id, questions.description "))
@@ -383,29 +369,9 @@ class SurveyController extends Controller
             ->where('tests.id',$id)
             ->having('promedio','<',3)
             ->get();
-        //dd($consultaTomas);
 
-
-        //Validar si existe el id, para que no coloquen un id inválido
-        $test = App\Test::findOrFail($id);
-
-        //$deadLine  =  DB::table('userz_tests')->select('deadline')->where('id',$id)->limit(1)->get();
-        //Con esta consulta obtengo todas las fechas límite que ha tenido un test
-        $deadLines =
-            DB::table('userz_tests')
-            ->select(DB::raw("COUNT(userzs_id) count, deadline"))
-            ->groupBy('deadline')
-            ->where('tests_id',$id)
-            ->get();
-
-        $jovenes = 0;
-        $adultos = 0;
-        $valueMax = 0;
-        $valueMin = 0;
-        $descMax = "";
-        $descMin = "";
-
-        $mayor = 
+        //Consulta de Juan
+        $mayor =
             DB::table('questions')
             ->join('answers', 'questions.id', '=', 'answers.questions_id')
             ->select(DB::raw("MAX(answers.description) max, questions.description"))
@@ -414,107 +380,142 @@ class SurveyController extends Controller
             ->orderBy('questions.description', 'desc')
             ->take(1)
             ->get();
-        
-        $valueMax = $mayor[0]->max;
-        $descMax = $mayor[0]->description;
-            
-        $menor = 
-            DB::table('questions')
-            ->join('answers', 'questions.id', '=', 'answers.questions_id')
-            ->select(DB::raw("MIN(answers.description) min, questions.description"))
-            ->groupBy('questions.description')
-            ->where('tests_id',$id)
-            ->orderBy('questions.description', 'asc')
-            ->take(1)
-            ->get(); 
 
-        $valueMin = $menor[0]->min;
-        $descMin = $menor[0]->description;
-            
-        //Verifico si hay datos en la tabla
-
-        $cantidadMujeres=0;
-        $cantidadHombres= 0;
-        if(sizeof($deadLines)>0){
-            $sumJovenes = 0;
-            $sumAdultos =0;
-            foreach ($deadLines as $deadline){
-
-                //Consulta Cuasapud
-                //, ¿Cuántos hombres y mujeres respondieron la encuesta? ?
-                $consulta = DB::table('tests')
-                    ->select(DB::raw("COUNT(userzs_id) usuarios, userzs.gender "))
-                    ->join('userz_tests','tests.id','userz_tests.tests_id')
-                    ->join('userzs','userzs.id','userz_tests.userzs_id')
-                    ->groupBy('userzs.gender')
-                    ->where('tests.id',$id)
-                    ->where('deadline',$deadline->deadline)
-                    ->whereDate('participationdate','<=',$deadline->deadline)
-                    ->get();
-                foreach ($consulta as $query){
-                    if($query->gender=="f"){
-                        $cantidadMujeres = $cantidadMujeres + $query->usuarios;
-                    }
-                    else{
-                        $cantidadHombres = $cantidadHombres + $query->usuarios;
-                    }
-                }
-
-
-                $CantJoven = DB::table('userz_tests')
-                    ->whereDate('participationdate','<=',$deadline->deadline)
-                    ->where('deadline',$deadline->deadline)
-                    ->where('age','<',18)->count();
-                $sumJovenes  = $sumJovenes + $CantJoven;
-
-                $CantAdultos = DB::table('userz_tests')
-                    ->whereDate('participationdate','<=',$deadline->deadline)
-                    ->where('deadline',$deadline->deadline)
-                    ->where('age','>=',18)->count();
-                $sumAdultos = $sumAdultos + $CantAdultos;
-            }
-
-            $total = $sumJovenes + $sumAdultos;
-
-
-
-            if(!$total==0){
-                $jovenes = ($sumJovenes*100)/$total;
-                $adultos = ($sumAdultos*100)/$total;
-            }
-            else{
-                $jovenes = 0;
-                $adultos = 0;
-            }
-
-
-            //print("Adultos: ".$sumAdultos." Porcentaje: ".$porcentajeAdultos."%");
-            //print("Jovenes: ".$sumJovenes." Porcentaje: ".$porcentajeJovenes."%");
-            
-            
-
+        if(sizeof($mayor)==0){
+            //La consulta no trae información.
+            $valueMax = 0;
+            $descMax = "";
         }
-        $porcentajeno = 0;
-        $porcentajesi = 0;
+        else{
+            //La consulta si trae información.
+            $valueMax = $mayor[0]->max;
+            $descMax = $mayor[0]->description;
+        }
 
-        /*
-        //consulta de cuantos usuarios respondieron y No respondieron el test
-        /*
-         Consulta de viviana
-        $totalu = DB::table('userzs')->count();
-        $c1 = DB::table('answers')->select('userzs_id')->get();
-        $yes = DB::table('userz_tests')->where('id','in',$c1)->count('userzs_id');
-        $no = DB::table('userz_tests')->where('id','not in',$c1)->count('userzs_id');
+       $menor =
+           DB::table('questions')
+           ->join('answers', 'questions.id', '=', 'answers.questions_id')
+           ->select(DB::raw("MIN(answers.description) min, questions.description"))
+           ->groupBy('questions.description')
+           ->where('tests_id',$id)
+           ->orderBy('questions.description', 'asc')
+           ->take(1)
+           ->get();
 
-        $porcentajesi= ($yes*100)/$totalu;
-        $porcentajesi=($no*100)/$totalu;
-        */
+        if(sizeof($menor)==0){
+            //La consulta no trae información.
+            $valueMin = 0;
+            $descMin = "";
+        }else{
+            //La consulta Si trae información.
+            $valueMin = $menor[0]->min;
+            $descMin = $menor[0]->description;
+        }
+
+
+
+
+        //Consulta de Lino
+        //$deadLine  =  DB::table('userz_tests')->select('deadline')->where('id',$id)->limit(1)->get();
+        //Con esta consulta obtengo todas las fechas límite que ha tenido un test
+        $deadLines =
+            DB::table('userz_tests')
+                ->select(DB::raw("COUNT(userzs_id) count, deadline"))
+                ->groupBy('deadline')
+                ->where('tests_id',$id)
+                ->get();
+
+        $jovenes = 0;
+        $adultos = 0;
+
+       //Verifico si hay datos en la tabla
+
+       $cantidadMujeres=0;
+       $cantidadHombres= 0;
+       if(sizeof($deadLines)>0){
+           $sumJovenes = 0;
+           $sumAdultos =0;
+           foreach ($deadLines as $deadline){
+
+               //Consulta Cuasapud
+               //, ¿Cuántos hombres y mujeres respondieron la encuesta? ?
+               $consulta = DB::table('tests')
+                   ->select(DB::raw("COUNT(userzs_id) usuarios, userzs.gender "))
+                   ->join('userz_tests','tests.id','userz_tests.tests_id')
+                   ->join('userzs','userzs.id','userz_tests.userzs_id')
+                   ->groupBy('userzs.gender')
+                   ->where('tests.id',$id)
+                   ->where('deadline',$deadline->deadline)
+                   ->whereDate('participationdate','<=',$deadline->deadline)
+                   ->get();
+               foreach ($consulta as $query){
+                   if($query->gender=="f"){
+                       $cantidadMujeres = $cantidadMujeres + $query->usuarios;
+                   }
+                   else{
+                       $cantidadHombres = $cantidadHombres + $query->usuarios;
+                   }
+               }
+
+
+               $CantJoven = DB::table('userz_tests')
+                   ->whereDate('participationdate','<=',$deadline->deadline)
+                   ->where('deadline',$deadline->deadline)
+                   ->where('age','<',18)->count();
+               $sumJovenes  = $sumJovenes + $CantJoven;
+
+               $CantAdultos = DB::table('userz_tests')
+                   ->whereDate('participationdate','<=',$deadline->deadline)
+                   ->where('deadline',$deadline->deadline)
+                   ->where('age','>=',18)->count();
+               $sumAdultos = $sumAdultos + $CantAdultos;
+           }
+
+           $total = $sumJovenes + $sumAdultos;
+
+
+
+           if(!$total==0){
+               $jovenes = ($sumJovenes*100)/$total;
+               $adultos = ($sumAdultos*100)/$total;
+           }
+           else{
+               $jovenes = 0;
+               $adultos = 0;
+           }
+
+
+           //print("Adultos: ".$sumAdultos." Porcentaje: ".$porcentajeAdultos."%");
+           //print("Jovenes: ".$sumJovenes." Porcentaje: ".$porcentajeJovenes."%");
+
+
+
+       }
+
+
+
+       //Consulta de Isabela
+       $porcentajeno = 0;
+       $porcentajesi = 0;
+
+       /*
+       //consulta de cuantos usuarios respondieron y No respondieron el test
+       /*
+        Consulta de viviana
+       $totalu = DB::table('userzs')->count();
+       $c1 = DB::table('answers')->select('userzs_id')->get();
+       $yes = DB::table('userz_tests')->where('id','in',$c1)->count('userzs_id');
+       $no = DB::table('userz_tests')->where('id','not in',$c1)->count('userzs_id');
+
+       $porcentajesi= ($yes*100)/$totalu;
+       $porcentajesi=($no*100)/$totalu;
+       */
 
 
         return view("evaluator.statistics", compact('jovenes','adultos','consultaTomas','cantidadHombres','cantidadMujeres','porcentajesi','porcentajeno', 'valueMax', 'valueMin', 'descMin', 'descMax'));
 
-        
-        //return view("evaluator.statistics", compact('jovenes','adultos','porcentajesi','porcentajeno', 'valueMax', 'valueMin', 'descMin', 'descMax'));
+
+
 
     }
 
