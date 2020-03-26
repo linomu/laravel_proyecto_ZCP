@@ -120,7 +120,12 @@ class SurveyController extends Controller
 
     public function edit($id)
     {
-        $test =App\Test::find($id);
+        $test = App\Test::find($id);
+        $questions = DB::table('questions')
+            ->select('description')
+            ->where('tests_id',$id)
+            ->get();
+
         $tests = DB::select(DB::raw('SHOW COLUMNS FROM tests WHERE Field = "kindSurvey"'))[0]->Type;
         preg_match('/^enum\((.*)\)$/', $tests, $matches);
         $enum = array();
@@ -128,9 +133,10 @@ class SurveyController extends Controller
             $v = trim( $value, "'" );
             $enum[] = $v;
         }
-        return view('evaluator.editSurvey', compact('test', 'enum'));
+        return view('evaluator.editSurvey', compact('test', 'enum', 'questions'));
         
-    }
+    } 
+
 
 
     public function update(Request $request, $id)
