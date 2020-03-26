@@ -7,14 +7,38 @@
 @section('content')
 
     <div class="container">
-        <h1>Estadísticas</h1>
+        <h1>Usuarios que contestaron y que No contestaron la encuesta</h1>
         <div class="row">
             <div class="col-md-6">
-
                 <div id="chartContainer" style="height: 400px; width: 400px"></div>
             </div>
             <div class="col-md-6">Estadistica de Viviana</div>
+            <script>
+window.onload = function () {
 
+var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    title:{
+        text: "Estadisticas",
+        horizontalAlign: "center"
+    },
+    data: [{
+        type: "doughnut",
+        startAngle: 60,
+        //innerRadius: 60,
+        indexLabelFontSize: 17,
+        indexLabel: "{label} - #percent%",
+        toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+        dataPoints: [
+            { y: {{$porcentajesi}}, label: "Sí contestaron" },
+            { y: {{$porcentajeno}}, label: "No contestaron" }
+        ]
+    }]
+});
+chart.render();
+
+}
+</script>
         </div>
 
         <div class="row">
@@ -59,11 +83,8 @@
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
     <script>
-        window.onload = function () {
-
-
-
-
+        window.onload = function (){
+            
             var chart = new CanvasJS.Chart("chartContainer", {
                 animationEnabled: true,
                 title: {
