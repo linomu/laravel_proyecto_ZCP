@@ -7,22 +7,24 @@
 @section('content')
 
     <div class="container">
-      
         <div class="row">
             <div class="col-md-6">
-                <div id="chartContainer" style="height: 400px; width: 400px"></div>
+                <div id="chartContainerLino" style="height: 400px; width: 400px"></div>
             </div>
-            <div class="col-md-6">Estadistica de Viviana</div>
-            <h1>Usuarios que contestaron y que No contestaron la encuesta</h1>
+            <div class="col-md-6">
+
+
+                <div id="chartContainerViviana" style="height: 400px; width: 400px"></div>
+
+            </div>
         </div>
 
         <div class="row">
             <div class="col-md-6">
-                Estadistica de Juan
-
+                <div id="chartMinMax" style="margin: 20px; height: 300px; width: 100%;"></div>
             </div>
             <div class="col-md-6">
-                Estadistica de Tomas
+                <div id="chartContainerTomas" style="height: 370px; width: 100%;"></div>
 
             </div>
 
@@ -30,7 +32,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                Estadistica de Pu
+                <div id="chartContainerPu" style="height: 370px; width: 100%;"></div>
 
             </div>
             <div class="col-md-6">
@@ -50,7 +52,7 @@
 
 
 
-
+    
 
 @endsection()
 
@@ -58,43 +60,77 @@
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
     <script>
-        window.onload = function (){
-            
-            var chart = new CanvasJS.Chart("chartContainer", {
-                animationEnabled: true,
-                title: {
-                    text: "¿Qué porcenteje de ciudadanos respondieron más a tus preguntas?"
-                },
-                data: [{
-                    type: "pie",
-                    startAngle: 240,
-                    yValueFormatString: "##0.00\"%\"",
-                    indexLabel: "{label} {y}",
-                    dataPoints: [
-                        {y: {{$adultos}}, label: "Adultos"},
-                        {y: {{$jovenes}}, label: "Jóvenes"},
-                    ]
-                }]
-            });
-            chart.render();
 
+        window.onload = function () {
 
+        var chart = new CanvasJS.Chart("chartContainerPu", {
+        theme: "light1", // "light2", "dark1", "dark2"
+        animationEnabled: false, // change to true
+        title:{
+        text: "¿Cuántos hombres y mujeres respondieron la encuesta? "
+        },
+        data: [
+        {
+        // Change type to "bar", "area", "spline", "pie",etc.
+        type: "column",
+        dataPoints: [
+
+        { label: "Hombres", y: {{$cantidadHombres}} },
+        { label: "Mujeres", y: {{$cantidadMujeres}} },
+
+        ]
         }
-    </script>
+        ]
+        });
+        chart.render();
 
-@endsection
+        var chart = new CanvasJS.Chart("chartContainerTomas", {
+        theme: "light1", // "light2", "dark1", "dark2"
+        animationEnabled: false, // change to true
+        title:{
+        text: "¿Qué preguntas tuvieron una respuesta promedio menor a 3?"
+        },
+        data: [
+        {
+        // Change type to "bar", "area", "spline", "pie",etc.
+        type: "column",
+        dataPoints: [
+        @foreach($consultaTomas as $queryTomas)
+        { label: "{{$queryTomas->description}}", y: {{$queryTomas->promedio}} },
+        @endforeach
+        ]
+        }
+        ]
+        });
+        chart.render();
 
-@section('script_section')
-  <script>
-window.onload = function () {
 
-var chart = new CanvasJS.Chart("chartContainer", {
-    animationEnabled: true,
-    title:{
-        text: "Estadisticas",
+
+        var chart = new CanvasJS.Chart("chartContainerLino", {
+        animationEnabled: true,
+        title: {
+        text: "¿Qué porcenteje de ciudadanos respondieron más a tus preguntas?"
+        },
+        data: [{
+        type: "pie",
+        startAngle: 240,
+        yValueFormatString: "##0.00\"%\"",
+        indexLabel: "{label} {y}",
+        dataPoints: [
+        {y: {{$adultos}}, label: "Adultos"},
+        {y: {{$jovenes}}, label: "Jóvenes"},
+        ]
+        }]
+        });
+        chart.render();
+
+        var chart = new CanvasJS.Chart("chartContainerViviana", {
+        animationEnabled: true,
+        title:{
+        text: "Usuarios que contestaron y que No contestaron la encuesta",
         horizontalAlign: "center"
-    },
-    data: [{
+        },
+        data: [{
         type: "doughnut",
         startAngle: 60,
         //innerRadius: 60,
@@ -102,13 +138,42 @@ var chart = new CanvasJS.Chart("chartContainer", {
         indexLabel: "{label} - #percent%",
         toolTipContent: "<b>{label}:</b> {y} (#percent%)",
         dataPoints: [
-            { y: {{$porcentajesi}}, label: "Sí contestaron" },
-            { y: {{$porcentajeno}}, label: "No contestaron" }
+        { y: {{$porcentajesi}}, label: "Sí contestaron" },
+        { y: {{$porcentajeno}}, label: "No contestaron" }
         ]
-    }]
-});
-chart.render();
+        }]
+        });
+        chart.render();
+        var chart = new CanvasJS.Chart("chartMinMax", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                title: {
+                    text: "¿Cuál fue la pregunta con mayor y menor puntuación?"
+                },
+                axisY: {
+                    title: "Puntuación",
+                    includeZero: false
+                },
+                axisX: {
+                    title: "Preguntas"
+                },
+                data: [{
+                    type: "column",
+                    dataPoints: [
+                        { label: "{{$descMax}}", y: {{$valueMax}}},
+                        { label: "{{$descMin}}", y: {{$valueMin}}}
+                    ]
+                }]
+            });
+            chart.render();
 
-}
+
+        }
 </script>
+
+    
+
+
+
 @endsection
+

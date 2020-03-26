@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use App;
 use mysql_xdevapi\Table;
 
+
 class SurveyController extends Controller
 {
     public function crear(Request $request){
@@ -56,6 +57,11 @@ class SurveyController extends Controller
     public function listarEncuestas(){
         $tests = App\Test::all();
         return view('evaluator.listSurvey', compact('tests'));
+    }
+
+    public function listarPreguntas($id){
+        $questions = App\Question::all();
+        return view('evaluator.listQuestions', compact('questions'));
     }
 
     private function encriptar($valor) {
@@ -114,19 +120,72 @@ class SurveyController extends Controller
 
     public function edit($id)
     {
-        //
-    }
+        $test = App\Test::find($id);
+        $questions = DB::table('questions')
+            ->select('description')
+            ->where('tests_id',$id)
+            ->get();
+
+        $tests = DB::select(DB::raw('SHOW COLUMNS FROM tests WHERE Field = "kindSurvey"'))[0]->Type;
+        preg_match('/^enum\((.*)\)$/', $tests, $matches);
+        $enum = array();
+        foreach(explode(',', $matches[1]) as $value){
+            $v = trim( $value, "'" );
+            $enum[] = $v;
+        }
+        return view('evaluator.editSurvey', compact('test', 'enum', 'questions'));
+        
+    } 
+
 
 
     public function update(Request $request, $id)
     {
-        //
+        $test = App\Test::findOrFail($id);
+        $request->validate([
+            'nombre'=>'required',
+            'descripcion'=>'required',
+            'selectTest'=>'required',
+            'textQuestions'=>'required',
+        ]);
+
+        $test->name = $request->nombre;
+        $test->actors_id = auth()->user()->actors_id;
+        $test->description = $request->descripcion;
+        $test->kindSurvey = $request->selectTest;
+
+        $test->save();
+
+        //$idTest = DB::table('tests')->latest('tests.id')->select('tests.id')->first();
+        $question = new App\Question;
+        DB::table('questions')->where('tests_id', '=', $id)->delete();
+
+        $preguntasSinEspacio = str_replace("  "," ", $request->textQuestions);
+        //var_dump($preguntasSinEspacio);
+        $arrayListaPreguntas = explode(",",$preguntasSinEspacio);
+        var_dump($arrayListaPreguntas);
+
+        foreach ($arrayListaPreguntas as $pregunta){
+            if ($pregunta == "") {
+                continue;
+            }
+            else {
+                $question->description = $pregunta;
+                DB::table('questions')->insert(
+                    ['tests_id' => $id, 'description' => $pregunta]
+                );
+            }
+        }
+
+        return redirect('/listar')->with('mensaje','¡Encuesta registrada satisfactoriamente!');
     }
 
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $test = App\Test::findOrFail($id);
+        $test->delete();
+        return redirect('/listar')->with('mensaje', 'fue eliminado satisfactoriamente!');
     }
 
     public function prueba(Request $request, $id){
@@ -250,9 +309,82 @@ class SurveyController extends Controller
 
     }
 
+    public function validar(Request $request){
+        if($request->ajax()){
+            $headers = @get_headers($request->url);
+            if($headers && strpos( $headers[0], '200')) {
+                $status = "URL Existe";
+            }
+            else {
+                $status = "URL No existe";
+            }
+            return response()->json([
+                'mensaje'=> $status
+            ]);
 
+        }
+    }
+
+
+    public function mostrarVista(){
+        return view('evaluator.autocomplete');
+    }
+
+    function fetch(Request $request)
+    {
+        //dd($request->get('query'));
+
+
+        if($request->get('query'))
+        {
+            $query = $request->get('query');
+            $data = DB::table('topics')
+                ->where('description', 'LIKE', "%{$query}%")
+                ->get();
+            $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
+            foreach($data as $row)
+            {
+                $output .= '
+           <li><a href="#">'.$row->description.'</a></li>
+           ';
+            }
+            $output .= '</ul>';
+            echo $output;
+        }
+    }
     public function showStatistics($id = -1)
     {
+
+        $deadLines =
+            DB::table('userz_tests')
+                ->select(DB::raw("COUNT(userzs_id) count, deadline"))
+                ->groupBy('deadline')
+                ->where('tests_id',$id)
+                ->get();
+
+
+
+
+
+
+        $consulta = DB::table('tests')
+            ->join('userz_tests','tests.id','userz_tests.tests_id')
+            ->join('answers','userz_tests.id','answers.userz_tests_id')
+            ->where('tests.id',$id)
+            ->get();
+        //Que preguntas tuvieron una respuesta promedio menor a 3?
+        $consultaTomas = DB::table('tests')
+            ->select(DB::raw("AVG(answers.description) promedio, questions_id, questions.description "))
+            ->join('userz_tests','tests.id','userz_tests.tests_id')
+            ->join('answers','userz_tests.id','answers.userz_tests_id')
+            ->join('questions','questions.id','answers.questions_id')
+            ->groupBy('answers.questions_id')
+            ->groupBy('questions.description')
+            ->where('tests.id',$id)
+            ->having('promedio','<',3)
+            ->get();
+        //dd($consultaTomas);
+
 
         //Validar si existe el id, para que no coloquen un id inválido
         $test = App\Test::findOrFail($id);
@@ -268,12 +400,66 @@ class SurveyController extends Controller
 
         $jovenes = 0;
         $adultos = 0;
+        $valueMax = 0;
+        $valueMin = 0;
+        $descMax = "";
+        $descMin = "";
 
+        $mayor = 
+            DB::table('questions')
+            ->join('answers', 'questions.id', '=', 'answers.questions_id')
+            ->select(DB::raw("MAX(answers.description) max, questions.description"))
+            ->groupBy('questions.description')
+            ->where('tests_id',$id)
+            ->orderBy('questions.description', 'desc')
+            ->take(1)
+            ->get();
+        
+        $valueMax = $mayor[0]->max;
+        $descMax = $mayor[0]->description;
+            
+        $menor = 
+            DB::table('questions')
+            ->join('answers', 'questions.id', '=', 'answers.questions_id')
+            ->select(DB::raw("MIN(answers.description) min, questions.description"))
+            ->groupBy('questions.description')
+            ->where('tests_id',$id)
+            ->orderBy('questions.description', 'asc')
+            ->take(1)
+            ->get(); 
+
+        $valueMin = $menor[0]->min;
+        $descMin = $menor[0]->description;
+            
         //Verifico si hay datos en la tabla
+
+        $cantidadMujeres=0;
+        $cantidadHombres= 0;
         if(sizeof($deadLines)>0){
             $sumJovenes = 0;
             $sumAdultos =0;
             foreach ($deadLines as $deadline){
+
+                //Consulta Cuasapud
+                //, ¿Cuántos hombres y mujeres respondieron la encuesta? ?
+                $consulta = DB::table('tests')
+                    ->select(DB::raw("COUNT(userzs_id) usuarios, userzs.gender "))
+                    ->join('userz_tests','tests.id','userz_tests.tests_id')
+                    ->join('userzs','userzs.id','userz_tests.userzs_id')
+                    ->groupBy('userzs.gender')
+                    ->where('tests.id',$id)
+                    ->where('deadline',$deadline->deadline)
+                    ->whereDate('participationdate','<=',$deadline->deadline)
+                    ->get();
+                foreach ($consulta as $query){
+                    if($query->gender=="f"){
+                        $cantidadMujeres = $cantidadMujeres + $query->usuarios;
+                    }
+                    else{
+                        $cantidadHombres = $cantidadHombres + $query->usuarios;
+                    }
+                }
+
 
                 $CantJoven = DB::table('userz_tests')
                     ->whereDate('participationdate','<=',$deadline->deadline)
@@ -290,25 +476,45 @@ class SurveyController extends Controller
 
             $total = $sumJovenes + $sumAdultos;
 
-            $jovenes = ($sumJovenes*100)/$total;
-            $adultos = ($sumAdultos*100)/$total;
+
+
+            if(!$total==0){
+                $jovenes = ($sumJovenes*100)/$total;
+                $adultos = ($sumAdultos*100)/$total;
+            }
+            else{
+                $jovenes = 0;
+                $adultos = 0;
+            }
+
+
             //print("Adultos: ".$sumAdultos." Porcentaje: ".$porcentajeAdultos."%");
             //print("Jovenes: ".$sumJovenes." Porcentaje: ".$porcentajeJovenes."%");
             
+            
 
         }
+        $porcentajeno = 0;
+        $porcentajesi = 0;
 
-
+        /*
         //consulta de cuantos usuarios respondieron y No respondieron el test
+        /*
+         Consulta de viviana
         $totalu = DB::table('userzs')->count();
         $c1 = DB::table('answers')->select('userzs_id')->get();
         $yes = DB::table('userz_tests')->where('id','in',$c1)->count('userzs_id');
         $no = DB::table('userz_tests')->where('id','not in',$c1)->count('userzs_id');
 
         $porcentajesi= ($yes*100)/$totalu;
-        $porcentajeno=($no*100)/$totalu;
+        $porcentajesi=($no*100)/$totalu;
+        */
 
-        return view("evaluator.statistics", compact('jovenes','adultos','porcentajesi','porcentajeno'));
+
+        return view("evaluator.statistics", compact('jovenes','adultos','consultaTomas','cantidadHombres','cantidadMujeres','porcentajesi','porcentajeno', 'valueMax', 'valueMin', 'descMin', 'descMax'));
+
+        
+        //return view("evaluator.statistics", compact('jovenes','adultos','porcentajesi','porcentajeno', 'valueMax', 'valueMin', 'descMin', 'descMax'));
 
     }
 

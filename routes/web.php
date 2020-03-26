@@ -21,21 +21,38 @@ Route::resource('/pollster','PollsterController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Rutas Juano
 Route::resource('/survey','SurveyController');
-
 Route::post('/crear', 'SurveyController@crear')->name('survey.crear');
-
 Route::get('/listar', 'SurveyController@listarEncuestas')->name('surveys_list');
+Route::get('/listarQuestions/{id}', 'SurveyController@listarPreguntas')->name('survey.questions_list');
+//Eliminar una encuesta en particular
+Route::delete('/survey/{id}','SurveyController@destroy')->name('survey.destroy');
+//Editar una encuesta en particular
+Route::get('/survey/{id}/edit', 'SurveyController@edit')->name('survey.edit');
+//Actualizar una encuesta en particular
+Route::put('/survey/{id}','SurveyController@update')->name('survey.update');
 
 //Rutas usadas por Lino
 Route::get('/prueba',function(){
     return view ('evaluator.newUserEmail');
 });
 
+
 Route::get('/statistics/{id?}','SurveyController@showStatistics')->name('survey.statistics');
+
+
 
 Route::get('/enviarEncuesta','SurveyController@organizarEncuesta')->name('pag_env_encuesta');
 Route::post('/survey/email','SurveyController@enviarEncuesta')->name('survey.send');
+Route::get('/survey/email/validar','SurveyController@validar');
+
+Route::get('/profile','PollsterController@profile')->name('pollster.profile');
+
+
+Route::get('/autocomplete', 'SurveyController@mostrarVista');
+Route::post('/autocomplete/fetch', 'SurveyController@fetch')->name('autocomplete.fetch');
+
 
 //Route::get('/SUS/{id?}', 'SurveyController@prueba' );
 

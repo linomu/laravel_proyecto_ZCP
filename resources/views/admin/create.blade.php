@@ -23,7 +23,7 @@
 
     <div class="col-sm-6">
 
-      <form action="{{route('admin.store')}}" method="POST" class="">
+      <form action="{{route('admin.store')}}" method="POST" class=""  onsubmit="return validar()">
 
       @csrf
         <div class="row form-group">
@@ -97,7 +97,7 @@
 
 
           @error('birthday')
-          <div class="alert alert-danger">El genero es obligatorio
+          <div class="alert alert-danger">La fecha de nacimiento es obligatorio
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
               </button>
@@ -107,7 +107,7 @@
 
               <label class="font-weight-bold" for="birthday">Fecha de nacimiento</label>
               <div class="col-md-6">
-                  <input type="date" id="deadline" name="birthday"  value=""
+                  <input type="date" id="birthday" name="birthday"  value="{{old('birthday')}}"
                          min="" max="">
               </div>
           </div>
@@ -124,13 +124,13 @@
             @enderror
             <div class="col-md-12">
               <label class="font-weight-bold" for="email">Correo:</label>
-            <input type="email" name="txt_email" value="{{old('txt_email')}}" class="form-control" placeholder="Escriba su correo">
+            <input type="email"  id="txt_email" name="txt_email" value="{{old('txt_email')}}" class="form-control" placeholder="Escriba su correo">
             </div>
             </div>
 
           <div class="col-md-12">
               <label class="font-weight-bold" for="email">Correo</label>
-              <input type="email" name="txt_email2" value="" class="form-control" placeholder="Vuelva a escribir su correo">
+              <input type="email" id="txt_email2" name="txt_email2" value="" class="form-control" placeholder="Vuelva a escribir su correo">
           </div>
 
 
@@ -164,4 +164,10 @@
 
 
 </div>
+@endsection
+
+
+@section('script_section')
+    <script src="http://momentjs.com/downloads/moment.min.js"></script>
+    <script src="{{URL::asset('js/functionsByLino.js') }}"></script>
 @endsection
