@@ -4,6 +4,7 @@
     <ul class="nav side-menu">
       <li><a><i class="fa fa-home"></i> Administrador <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
+            <li><a href="{{route('admin.show',$id=auth()->user()->actors_id)}}">Ver</a></li>
           <li><a href="{{route('admin.create')}}">Crear</a></li>
           <li><a href="{{route('admin.index')}}">Administradores</a></li>
         </ul>

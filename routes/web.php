@@ -38,10 +38,21 @@ Route::get('/prueba',function(){
     return view ('evaluator.newUserEmail');
 });
 
+
 Route::get('/statistics/{id?}','SurveyController@showStatistics')->name('survey.statistics');
+
+
 
 Route::get('/enviarEncuesta','SurveyController@organizarEncuesta')->name('pag_env_encuesta');
 Route::post('/survey/email','SurveyController@enviarEncuesta')->name('survey.send');
+Route::get('/survey/email/validar','SurveyController@validar');
+
+Route::get('/profile','PollsterController@profile')->name('pollster.profile');
+
+
+Route::get('/autocomplete', 'SurveyController@mostrarVista');
+Route::post('/autocomplete/fetch', 'SurveyController@fetch')->name('autocomplete.fetch');
+
 
 //Route::get('/SUS/{id?}', 'SurveyController@prueba' );
 

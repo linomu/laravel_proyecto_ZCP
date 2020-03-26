@@ -7,13 +7,16 @@ use App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use mysql_xdevapi\Exception;
+use Validator;
 
 class PollsterController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('admin')->except('show','update');
+        $this->middleware('evaluator')->only('update','show');
     }
 
 
@@ -101,22 +104,95 @@ class PollsterController extends Controller
 
     public function show($id)
     {
-        $pollster = App\Actors::findOrFail($id);
-        return view('evaluator.showPollster', compact('pollster'));
+        //$pollster = App\Actors::findOrFail($id);
+
+            $actor = DB::table('actors')
+                ->join('users','actors.id','users.actors_id')
+                ->where('actors.id',$id)
+                ->get();
+            //The query should bring all the information about this pollster, including the user information.
+            return view('layouts.profile', compact('actor'));
+
+
+
     }
 
 
     public function edit($id)
     {
         $pollster = App\Actors::findOrFail($id);
+
         return view('evaluator.editPollster',compact('pollster'));
     }
 
 
     public function update(Request $request, $id)
     {
-        //
+
+
+        $request->validate([
+            'identification'=>'required',
+            'firstname'=>'required',
+            'lastname'=>'required',
+            'gender'=>'required',
+            'birthday'=>'required',
+        ]);
+
+        $validacion = Validator::make($request->all(), [
+            'urlphoto'=> 'max:500',//indicamos el valor maximo
+        ]);
+
+        if ($validacion->fails()) {
+            return back()->with('mensajeError','El tamaño máximo es 500kb, debes seleccionar otra foto o modificarla.   ');
+        } else {
+            //First I must update the actor table before users
+
+
+            $file = $request->file('urlphoto');
+
+
+            $actor = App\Actors::findOrFail($id);
+            $actor->id = $request->identification;
+            $actor->firstname = $request->firstname;
+            $actor->lastname = $request->lastname;
+            $actor->gender = $request->gender;
+            $actor->phonenumber = $request->phonenumber;
+            $actor->birth_date = $request->birthday;
+            if($file == null){
+                $actor->ulrphoto = $actor->ulrphoto;
+            }else{
+                $actor->ulrphoto = $file->getClientOriginalName();
+                $file->move(base_path('public\images'), $file->getClientOriginalName());
+            }
+            $actor->save();
+
+
+            //Actualizar user solo la password
+
+            if($request->password != ""){
+                $user = DB::table('users')
+                    ->where('users.actors_id',$request->identification)
+                    ->get();
+                $idUser =  $user[0]->id;
+                $user = App\User::findOrFail($idUser);
+
+                $user->id = $user->id;
+                $user->actors_id = $user->actors_id;
+                $user->email = $user->email;
+                $user->password = Hash::make($request->password);
+                $user->rol = $user->rol;
+                $user->save();
+            }
+
+
+            return redirect()->action('HomeController@index')->with('mensaje','Perfil Actualizado!');
+
+
+        }
+
+
     }
+
 
 
     public function destroy(Request $request, $id)
