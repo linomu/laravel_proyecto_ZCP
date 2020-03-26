@@ -59,15 +59,7 @@
                     </button>
                 </div>
 
-                <div class="flex-col-c p-t-170 p-b-40">
-                    <span class="txt1 p-b-9">
-                        ¿No tienes cuenta aún?
-                    </span>
 
-                    <a href="{{ route('register') }}" class="txt3">
-                        Registrarse ahora
-                    </a>
-                </div>
             </form>
         </div>
     </div>

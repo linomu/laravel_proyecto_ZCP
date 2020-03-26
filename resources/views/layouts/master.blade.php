@@ -39,10 +39,19 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleEnc.css') }}">
 
+
+
+
+      <style type="text/css">
+          .box{
+              width:600px;
+              margin:0 auto;
+          }
+      </style>
+
     <script
         src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
     </script>
-
 
 
 
@@ -149,7 +158,14 @@
                       @yield('imageName')
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item"  href="javascript:;"> Mi Perfil</a>
+
+                     @if(auth()->user()->rol == "evaluator")
+                          <a class="dropdown-item"  href="{{route('pollster.show',$id=auth()->user()->actors_id)}}"> Mi Perfil</a>
+
+                         @else
+                          <a class="dropdown-item"  href="{{route('admin.show',$id=auth()->user()->actors_id)}}"> Mi Perfil</a>
+                         @endif
+
 
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();

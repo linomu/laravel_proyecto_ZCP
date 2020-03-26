@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-
+use Validator;
 
 class AdminController extends Controller
 {
@@ -108,8 +108,14 @@ class AdminController extends Controller
 
     public function show($id = 1)
     {
-        $admin = App\Actors::findOrFail($id);
-        return view('admin.show', compact('admin'));
+        //$pollster = App\Actors::findOrFail($id);
+
+        $actor = DB::table('actors')
+            ->join('users','actors.id','users.actors_id')
+            ->where('actors.id',$id)
+            ->get();
+        //The query should bring all the information about this pollster, including the user information.
+        return view('layouts.profile', compact('actor'));
     }
 
     public function edit($id = 1)
@@ -121,26 +127,66 @@ class AdminController extends Controller
 
     public function update(Request $request, $id)
     {
-
-
-        $admin = App\Actors::findOrFail($id);
         $request->validate([
-            'txt_name'=>'required',
-            'txt_last_name'=>'required',
-            'txt_email'=>'required',
-            'txt_user'=>'required',
-            'txt_pass'=>'required',
+            'identification'=>'required',
+            'firstname'=>'required',
+            'lastname'=>'required',
+            'gender'=>'required',
+            'birthday'=>'required',
         ]);
 
-        $admin->id=$request->id;
-        $admin->firstname = $request->txt_name;
-        $admin->lastname = $request->txt_last_name;
-        $admin->email = $request->txt_email;
-        $admin->username = $request->txt_user;
-        $admin->password = $request->txt_pass;
-        $admin->save();
+        $validacion = Validator::make($request->all(), [
+            'urlphoto'=> 'max:500',//indicamos el valor maximo
+        ]);
 
-        return back()->with('mensaje','Administrador Actualizado!');
+        if ($validacion->fails()) {
+            return back()->with('mensajeError','El tamaño máximo es 500kb, debes seleccionar otra foto o modificarla.   ');
+        } else {
+            //First I must update the actor table before users
+
+
+            $file = $request->file('urlphoto');
+
+
+            $actor = App\Actors::findOrFail($id);
+            $actor->id = $request->identification;
+            $actor->firstname = $request->firstname;
+            $actor->lastname = $request->lastname;
+            $actor->gender = $request->gender;
+            $actor->phonenumber = $request->phonenumber;
+            $actor->birth_date = $request->birthday;
+            if($file == null){
+                $actor->ulrphoto = $actor->ulrphoto;
+            }else{
+                $actor->ulrphoto = $file->getClientOriginalName();
+                $file->move(base_path('public\images'), $file->getClientOriginalName());
+            }
+            $actor->save();
+
+
+            //Actualizar user solo la password
+
+            if($request->password != ""){
+                $user = DB::table('users')
+                    ->where('users.actors_id',$request->identification)
+                    ->get();
+                $idUser =  $user[0]->id;
+                $user = App\User::findOrFail($idUser);
+
+                $user->id = $user->id;
+                $user->actors_id = $user->actors_id;
+                $user->email = $user->email;
+                $user->password = Hash::make($request->password);
+                $user->rol = $user->rol;
+                $user->save();
+            }
+
+
+            return redirect()->action('AdminController@index')->with('mensaje','Perfil Actualizado!');
+
+
+
+        }
     }
 
     /*public function destroy($id)

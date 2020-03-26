@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use App;
 use mysql_xdevapi\Table;
 
+
 class SurveyController extends Controller
 {
     public function crear(Request $request){
@@ -250,9 +251,82 @@ class SurveyController extends Controller
 
     }
 
+    public function validar(Request $request){
+        if($request->ajax()){
+            $headers = @get_headers($request->url);
+            if($headers && strpos( $headers[0], '200')) {
+                $status = "URL Existe";
+            }
+            else {
+                $status = "URL No existe";
+            }
+            return response()->json([
+                'mensaje'=> $status
+            ]);
 
+        }
+    }
+
+
+    public function mostrarVista(){
+        return view('evaluator.autocomplete');
+    }
+
+    function fetch(Request $request)
+    {
+        //dd($request->get('query'));
+
+
+        if($request->get('query'))
+        {
+            $query = $request->get('query');
+            $data = DB::table('topics')
+                ->where('description', 'LIKE', "%{$query}%")
+                ->get();
+            $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
+            foreach($data as $row)
+            {
+                $output .= '
+           <li><a href="#">'.$row->description.'</a></li>
+           ';
+            }
+            $output .= '</ul>';
+            echo $output;
+        }
+    }
     public function showStatistics($id = -1)
     {
+
+        $deadLines =
+            DB::table('userz_tests')
+                ->select(DB::raw("COUNT(userzs_id) count, deadline"))
+                ->groupBy('deadline')
+                ->where('tests_id',$id)
+                ->get();
+
+
+
+
+
+
+        $consulta = DB::table('tests')
+            ->join('userz_tests','tests.id','userz_tests.tests_id')
+            ->join('answers','userz_tests.id','answers.userz_tests_id')
+            ->where('tests.id',$id)
+            ->get();
+        //Que preguntas tuvieron una respuesta promedio menor a 3?
+        $consultaTomas = DB::table('tests')
+            ->select(DB::raw("AVG(answers.description) promedio, questions_id, questions.description "))
+            ->join('userz_tests','tests.id','userz_tests.tests_id')
+            ->join('answers','userz_tests.id','answers.userz_tests_id')
+            ->join('questions','questions.id','answers.questions_id')
+            ->groupBy('answers.questions_id')
+            ->groupBy('questions.description')
+            ->where('tests.id',$id)
+            ->having('promedio','<',3)
+            ->get();
+        //dd($consultaTomas);
+
 
         //Validar si existe el id, para que no coloquen un id inválido
         $test = App\Test::findOrFail($id);
@@ -270,10 +344,34 @@ class SurveyController extends Controller
         $adultos = 0;
 
         //Verifico si hay datos en la tabla
+
+        $cantidadMujeres=0;
+        $cantidadHombres= 0;
         if(sizeof($deadLines)>0){
             $sumJovenes = 0;
             $sumAdultos =0;
             foreach ($deadLines as $deadline){
+
+                //Consulta Cuasapud
+                //, ¿Cuántos hombres y mujeres respondieron la encuesta? ?
+                $consulta = DB::table('tests')
+                    ->select(DB::raw("COUNT(userzs_id) usuarios, userzs.gender "))
+                    ->join('userz_tests','tests.id','userz_tests.tests_id')
+                    ->join('userzs','userzs.id','userz_tests.userzs_id')
+                    ->groupBy('userzs.gender')
+                    ->where('tests.id',$id)
+                    ->where('deadline',$deadline->deadline)
+                    ->whereDate('participationdate','<=',$deadline->deadline)
+                    ->get();
+                foreach ($consulta as $query){
+                    if($query->gender=="f"){
+                        $cantidadMujeres = $cantidadMujeres + $query->usuarios;
+                    }
+                    else{
+                        $cantidadHombres = $cantidadHombres + $query->usuarios;
+                    }
+                }
+
 
                 $CantJoven = DB::table('userz_tests')
                     ->whereDate('participationdate','<=',$deadline->deadline)
@@ -289,9 +387,21 @@ class SurveyController extends Controller
             }
 
             $total = $sumJovenes + $sumAdultos;
-            
+
             $jovenes = ($sumJovenes*100)/$total;
             $adultos = ($sumAdultos*100)/$total;
+
+
+            if(!$total==0){
+                $jovenes = ($sumJovenes*100)/$total;
+                $adultos = ($sumAdultos*100)/$total;
+            }
+            else{
+                $jovenes = 0;
+                $adultos = 0;
+            }
+
+
             //print("Adultos: ".$sumAdultos." Porcentaje: ".$porcentajeAdultos."%");
             //print("Jovenes: ".$sumJovenes." Porcentaje: ".$porcentajeJovenes."%");
 
@@ -308,7 +418,10 @@ class SurveyController extends Controller
         $porcentajesi= ($yes*100)/$totalu;
         $porcentajeno=($no*100)/$totalu;
 
-        return view("evaluator.statistics", compact('jovenes','adultos','porcentajesi','porcentajeno'));
+
+
+        return view("evaluator.statistics", compact('jovenes','adultos','consultaTomas','cantidadHombres','cantidadMujeres','porcentajesi','porcentajeno'));
+
 
     }
 

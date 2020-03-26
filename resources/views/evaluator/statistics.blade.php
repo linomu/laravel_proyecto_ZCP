@@ -47,7 +47,7 @@ chart.render();
 
             </div>
             <div class="col-md-6">
-                Estadistica de Tomas
+                <div id="chartContainerTomas" style="height: 370px; width: 100%;"></div>
 
             </div>
 
@@ -55,7 +55,7 @@ chart.render();
         </div>
         <div class="row">
             <div class="col-md-6">
-                Estadistica de Pu
+                <div id="chartContainerPu" style="height: 370px; width: 100%;"></div>
 
             </div>
             <div class="col-md-6">
@@ -83,8 +83,52 @@ chart.render();
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
     <script>
-        window.onload = function (){
-            
+
+        window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainerPu", {
+                theme: "light1", // "light2", "dark1", "dark2"
+                animationEnabled: false, // change to true
+                title:{
+                    text: "¿Cuántos hombres y mujeres respondieron la encuesta? "
+                },
+                data: [
+                    {
+                        // Change type to "bar", "area", "spline", "pie",etc.
+                        type: "column",
+                        dataPoints: [
+
+                            { label: "Hombres",  y: {{$cantidadHombres}}  },
+                            { label: "Mujeres",  y: {{$cantidadMujeres}}  },
+
+                        ]
+                    }
+                ]
+            });
+            chart.render();
+
+            var chart = new CanvasJS.Chart("chartContainerTomas", {
+                theme: "light1", // "light2", "dark1", "dark2"
+                animationEnabled: false, // change to true
+                title:{
+                    text: "¿Qué preguntas tuvieron una respuesta promedio menor a 3?"
+                },
+                data: [
+                    {
+                        // Change type to "bar", "area", "spline", "pie",etc.
+                        type: "column",
+                        dataPoints: [
+                                @foreach($consultaTomas as $queryTomas)
+                            { label: "{{$queryTomas->description}}",  y: {{$queryTomas->promedio}}  },
+                            @endforeach
+                        ]
+                    }
+                ]
+            });
+            chart.render();
+
+
+
             var chart = new CanvasJS.Chart("chartContainer", {
                 animationEnabled: true,
                 title: {
@@ -104,7 +148,12 @@ chart.render();
             chart.render();
 
 
+
+
+
         }
     </script>
+
+
 
 @endsection
