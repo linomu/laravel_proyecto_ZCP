@@ -495,21 +495,21 @@ class SurveyController extends Controller
 
 
        //Consulta de Isabela
-       $porcentajeno = 0;
-       $porcentajesi = 0;
+       //$porcentajeno = 0;
+       //$porcentajesi = 0;
 
-       /*
+       
        //consulta de cuantos usuarios respondieron y No respondieron el test
-       /*
-        Consulta de viviana
+       
+    //Consulta de viviana
        $totalu = DB::table('userzs')->count();
        $c1 = DB::table('answers')->select('userzs_id')->get();
-       $yes = DB::table('userz_tests')->where('id','in',$c1)->count('userzs_id');
-       $no = DB::table('userz_tests')->where('id','not in',$c1)->count('userzs_id');
+       $yes = DB::table('userz_tests')->where('id','in','c1')->count('userzs_id');
+       $no = DB::table('userz_tests')->where('id','not in','c1')->count('userzs_id');
 
        $porcentajesi= ($yes*100)/$totalu;
        $porcentajesi=($no*100)/$totalu;
-       */
+       
 
 
         return view("evaluator.statistics", compact('jovenes','adultos','consultaTomas','cantidadHombres','cantidadMujeres','porcentajesi','porcentajeno', 'valueMax', 'valueMin', 'descMin', 'descMax'));
