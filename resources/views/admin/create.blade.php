@@ -6,14 +6,14 @@
 
 
 @section('content')
-<div class="container">
+<div class="container-enc bg-transparent">
     @if (session('status'))
     <div class="alert alert-success" role="alert">
         {{ session('status') }}
     </div>
     @endif
 
-<h1>Crear Administradores</h1>
+        <h1 class="text-primary">Crear Administradores</h1>
 
     @if(session('mensaje'))
       <div class="alert alert-success">
@@ -21,12 +21,12 @@
       </div>
     @endif
 
-    <div class="col-sm-6">
+    <div class="col-sm-6 bg-transparent container-enc">
 
       <form action="{{route('admin.store')}}" method="POST" class=""  onsubmit="return validar()">
 
       @csrf
-        <div class="row form-group">
+        <div class="espaciado">
 
           @error('txt_personal_id')
           <div class="alert alert-danger">El Documento es obligatorio {{ $message }}
@@ -42,7 +42,7 @@
         </div>
 
 
-        <div class="row form-group">
+        <div class="espaciado">
           @error('txt_name')
           <div class="alert alert-danger">El Nombre es obligatorio
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -57,7 +57,7 @@
           </div>
 
 
-          <div class="row form-group">
+          <div class="espaciado">
             @error('txt_last_name')
             <div class="alert alert-danger">El Apellido es obligatorio
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -72,21 +72,23 @@
           </div>
 
 
-          @error('gender')
+
+          <div class="espaciado">
+
+           <label class="font-weight-bold col-md-12 mb-3 mb-md-0">Género</label>
+            @error('gender')
           <div class="alert alert-danger">El genero es obligatorio
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
               </button>
           </div>
           @enderror
-          <div class="row form-group">
-              <label class="col-form-label col-md-3 col-sm-3 label-align">Género</label>
-              <div class="col-md-6 col-sm-6 ">
-                  <div id="gender" class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+              <div class="col-md-12 mb-3 mb-md-0">
+                  <div id="gender" class="espaciado btn-group" data-toggle="buttons">
+                      <label class="btn btn-outline-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                           <input type="radio" name="gender" value="m" class="join-btn"> &nbsp; Hombre &nbsp;
                       </label>
-                      <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                      <label class="btn btn-outline-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                           <input type="radio" name="gender" value="f" class="join-btn"> Mujer
                       </label>
                   </div>
@@ -103,18 +105,18 @@
               </button>
           </div>
           @enderror
-          <div class="row form-group">
+          <div class="espaciado">
 
+                <div class="col-md-12 mb-3 mb-md-0">
               <label class="font-weight-bold" for="birthday">Fecha de nacimiento</label>
-              <div class="col-md-6">
                   <input type="date" id="birthday" name="birthday"  value="{{old('birthday')}}"
                          min="" max="">
-              </div>
+            </div>
           </div>
 
 
 
-          <div class="row form-group">
+          <div class="espaciado">
             @error('txt_email')
             <div class="alert alert-danger">El Correo Electronico es obligatorio
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -129,14 +131,14 @@
             </div>
 
           <div class="col-md-12">
-              <label class="font-weight-bold" for="email">Correo</label>
+              <label class="font-weight-bold" for="email">Confirmación de Correo:</label>
               <input type="email" id="txt_email2" name="txt_email2" value="" class="form-control" placeholder="Vuelva a escribir su correo">
           </div>
 
 
 
 
-          <div class="row form-group">
+          <div class="espaciado">
               @error('txt_number')
               <div class="alert alert-danger">El Correo Electronico es obligatorio
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -152,8 +154,9 @@
           </div>
 
 
-          <div class="row form-group">
+          <div class="espaciado">
             <div class="col-md-12">
+                <br>
               <input type="submit" value="Guardar" class="btn btn-primary rounded-0 btn-lg">
             </div>
           </div>

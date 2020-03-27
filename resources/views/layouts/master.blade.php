@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="images/favicon.ico" type="image/ico" />
+	<link rel="icon" href="{{URL::asset('images/fox.ico')}}" type="image/ico" />
 
-    <title>Gentelella Alela! | </title>
+    <title>Zorros Comunes Privativos</title>
 
     <!-- Bootstrap -->
 
@@ -55,6 +55,10 @@
 
 
 
+
+
+
+
   </head>
   <script>
     $(document).ready(
@@ -86,7 +90,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>IU Experience!</span></a>
+              <a href="index.html" class="site_title"><i class="fa fa-firefox"></i> <span>IU Experience!</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -98,7 +102,7 @@
 
               </div>
               <div class="profile_info">
-                <span>Bienvenido,</span>
+                <span><h6 class="text-light font-weight-bold">¡Bienvenido!</h6></span>
                 @yield('userName')
 
               </div>

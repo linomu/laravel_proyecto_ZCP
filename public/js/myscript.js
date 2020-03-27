@@ -3,13 +3,24 @@ x=$(document);
 x.ready(inicializarEventos);
 
 function inicializarEventos(){
+
+
+
+
 $('#alert').hide();
 
     $('.btnDelete').click(function(e){
         e.preventDefault();
+
+
+
+
+
         if(!confirm('Está seguro de eliminar el administrador')){
             return false;
         }
+
+
         var row = $(this).parents('tr');
         var form = $(this).parents('form');
         var url = form.attr('action');
@@ -27,12 +38,12 @@ $('#alert').hide();
 
     });
 
-    $('.clickable-row').click(function(){
+    $('.clickable-row_prueba').click(function(){
         $('selector').css('cursor', 'pointer');
         window.location = $(this).data("href")
     });
 
-    $('.clickable-row').mouseover(function(e){
+    $('.clickable-row_prueba').mouseover(function(e){
         $(this).css('cursor', 'pointer');
 
 

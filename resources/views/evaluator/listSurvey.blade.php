@@ -12,8 +12,9 @@
         {{ session('status') }}
     </div>
 @endif
-
+        <h1 class="text-primary">Encuestas</h1>
 <div class="container-enc">
+
 	<div>
 		<table class="table table-striped">
 			<thead>
@@ -33,17 +34,17 @@
 					<td class="clickable-row" data-href="{{route('survey.statistics',$item->id)}}">{{$item->description}}</td>
 					<td class="clickable-row" data-href="{{route('survey.statistics',$item->id)}}">{{$item->kindSurvey}}</td>
 					<td>
-                		<a href="{{ route('survey.edit',$item->id)}}" class="btn btn-primary">Editar</a>
+                		<a href="{{ route('survey.edit',$item->id)}}" class="btn btn-primary  btn-sm">Editar</a>
             		</td>
 					<td>
 						<form action="{{ route('survey.destroy', $item->id)}}" method="POST">
 							@csrf
 							@method('DELETE')
-							<button class="btn btn-danger" type="submit">Eliminar</button>
+							<button class="btn btn-danger  btn-sm" type="submit">Eliminar</button>
 						</form>
 					</td>
 					<td>
-                		<a href="{{ route('survey.questions_list',$item->id)}}" class="btn btn-secondary">Ver preguntas</a>
+                		<a href="{{ route('survey.questions_list',$item->id)}}" class="btn btn-secondary  btn-sm">Ver preguntas</a>
             		</td>
 				</tr>
 			@endforeach()

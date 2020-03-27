@@ -15,14 +15,7 @@
           <li><a href="{{route('pollster.index')}}">Evaluadores</a></li>
         </ul>
       </li>
-      <li><a><i class="fa fa-desktop"></i>Cuestionarios<span class="fa fa-chevron-down"></span></a>
-        <ul class="nav child_menu">
-          <li><a href="general_elements.html">Crear</a></li>
-          <li><a href="media_gallery.html">Ver</a></li>
-          <li><a href="typography.html">Editar</a></li>
 
-        </ul>
-      </li>
 
     </ul>
   </div>

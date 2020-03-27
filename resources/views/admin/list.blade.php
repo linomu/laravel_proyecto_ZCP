@@ -5,14 +5,14 @@
 
 
 @section('content')
-<div class="container">
+<div class="container-enc bg-transparent">
     @if (session('status'))
     <div class="alert alert-success" role="alert">
         {{ session('status') }}
     </div>
 @endif
 
-<h1>Administradores que tú has creado</h1>
+<h1 class="text-primary">Administradores que tú has creado</h1>
 @if(session('mensaje'))
 <div class="alert alert-success">
   {{session('mensaje')}}
@@ -66,5 +66,6 @@
 
 
 @section('script_section')
-<script src="{{URL::asset('js/myscript.js') }}"></script>
+
+    <script src="{{URL::asset('js/myscript.js') }}"></script>
 @endsection

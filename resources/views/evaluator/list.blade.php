@@ -5,14 +5,14 @@
 
 
 @section('content')
-    <div class="container">
+    <div class="container-enc bg-transparent">
         @if (session('status'))
             <div class="alert alert-success" role="alert">
                 {{ session('status') }}
             </div>
         @endif
 
-        <h1>Evaluadores que tú has creado</h1>
+        <h1 class="text-primary">Evaluadores que tú has creado</h1>
         @if(session('mensaje'))
             <div class="alert alert-success">
                 {{session('mensaje')}}
@@ -21,7 +21,7 @@
 
         <div id="alert" class="alert alert-info"></div>
 
-        <table class="table">
+        <table class="table table-striped">
             <thead>
             <tr>
 

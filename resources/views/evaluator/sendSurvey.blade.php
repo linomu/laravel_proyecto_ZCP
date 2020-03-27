@@ -7,9 +7,9 @@
 
 @section('content')
 
-
+    <div class="container-enc bg-transparent">
     <script src=”validae_email.js” language=”Javascript”></script>
-    <h1>Envía tus encuestas!</h1>
+    <h1 class="text-primary">Envía tus encuestas!</h1>
     <title>Document Object Model</title>
     <br>
     @if(session('mensaje'))
@@ -29,7 +29,6 @@
                         @foreach($data as $options)
                             <option value="{{$options->id}}">{{$options->name}}</option>
                         @endforeach
-
                     </select>
                 </div>
             </div>
@@ -98,9 +97,9 @@
 
             <!-- Button -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="btnSendSurvey"></label>
-                <div class="col-md-4">
-                    <button id="btnSendSurvey" name="btnSendSurvey" class="btn btn-success">Enviar</button>
+                <label class="col-md-2 control-label" for="btnSendSurvey"></label>
+                <div class="col-md-6">
+                    <button id="btnSendSurvey" name="btnSendSurvey" class="btn btn-lg btn-primary">Enviar</button>
 
                 </div>
             </div>
@@ -110,7 +109,7 @@
 
 
     </form>
-
+</div>
 
 @endsection
 

@@ -23,7 +23,7 @@
             -->
 
             <div class="clearfix"></div>
-
+            <h1 class="text-primary">Tú Información</h1>
             <div class="row">
                 @if(session('mensajeError'))
                     <div class="alert alert-warning">
