@@ -10,11 +10,12 @@
 
         <div class="row">
             <div class="col-md-6">
+                <p>lino</p>
                 <div id="chartContainerLino" style="height: 400px; width: 400px"></div>
             </div>
             <div class="col-md-6">
 
-
+                <p>Viviana</p>
                 <div id="chartContainerViviana" style="height: 400px; width: 400px"></div>
 
             </div>
@@ -22,9 +23,11 @@
 
         <div class="row">
             <div class="col-md-6">
+                <p>Juano</p>
                 <div id="chartMinMax" style="margin: 20px; height: 300px; width: 100%;"></div>
             </div>
             <div class="col-md-6">
+                <p>tomas</p>
                 <div id="chartContainerTomas" style="height: 370px; width: 100%;"></div>
 
             </div>
@@ -33,6 +36,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
+                <p>PU</p>
                 <div id="chartContainerPu" style="height: 370px; width: 100%;"></div>
 
             </div>
