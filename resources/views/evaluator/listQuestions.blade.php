@@ -22,7 +22,7 @@
 <div class="container-enc">
     <h1 class="text-primary">Preguntas</h1>
 	<div>
-		<table class="table table-striped">
+		<table class="table">
 			<thead>
 				<tr>
 					<th>Id</th>

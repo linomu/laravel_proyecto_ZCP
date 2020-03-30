@@ -198,12 +198,10 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            Zorros Comunes Privativos
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+
+          <footer style="background: #F7F7F7">
+                <div class="clearfix" style="background:#F7F7F7"></div>
+          </footer>
         <!-- /footer content -->
       </div>
     </div>

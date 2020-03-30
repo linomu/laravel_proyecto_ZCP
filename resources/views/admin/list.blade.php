@@ -16,12 +16,16 @@
 @if(session('mensaje'))
 <div class="alert alert-success">
   {{session('mensaje')}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
 </div>
+
 @endif
 
 <div id="alert" class="alert alert-info"></div>
 
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
 

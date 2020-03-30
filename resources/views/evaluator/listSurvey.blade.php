@@ -30,9 +30,9 @@
 			@foreach ($tests as $item)
 				<tr>
 					<th scope="row">{{$item->id}}</th>
-					<td class="clickable-row" data-href="{{route('survey.statistics',$item->id)}}">{{$item->name}}</td>
-					<td class="clickable-row" data-href="{{route('survey.statistics',$item->id)}}">{{$item->description}}</td>
-					<td class="clickable-row" data-href="{{route('survey.statistics',$item->id)}}">{{$item->kindSurvey}}</td>
+					<td class="clickable-row_prueba" data-href="{{route('survey.statistics',$item->id)}}">{{$item->name}}</td>
+					<td class="clickable-row_prueba" data-href="{{route('survey.statistics',$item->id)}}">{{$item->description}}</td>
+					<td class="clickable-row_prueba" data-href="{{route('survey.statistics',$item->id)}}">{{$item->kindSurvey}}</td>
 					<td>
                 		<a href="{{ route('survey.edit',$item->id)}}" class="btn btn-primary  btn-sm">Editar</a>
             		</td>

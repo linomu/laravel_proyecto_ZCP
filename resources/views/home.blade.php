@@ -24,7 +24,7 @@
             <title>Document</title>
         </head>
         <body>
-        Panel de Notificaciones
+        <h1 class="text-primary">Panel de Notificaciones</h1>
         @if(session('mensaje'))
             <div class="alert alert-success">
                 {{session('mensaje')}}

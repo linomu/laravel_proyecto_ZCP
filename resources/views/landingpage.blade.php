@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Archs &mdash; Onepage Template by Colorlib</title>
+      <link rel="icon" href="{{URL::asset('images/fox.ico')}}" type="image/ico" />
+
+      <title>Zorros Comunes Privativos</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -93,10 +95,11 @@
                         <li><a href="#our-team-section" class="nav-link">Equipo</a></li>
                       </ul>
                     </li>
-
+                      <li><a href="#pricing-section" class="nav-link">Acciones</a></li>
+                      <li><a href="#faq-section" class="nav-link">FAQ</a></li>
                     <li><a href="#services-section" class="nav-link">Servicios</a></li>
-                    <li><a href="#pricing-section" class="nav-link">Acciones</a></li>
-                    <li><a href="#faq-section" class="nav-link">FAQ</a></li>
+
+
                     @if (Route::has('login'))
 
                     @auth
@@ -226,7 +229,7 @@
               </div>
               <h2>Lino Alejandro Muñoz</h2>
               <span class="sub-title d-block mb-3">Front End & Back End</span>
-              <p>Decidí estudiar ingeniería de sistemas porque le apuesto a la tecnología como medio para </p>
+              <p>Decidí estudiar ingeniería de sistemas porque le apuesto a la tecnología como medio de transición hacia una mejor sociedad</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
@@ -451,8 +454,8 @@
             <div class="media custom-media">
               <div class="mr-3 icon"><span class=""></span></div>
               <div class="media-body">
-                <h5 class="mt-0">Gestionar Usuarios</h5>
-                Permitir a los usuarios registrarse e ingresar en nuestro sistema con sus datos personales básicos para poder realizar encuestas.
+                <h5 class="mt-0">Visualizar Estadísticas</h5>
+                El sitema permite analizar cada una de las encuestas realizadas mediante estadísticas.
               </div>
             </div>
           </div>

@@ -49,7 +49,6 @@ class PollsterController extends Controller
             'txt_personal_id'=>'required|unique:actors,id',
             'txt_last_name'=>'required',
             'txt_email'=>'required',
-            'txt_number'=>'required',
             'gender'=>'required',
             'birthday'=>'required',
         ]);

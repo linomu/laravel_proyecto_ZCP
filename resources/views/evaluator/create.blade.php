@@ -26,49 +26,41 @@
             <form action="{{route('pollster.store')}}" method="POST" class=""  onsubmit="return validar()">
 
                 @csrf
+                @error('txt_personal_id')
+                <div class="alert alert-danger"  style="heigth:25px;text-align:center;">El Documento es obligatorio
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @enderror
                 <div class="espaciado">
-
-                    @error('txt_personal_id')
-                    <div class="alert alert-danger">El Documento es obligatorio {{ $message }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    @enderror
-                    <div class="col-md-12 mb-3 mb-md-0">
                         <label class="font-weight-bold" for="fullname">Cédula</label>
                         <input type="text" name="txt_personal_id" class="form-control" placeholder="Cédula" value="{{old('txt_personal_id')}}">
-                    </div>
                 </div>
 
 
+                @error('txt_name')
+                <div class="alert alert-danger">El Nombre es obligatorio
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @enderror
                 <div class="espaciado">
-                    @error('txt_name')
-                    <div class="alert alert-danger">El Nombre es obligatorio
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    @enderror
-                    <div class="col-md-12 mb-3 mb-md-0">
                         <label class="font-weight-bold" for="fullname">Nombre</label>
                         <input type="text" name="txt_name" value="{{old('txt_name')}}" class="form-control" placeholder="Primer Nombre">
-                    </div>
                 </div>
 
-
+                @error('txt_last_name')
+                <div class="alert alert-danger">El Apellido es obligatorio
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @enderror
                 <div class="espaciado">
-                    @error('txt_last_name')
-                    <div class="alert alert-danger">El Apellido es obligatorio
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    @enderror
-                    <div class="col-md-12 mb-3 mb-md-0">
                         <label class="font-weight-bold" for="fullname">Apellido</label>
                         <input type="text" name="txt_last_name" value="{{old('txt_last_name')}}" class="form-control" placeholder="Segundo Nombre">
-                    </div>
                 </div>
 
 
@@ -80,8 +72,8 @@
                 </div>
                 @enderror
                 <div class="espaciado">
-                    <label class="font-weight-bold col-md-12 mb-3 mb-md-0">Género</label>
-                    <div class="col-md-6 col-sm-6 ">
+                    <label class="font-weight-bold ">Género</label>
+
                         <div id="gender" class="btn-group" data-toggle="buttons">
                             <label class="btn btn-outline-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                                 <input type="radio" name="gender" value="m" class="join-btn"> &nbsp; Hombre &nbsp;
@@ -90,7 +82,7 @@
                                 <input type="radio" name="gender" value="f" class="join-btn"> Mujer
                             </label>
                         </div>
-                    </div>
+
                 </div>
 
 
@@ -104,30 +96,26 @@
                 </div>
                 @enderror
                 <div class="espaciado">
-                     <div class="col-md-12 mb-3 mb-md-0">
+
                     <label class="font-weight-bold" for="birthday">Fecha de nacimiento</label>
-                        <input type="date" id="birthday" name="birthday"  value="{{old('birthday')}}"
-                               min="" max="">
-                    </div>
+                        <input type="date" id="birthday" name="birthday"  value="{{old('birthday')}}"  min="" max="">
+
                 </div>
 
 
-
+                @error('txt_email')
+                <div class="alert alert-danger">El Correo Electronico es obligatorio
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @enderror
                 <div class="espaciado">
-                    @error('txt_email')
-                    <div class="alert alert-danger">El Correo Electronico es obligatorio
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    @enderror
-                    <div class="col-md-12">
                         <label class="font-weight-bold" for="email">Correo</label>
                         <input type="email" id="txt_email" name="txt_email" value="{{old('txt_email')}}" class="form-control" placeholder="Escriba su correo">
-                    </div>
                 </div>
 
-                <div class="col-md-12">
+                <div class="espaciado">
                     <label class="font-weight-bold" for="email">Confirmación de Correo</label>
                     <input type="email" id="txt_email2" name="txt_email2" value="" class="form-control" placeholder="Vuelva a escribir su correo">
                 </div>
@@ -136,18 +124,8 @@
 
 
                 <div class="espaciado">
-                    @error('txt_number')
-                    <div class="alert alert-danger">El Correo Electronico es obligatorio
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    @enderror
-
-                    <div class="col-md-12">
                         <label class="font-weight-bold" for="email">Celular y/o Teléfono</label>
                         <input class="form-control" placeholder="Number"  name="txt_number" type="tel" value="{{old('txt_number')}}" id="example-tel-input">
-                    </div>
                 </div>
 
                 <div class="espaciado">
@@ -157,7 +135,9 @@
                     </div>
                 </div>
 
+
             </form>
+
         </div>
 
 

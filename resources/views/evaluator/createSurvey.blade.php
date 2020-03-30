@@ -20,18 +20,19 @@
 
 			<h1 class="text-primary">Crear Encuesta</h1>
 
-			<div class="espaciado">
-				<label for="txtNameSurvey">Nombre de la encuesta</label>
-				<input name="nombre" type="text" class="form-control mb-2" id="txtNameSurvey" value="{{old('nombre')}}">
-			</div>
-
-			@error('nombre')
+            @error('nombre')
             <div class="alert alert-danger">Falta el nombre de la encuesta
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             @enderror
+			<div class="espaciado">
+				<label for="txtNameSurvey">Nombre de la encuesta</label>
+				<input name="nombre" type="text" class="form-control mb-2" id="txtNameSurvey" value="{{old('nombre')}}">
+			</div>
+
+
 
 			<div class="espaciado">
 				<label for="txtDescSurvey">Descripción de la encuesta</label>

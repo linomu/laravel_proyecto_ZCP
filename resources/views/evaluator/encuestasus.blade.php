@@ -34,6 +34,7 @@
 </head>
 
 <body>
+
        <iframe class="container-enc mr-3" height="800" width="800" align="right" src="{{$page}}"></iframe>
         <div class="container-enc col-4 ml-3 text-center">
             <h3>Datos del Usuario</h3>
@@ -82,4 +83,3 @@
 </html>
 
 
-     
