@@ -179,7 +179,7 @@ class SusController extends Controller
 
         return back()->with('mensaje','respuestas enviadas!');
 
-        
+
     }
 
 }

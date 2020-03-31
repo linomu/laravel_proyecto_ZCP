@@ -505,23 +505,30 @@ class SurveyController extends Controller
 
 
        $totalu = DB::table('userzs')->count();
+
        if($totalu == 0){
            $porcentajesi= 0;
            $porcentajeno=0;
        }
        else{
-           $c1 = DB::table('answers')->select('userz_tests_id')->get();
-           $yes = DB::table('userz_tests')->where('id','in','c1')->count('userzs_id');
-           $no = DB::table('userz_tests')->where('id','not in','c1')->count('userzs_id');
+           $c1 = DB::table('answers')->select('userz_tests_id')->distinct()->get();
+           $array=[];
+           foreach ($c1 as $d){
+               array_push($array,$d->userz_tests_id);
+            }
+
+           $yes = DB::table('userz_tests')->whereIn('id',$array)->count();
+           $no = DB::table('userz_tests')->whereNotIn('id',$array)->count();
 
            $porcentajesi= ($yes*100)/$totalu;
            $porcentajeno=($no*100)/$totalu;
+
        }
 
 
 
 
-        return view("evaluator.statistics", compact('jovenes','adultos','consultaTomas','cantidadHombres','cantidadMujeres','porcentajesi','porcentajeno', 'valueMax', 'valueMin', 'descMin', 'descMax'));
+       return view("evaluator.statistics", compact('jovenes','adultos','consultaTomas','cantidadHombres','cantidadMujeres','porcentajesi','porcentajeno', 'valueMax', 'valueMin', 'descMin', 'descMax'));
 
 
 
