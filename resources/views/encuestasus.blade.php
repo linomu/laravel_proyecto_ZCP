@@ -41,21 +41,31 @@
 
                 <input type="hidden" value="{{$id}}" name="idTest">
 
-                <label class="font-weight-bold ">Género</label>
+                @error('gender')
+                <div class="alert alert-danger">El genero es obligatorio
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @enderror
+                <div class="espaciado">
+                    <label class="font-weight-bold ">Género</label>
 
-                <div id="gender" class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-outline-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                        <input type="radio" name="gender" required value="m" class="join-btn"> &nbsp; Hombre &nbsp;
-                    </label>
-                    <label class="btn btn-outline-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                        <input type="radio" name="gender" required value="f" class="join-btn"> Mujer
-                    </label>
+                    <div id="gender" class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-outline-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                            <input type="radio" name="gender" value="m" class="join-btn"> &nbsp; Hombre &nbsp;
+                        </label>
+                        <label class="btn btn-outline-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                            <input type="radio" name="gender" value="f" class="join-btn"> Mujer
+                        </label>
+                    </div>
+
                 </div>
 
 
                 <div class="form-group row mx-sm-3">
                     <label for="date" class="col-form-label mb-2 mx-sm-3">¿Cúantos años tienes?</label>
-                    <input class="form-control mx-sm-3" type="number" id="date-input" required name="birthdate">
+                    <input class="form-control mx-sm-3" type="number" id="date-input" required name="birthdate" value="{{old('birthdate')}}">
                 </div>
 
                 <div class="form-group row mx-sm-3">

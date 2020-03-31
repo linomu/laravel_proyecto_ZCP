@@ -51,11 +51,12 @@ class SusController extends Controller
         $pag = explode('=',$request->getRequestUri());
         //$page = $this->desencriptar($pag[1]);
 
-        $correoEncriptado = $pag[3];
+        $correoEncriptado = $pag[2];
         $correo = $this->desencriptar($correoEncriptado);
+        //dd($correo);
 
 
-        //print ($correo);
+
 
         //print("pag: ".$pag[1]);
          $page = explode('&',$pag[1]);
@@ -85,6 +86,8 @@ class SusController extends Controller
 
 
 
+
+
     }
 
     public function show($id = 1)
@@ -95,8 +98,10 @@ class SusController extends Controller
 
     public function send_answers(Request $request){
 
+        $request->validate([
+            'gender'=>'required',
 
-
+        ]);
 
 
 
@@ -174,7 +179,7 @@ class SusController extends Controller
 
         return back()->with('mensaje','respuestas enviadas!');
 
-
+        
     }
 
 }
