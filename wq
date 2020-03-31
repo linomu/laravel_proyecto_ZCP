@@ -1,0 +1,1297 @@
+[33mcommit c542316578a0c2c960e3e427f54c898069eae2cb[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 30 11:00:43 2020 -0500
+
+    Version  2 para subir al hosting
+
+[33mcommit ab8112300a489ec84c150f986fb3db66acd4ea92[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Sun Mar 29 23:53:13 2020 -0500
+
+    Version para subir al host
+
+[33mcommit 683500e3c7198534d28de450a63002d960653200[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Sun Mar 29 21:44:47 2020 -0500
+
+    Elimine los archivos innecesarios y ya se guardan las respuestas de los usuarios
+
+[33mcommit 4e0ca9e97e8919829ed4ccb306d1f6d69d8badcc[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Fri Mar 27 11:46:53 2020 -0500
+
+    Version 1 Lista para grabar el video
+
+[33mcommit 0a10917bf6a07a053c00183a22549f5be459b5b1[m[33m ([m[1;32mSendSurveyLinkByLino[m[33m)[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Fri Mar 27 09:32:23 2020 -0500
+
+    Listo para recibir el aporte de Viviana
+
+[33mcommit 60d5e5bb87694dac9f26135d964829b16ff55c9b[m
+Author: Tomas Escobar <tomasj@unicauca.edu.co>
+Date:   Thu Mar 26 19:53:40 2020 -0500
+
+    Parte viviian 26032020
+
+[33mcommit 6c431334aec572a4f3bedd17d5d0b77277f6f3f6[m
+Merge: 665c508 dca3a81
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Thu Mar 26 14:10:18 2020 -0500
+
+    Merge branch 'master' of https://github.com/linomu/laravel_proyecto_ZCP
+
+[33mcommit dca3a81f7379652077fefbe2a7ec701c34672917[m
+Merge: 6632561 f1af223
+Author: lino <linomu@unicauca.edu.co>
+Date:   Thu Mar 26 14:00:56 2020 -0500
+
+    Merge branch 'master' of https://github.com/linomu/laravel_proyecto_ZCP
+
+[33mcommit 6632561269a3359c303e36865ed975a2cf87f42d[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Thu Mar 26 13:59:51 2020 -0500
+
+    Version Master Local en LIno estable
+
+[33mcommit 665c508693a041ea5311787066d06afe3671b066[m[33m ([m[1;31morigin/CRUDSurveysByJuano[m[33m)[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Thu Mar 26 13:19:05 2020 -0500
+
+    parte Juan completa
+
+[33mcommit f1af2237f8b4281b34102f36a0651ad00e1b8a85[m
+Merge: 66ce4c6 2f7b292
+Author: Isabella Peña <vipena@unicauca.edu.co>
+Date:   Thu Mar 26 11:46:40 2020 -0500
+
+    Merge branch 'master' of https://github.com/linomu/laravel_proyecto_ZCP
+
+[33mcommit 66ce4c6a77d617ec3c107c3d359b21745fb8914f[m
+Author: Isabella Peña <vipena@unicauca.edu.co>
+Date:   Thu Mar 26 11:45:52 2020 -0500
+
+    error 404 con estilos
+
+[33mcommit dc02b04daa032876af9733ce8495bfc12db6af3e[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Thu Mar 26 10:31:30 2020 -0500
+
+    se agregó la modificación del edit test
+
+[33mcommit 35173e10fc71220ffd4f5a8e7330f7272ea3ebe3[m
+Merge: e357078 2f7b292
+Author: lino <linomu@unicauca.edu.co>
+Date:   Thu Mar 26 10:24:32 2020 -0500
+
+    Merge branch 'master' of https://github.com/linomu/laravel_proyecto_ZCP
+
+[33mcommit e35707842e3a7db0f65f711ed3afdc681525a0ca[m
+Merge: 58f6154 5366fe6
+Author: lino <linomu@unicauca.edu.co>
+Date:   Thu Mar 26 10:06:21 2020 -0500
+
+    Listo para recibir la parte de Juan
+
+[33mcommit 2f7b2928489ba36d43f95690a3732a26d4b10b5c[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Thu Mar 26 02:17:29 2020 -0500
+
+    se agregó la modificación del edit test
+
+[33mcommit 58f6154f6a55d1c82f5f0f905d67c35156385930[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 25 23:06:53 2020 -0500
+
+    Version estable para recibir la de Juan
+
+[33mcommit 5366fe6846fe5047f9961eb2b601e6eff3a19c0f[m
+Merge: 888cdaf 21d29dd
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Wed Mar 25 23:05:12 2020 -0500
+
+    merge master con CRUDJuano
+
+[33mcommit 888cdaf96742369678cc49a4c006aa6ee6eb92d8[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Wed Mar 25 22:47:38 2020 -0500
+
+    merge con master
+
+[33mcommit 21d29dd41fc6906a72c5b545ae9854ded0244e0e[m
+Merge: 9b3726c 05c5d05
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 25 22:46:13 2020 -0500
+
+    Version que une el trabajo de Tomas, Cuasa, Lino y parte de viviana
+
+[33mcommit 05c5d055469c980cd63c4fc39abdb6928cfa9480[m
+Author: Isabella Peña <vipena@unicauca.edu.co>
+Date:   Wed Mar 25 22:42:30 2020 -0500
+
+    estadisticas viviana actualizacion
+
+[33mcommit 9b3726cf07ea1cfc2b67c9308303b521611182b5[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 25 22:28:54 2020 -0500
+
+    Merge del Master con la rama Lino
+
+[33mcommit b01dc58cfa84feb17c37a17a253c6db1540e7c97[m
+Merge: ba37bb8 71b34e6
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 25 22:18:34 2020 -0500
+
+    Union entre la master y  la rama SendByLino
+
+[33mcommit ba37bb889bc25f7a5db5b002d74cc53d8352aa1b[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 25 22:09:09 2020 -0500
+
+    Version del github
+
+[33mcommit 84e92a981726c72d483de770f32669bc91b0b073[m
+Merge: fed5703 ad8cd65
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Wed Mar 25 22:00:20 2020 -0500
+
+    merge con master
+
+[33mcommit fed5703eb9051cdc34fdb6e3a3823f5896519939[m
+Merge: 0a5598c 02b719f
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Wed Mar 25 21:51:09 2020 -0500
+
+    Merge branch 'master' of https://github.com/linomu/laravel_proyecto_ZCP
+
+[33mcommit ad8cd652970a6c0a4917df30c1739405bb8665f2[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Wed Mar 25 21:50:05 2020 -0500
+
+    finish it byJuano
+
+[33mcommit ee877e94bb47c9d297818da691c6f0d593aed654[m
+Merge: cac2b26 02b719f
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 25 21:48:56 2020 -0500
+
+    Merge branch 'master' of https://github.com/linomu/laravel_proyecto_ZCP
+
+[33mcommit 02b719fb23ca5102b91990aac6b5585ebaba7d80[m
+Author: Isabella Peña <vipena@unicauca.edu.co>
+Date:   Wed Mar 25 20:42:52 2020 -0500
+
+    estadistica viviana
+
+[33mcommit 0c5769dff9f2085ddc372e4291abb0b7c429c383[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Wed Mar 25 20:40:52 2020 -0500
+
+    cosulta byJuano finish it
+
+[33mcommit 71b34e60197be3aa7418fa90c7542c79baba2284[m[33m ([m[1;31morigin/SendSurveyLinkByLino[m[33m)[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 25 18:54:48 2020 -0500
+
+    Version estable para realizar el merge
+
+[33mcommit 57d8e9b9fea48e8fdb996c22714d1623020053cd[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Wed Mar 25 17:16:36 2020 -0500
+
+    Consulta byJuano
+
+[33mcommit fb8999b741e6d1575841618778691a54b38ab40a[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 25 16:24:15 2020 -0500
+
+    Estadistica de tomas hecha
+
+[33mcommit f813763a7d24b862cb55025c2c3ca117f7744675[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Wed Mar 25 15:58:07 2020 -0500
+
+    Consulta byJuano
+
+[33mcommit f121769aeb870e17e37d5706b72b4c1ed5a46d24[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 25 14:18:09 2020 -0500
+
+    Administradores y Evaluadores ya tienen la opcion de modificar el perfil
+
+[33mcommit 72a15c3921bda21ef060e8e467a06cd6dad89d8b[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 25 12:42:59 2020 -0500
+
+    Tamano de la imagen validado, modifca los datos del actor, hace falta alterar la tabla user
+
+[33mcommit 299115b38cc90d794344188b85dc00eed206b38f[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 25 12:25:31 2020 -0500
+
+    Modifica la foto
+
+[33mcommit 96ef122c1a8fca7fd1e0dfc775af6c50cb9627b5[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 25 00:52:31 2020 -0500
+
+    Ver usuario, modica el usuario pero no permite que agregue las fotos, version estable
+
+[33mcommit d0d85ee891013fd78d60113600fe9a0905049e22[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Tue Mar 24 23:51:53 2020 -0500
+
+    Actualizar, pero con error en el plantilla userInformation
+
+[33mcommit 8152325e0c4ca962b3879dc5d1307e4f5e9b0568[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Tue Mar 24 21:33:36 2020 -0500
+
+    El perfil muestra los datos del evaluador, pero no los modifica
+
+[33mcommit 401548b4697fb933c76bd9e8417bfa9c91859299[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Mon Mar 23 23:38:53 2020 -0500
+
+    Sa agregó crud para encuestas
+
+[33mcommit acabff2988323b6ce32ce5507b97c452e5ec6b6e[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 23 22:53:54 2020 -0500
+
+    Autocomplete hecho
+
+[33mcommit 4bb498c4a748ab364c1a6baca110ce91a57e92ac[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Mon Mar 23 22:43:39 2020 -0500
+
+    Sa agregó crud para encuestas
+
+[33mcommit 45d4816daceecec238689e6bf267621028979b46[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 23 21:33:18 2020 -0500
+
+    Validacion de correos iguales y fecha en crear administradores y evaluadores
+
+[33mcommit 90f9bc1d41af04613cb0b9a17f592d1460c6cf1c[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 23 18:32:20 2020 -0500
+
+    Validaciones: URL Existe, URL Valida, Correos Validos
+
+[33mcommit 0a5598c052c762544b1d0bea39c5be866a2eadb0[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Fri Mar 20 19:58:26 2020 -0500
+
+    rama master funcionando
+
+[33mcommit cac2b26aafbd8a20da5b3206ecb65671c75c14a0[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Thu Mar 12 22:41:02 2020 -0500
+
+    Correcion del correo creado por juan
+
+[33mcommit 67609337845b9ac56c7c5f4c95a7a4612aec180e[m
+Merge: bd85d4f 87d42a6
+Author: lino <linomu@unicauca.edu.co>
+Date:   Thu Mar 12 22:03:57 2020 -0500
+
+    Merge branch 'SendSurveyLinkByLino'
+
+[33mcommit 87d42a6c8839dd0e639281d57ee47c83ad50b734[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Thu Mar 12 22:03:40 2020 -0500
+
+    Agregue mi estadistica, ademas, desde la lista de encuestas se puede ir a la seccion de estadisticas
+
+[33mcommit bd85d4f256b5f04973cc15546277344922a6684f[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Thu Mar 12 11:20:22 2020 -0500
+
+    Listo para subir
+
+[33mcommit c44661bda9a7898a43bb69b6d5172bbfd0be447a[m
+Merge: 0eeccfc 8dff099
+Author: lino <linomu@unicauca.edu.co>
+Date:   Thu Mar 12 11:14:09 2020 -0500
+
+    Integracion sin la estadistica
+
+[33mcommit 0eeccfc515f164aed4255cbf58e9face8a417c23[m
+Merge: 0b0c728 370ba87
+Author: lino <linomu@unicauca.edu.co>
+Date:   Thu Mar 12 11:12:53 2020 -0500
+
+    Before merge with SendByLino
+
+[33mcommit 8dff0999b7a04a94285e700615a0e2f2b7229dbc[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 11 23:17:09 2020 -0500
+
+    Avance en el envio de correo a la vista donde responden los cuestionarios
+
+[33mcommit 2d39796b2e33b6f21b4c5eca38a589ab7db8e782[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 11 20:37:34 2020 -0500
+
+    Se crean, miran y eliminan los evaluadores y administradores, agregue el campo para la foto en la tabla actors
+
+[33mcommit e33ee0caacc9f00395bf104c31bef5da35343081[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 11 15:15:10 2020 -0500
+
+    El administrador puede ver los admin y evalutors que el mismo ha creado
+
+[33mcommit 343462774bfc3c0ce3d121280581a04578dbf017[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 11 13:35:48 2020 -0500
+
+    Crea administradores y Evaluadores mediante la contrasena por correo
+
+[33mcommit 370ba87bca1ea98c5393113be5c995f2512c5e1d[m
+Merge: 6ad60d6 6185c26
+Author: javier22 <edwarcuasapud@gmail.com>
+Date:   Wed Mar 11 13:31:25 2020 -0500
+
+    Merge branch 'validURLByJavier'
+
+[33mcommit 6185c26c98946a586ac26b690dc0b9ed01bfad3c[m[33m ([m[1;31morigin/validURLByJavier[m[33m)[m
+Author: javier22 <edwarcuasapud@gmail.com>
+Date:   Wed Mar 11 13:25:20 2020 -0500
+
+    cambios recientes
+
+[33mcommit 0b0c728952862ec81e06fa846a99aff25127088a[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 11 09:39:59 2020 -0500
+
+    Version para entregar
+
+[33mcommit 3c0db4efd1b8be2ea8e838057ac8773cc0ece75d[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Wed Mar 11 09:34:01 2020 -0500
+
+    Version para presentacion
+
+[33mcommit 6ad60d6e41388f00ebe2cfe890a83556b05b752f[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Tue Mar 10 10:54:41 2020 -0500
+
+    Version 1 para presentar al profesor
+
+[33mcommit 0276f673308e62085404320f933f8a6dee4fe697[m
+Merge: 343eeab 8f47440
+Author: javier22 <edwarcuasapud@gmail.com>
+Date:   Tue Mar 10 09:59:03 2020 -0500
+
+    Merge branch 'master' of https://github.com/linomu/laravel_proyecto_ZCP
+
+[33mcommit 343eeaba990bf068d1df6b1b320f6742821230c5[m
+Merge: 6dc26fb 5248b62
+Author: javier22 <edwarcuasapud@gmail.com>
+Date:   Tue Mar 10 09:52:11 2020 -0500
+
+    validar correos
+
+[33mcommit 8f4744028ea968d4c7a9ea1f9ce47c66bcd773c2[m
+Merge: c91e2ca 6dc26fb
+Author: Isabella Peña <vipena@unicauca.edu.co>
+Date:   Tue Mar 10 09:48:37 2020 -0500
+
+    Encuesta sus
+
+[33mcommit c91e2ca087c5f70065ca4ea46e2befca8235904e[m
+Merge: 73d5c8d 88dc5ba
+Author: Isabella Peña <vipena@unicauca.edu.co>
+Date:   Tue Mar 10 09:41:01 2020 -0500
+
+    Merge branch 'ramaisa'
+
+[33mcommit 88dc5bae13c1886086a5d0d1db5b9b79284342a0[m
+Author: Isabella Peña <vipena@unicauca.edu.co>
+Date:   Tue Mar 10 09:40:43 2020 -0500
+
+    Mostrar encuesta sus
+
+[33mcommit 6dc26fb72759bc0d0e0b12e4d38ef31b3c2d181a[m
+Merge: c96cdaa 99bc15c
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Tue Mar 10 09:35:32 2020 -0500
+
+    parte de Juancho Rizo hecha
+
+[33mcommit c96cdaa317a71c5c3c653fdcb1e3cac9c58874e2[m
+Merge: f370cf1 9e55eef
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Tue Mar 10 09:26:57 2020 -0500
+
+    Merge branch 'master' of https://github.com/linomu/laravel_proyecto_ZCP
+
+[33mcommit 5248b62203ed96c427260f61a9106fd2ee0d0db4[m[33m ([m[1;31morigin/validate_mailbyjavier[m[33m, [m[1;31morigin/validar_correo}[m[33m)[m
+Author: javier22 <edwarcuasapud@gmail.com>
+Date:   Tue Mar 10 04:36:18 2020 -0500
+
+    validacion  correos terminada
+
+[33mcommit 99bc15cd3cb0b30360a5dff1aad0688f4f19fbfb[m[33m ([m[1;31morigin/CreateListSurveyByJuano[m[33m)[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Tue Mar 10 03:24:51 2020 -0500
+
+    se agregan preguntas dinámicamente
+
+[33mcommit 4a7c009c473578613813e03f0ab024770b834a94[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Tue Mar 10 03:10:18 2020 -0500
+
+    se agregan preguntas dinámicamente
+
+[33mcommit 03c407df3b7b61ee56eaefdf85292473b0470c63[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Tue Mar 10 02:23:49 2020 -0500
+
+    agregar preguntas estáticas
+
+[33mcommit a029d5785ee29579b6ddc638341bc4f35994903c[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Tue Mar 10 01:48:47 2020 -0500
+
+    agregar preguntas estáticas
+
+[33mcommit 8e4acec89ae361ad728c826069921a6e5b57b38a[m
+Author: javier22 <edwarcuasapud@gmail.com>
+Date:   Tue Mar 10 01:35:02 2020 -0500
+
+    primeraversion
+
+[33mcommit 499fbbe02a960b09e93e2aa31478b9c8de1d55fd[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Tue Mar 10 00:57:30 2020 -0500
+
+    agregar preguntas dinámicas pero sin cajón
+
+[33mcommit 484ce3e8ac81d42f90a43d3f7c76defc44ba3e8c[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Tue Mar 10 00:11:58 2020 -0500
+
+    agrega el nombre, descripcion y tipo a la tabla test
+
+[33mcommit 9e55eef079ab7641e299c2b43760f29b4b9bb365[m
+Merge: 632b471 1d8571f
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 9 23:39:06 2020 -0500
+
+    Merge branch 'master' of https://github.com/linomu/laravel_proyecto_ZCP
+
+[33mcommit a24ea659a742a9dca26e167429893d5be4019923[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Mon Mar 9 23:31:17 2020 -0500
+
+    muestra el tipo de encuesta
+
+[33mcommit 632b47191cd82bf3d49a3eeffeace9ed7035a6e8[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 9 23:28:53 2020 -0500
+
+    Un administrador puede crear evaluadores, al momento del ingreso se muestra la informacion correspondiente a cada actor
+
+[33mcommit 62e0bac6c270945886c973f064136d70e8e6633d[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Mon Mar 9 22:26:35 2020 -0500
+
+    modificaciones de eliminacion tabla admins
+
+[33mcommit 1d8571fa93a07e22983512be771ba306c1147959[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 9 20:34:09 2020 -0500
+
+    Seeder de actors x2
+
+[33mcommit f370cf135cab2b2945aa4d8d2956f8489c7e68dc[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Mon Mar 9 20:23:14 2020 -0500
+
+    combinar master con la rama CreateListSurveyByJuano
+
+[33mcommit fe5bce1700437c5b67fc5a5ff7bf773f24d675a8[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 9 20:06:32 2020 -0500
+
+    Se elimino la fecha limite de test
+
+[33mcommit bedd2a612d73141fbf56c5e5d1c909b3153aaa31[m
+Merge: b51fa19 1b5df85
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 9 19:57:45 2020 -0500
+
+    Merge branch 'master' of https://github.com/linomu/laravel_proyecto_ZCP
+
+[33mcommit b51fa1970203ea90a9baeaf2526bd3674ba9d35b[m
+Merge: 9efa1b8 011ce48
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 9 19:57:41 2020 -0500
+
+    Actualizacion BD
+
+[33mcommit 1b5df8502fb9f370afb3ccb52a28cea5ba7bc4f0[m
+Merge: 6a2e6b8 44f2b2f
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 9 19:54:43 2020 -0500
+
+    Merge branch 'BDSeedsByThomas'
+
+[33mcommit 44f2b2f1a63ec43f852a3d922b0dca53d6ba4a79[m[33m ([m[1;31morigin/BDSeedsByThomas[m[33m)[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 9 19:53:27 2020 -0500
+
+    Se agrego el deadLine a la tabla users_test
+
+[33mcommit 9efa1b8a428c74024d081484385a7c979dc21340[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 9 18:56:37 2020 -0500
+
+    Correcion login
+
+[33mcommit fc80be89fa00a16baa5d400afcc68ef360fb073b[m
+Merge: 94223b9 6a2e6b8
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 9 18:45:06 2020 -0500
+
+    Merge branch 'master' of https://github.com/linomu/laravel_proyecto_ZCP
+
+[33mcommit 94223b9e1b8173f01b775fcbf003ea1e9f7d1a17[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 9 18:45:01 2020 -0500
+
+    Actualizando
+
+[33mcommit 6a2e6b8c3c346c66ba245dafaad136c58e3ecc9e[m
+Merge: a45c8c0 4e9aebc
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 9 18:42:45 2020 -0500
+
+    Merge branch 'BDSeedsByThomas'
+
+[33mcommit a45c8c0814c59d6378a6ba0f376531d8d53ffeba[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 9 18:42:39 2020 -0500
+
+    Falta la reflexion de la tabla actors DE 3.0
+
+[33mcommit 4e9aebcb06cbc8ce948e240f3fd15bebedd51632[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 9 18:37:07 2020 -0500
+
+    Falta la reflexion de la tabla actors
+
+[33mcommit fa06f57f2badf6ff7e5276ac9cbca113f6396b4a[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 9 18:15:55 2020 -0500
+
+    Semilla admins + migrtions diagrama 3.0
+
+[33mcommit 3585210177d9cdcadd126cf7363852f4538cfe72[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 9 17:19:56 2020 -0500
+
+    Semilla admins + migrtions diagrama 2.6
+
+[33mcommit e647097eda23406b1f8157ad3a1f7d163ddc68c1[m
+Merge: 5f042ae 73d5c8d
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 9 15:49:13 2020 -0500
+
+    Merge branch 'master' of https://github.com/linomu/laravel_proyecto_ZCP
+
+[33mcommit 5f042ae160f88e5514610509b79ce78f9d71954e[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 9 15:49:07 2020 -0500
+
+    Commit previo a descargar las nuevas migraciones
+
+[33mcommit fc4a10827dd27579ea7a270aaf67a75b357cea21[m
+Author: Isabella Peña <vipena@unicauca.edu.co>
+Date:   Mon Mar 9 15:35:52 2020 -0500
+
+    Encuesta sus
+
+[33mcommit 011ce488be9398fcce894fe80539e7e54ec7a2eb[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 9 15:24:21 2020 -0500
+
+    Incluidos los middleware
+
+[33mcommit 9b5f0b656c8b867e93146fdfe7f7ce2bd71b4b7a[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 9 14:52:34 2020 -0500
+
+    Avance en el multiusuario, hace falta middleware and insert evaluators
+
+[33mcommit 73d5c8dd672cf1ae9ad92912f467435a61d9a7b5[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 9 14:18:37 2020 -0500
+
+    Se agrego enum a la tabla users
+
+[33mcommit e1fca1379e258d0bc8425ac89c434f1195fdbe54[m
+Merge: fd1adef 9b0d390
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 9 13:25:01 2020 -0500
+
+    Migrations diagram 2.5, h:01_24
+
+[33mcommit fd1adef62f437200f0073a337e80f4f1d7799d40[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 9 13:16:45 2020 -0500
+
+    a23
+
+[33mcommit 9b0d390d8907025b2e9da4eb647d0c7a8712c11c[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 9 12:39:44 2020 -0500
+
+    Modelo Entidad Relación Final 2.5
+
+[33mcommit 4f1fdb2414f5c4b78d81c07d13731fcc77519929[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 9 11:52:50 2020 -0500
+
+    agrege el input fecha validado
+
+[33mcommit 5d4b5451246b66da37f337396e74eae18fd55638[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 9 09:30:08 2020 -0500
+
+    Actualizacion
+
+[33mcommit b537581a0ab5a4a0cfee68b501527d23c5d70bba[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Sun Mar 8 23:23:42 2020 -0500
+
+    Agregue la funcionalidad de enviar a muchos correos, tras copiar en el excel. Avance un poco en como recibir la pagina encriptada
+
+[33mcommit 0ce4aed020da000752a9ca02eaf5507e19ae0e2e[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Sun Mar 8 22:21:38 2020 -0500
+
+    Pollster controller created
+
+[33mcommit d67102dc964d6173c26707fa61f1837e51ec3dba[m
+Merge: 0c27dac 8b46dee
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Tue Mar 3 08:37:08 2020 -0500
+
+    merge con la bd
+
+[33mcommit 8b46deee2aff98625748ff50633a5829db417db0[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Tue Mar 3 08:30:33 2020 -0500
+
+    modificacion controlador
+
+[33mcommit 7052bb984ffba37ca465d329caaa71d54ffbdc6d[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Tue Mar 3 08:24:55 2020 -0500
+
+    modificacion controlador
+
+[33mcommit 35b62ebe2414a0466e55ff13623130a0e44a784d[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Tue Mar 3 08:22:29 2020 -0500
+
+    modificacion controlador
+
+[33mcommit 0c27dac9ff06c93c00799823008ee3c293959e00[m
+Merge: 4317914 e064dce
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Tue Mar 3 07:53:37 2020 -0500
+
+    Merge branch 'master' of https://github.com/linomu/laravel_proyecto_ZCP
+
+[33mcommit 431791442b040d81f556afc25c40cbe7dfc4437d[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Tue Mar 3 07:53:04 2020 -0500
+
+    listar terminado
+
+[33mcommit 73148e1d34eefe171d7173f94e3f33c8f1a22a9b[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Tue Mar 3 03:18:00 2020 -0500
+
+    listar funcionando
+
+[33mcommit 64b3a3769a6ec81283082a99783743b90c250cfe[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Tue Mar 3 03:14:40 2020 -0500
+
+    listar funcionando
+
+[33mcommit e064dce357220061362f9010081d89ac62e559fa[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Tue Mar 3 00:20:11 2020 -0500
+
+    Intento de push, la bd esta trabjando
+
+[33mcommit db896ed47619024ab20c4721b827914b0e825642[m
+Merge: 71caed1 f7f03cd
+Author: lino <linomu@unicauca.edu.co>
+Date:   Tue Mar 3 00:19:03 2020 -0500
+
+    Correcion despues del problema de Juan
+
+[33mcommit f7f03cd590828628217a50c5705261aa1621a1a4[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Tue Mar 3 00:13:51 2020 -0500
+
+    Add files via upload
+
+[33mcommit b1e82c294b49958ea03be0f834b82f87eb46087c[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Tue Mar 3 00:02:41 2020 -0500
+
+    borrado db
+
+[33mcommit b5d543902f0dbb1d148ebdc6b1f08734735cd618[m
+Merge: 1e6763e 695842d
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Mon Mar 2 23:58:02 2020 -0500
+
+    intentando hacer merge
+
+[33mcommit 695842d9669ed375a8e6ea94f47bb36af5ad8a2e[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Mon Mar 2 23:49:38 2020 -0500
+
+    eliminar carpeta database
+
+[33mcommit 7121ebf115d0332f8e568c1b9306b4fe0af17bb4[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Mon Mar 2 23:23:48 2020 -0500
+
+    listar hecho
+
+[33mcommit 71caed12d84489391f0b56399a379fd11a24e845[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 2 23:12:09 2020 -0500
+
+    Recuperacion BD
+
+[33mcommit f46e76612d693baf667b90606258bca0159e7dd1[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Mon Mar 2 23:10:52 2020 -0500
+
+    Listar listo
+
+[33mcommit ddb8d5bdbe6f5a52d5e8a336aa9a49ebf0443414[m
+Merge: 5e04c2e 1e6763e
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 2 23:05:38 2020 -0500
+
+    Elimine las tablas para tener una sola version
+
+[33mcommit 5e04c2e5f4f4feb0b975d6c8af11523be50310cb[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 2 23:03:20 2020 -0500
+
+    Quité los unique de las tablas
+
+[33mcommit 1e6763e00e5438eae1a0c5300e43628be9038945[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Mon Mar 2 23:02:11 2020 -0500
+
+    Update 2020_02_29_204407_create_userzs_table.php
+
+[33mcommit adcbedbde0c35622ea576465a721695cacec4c4e[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Mon Mar 2 23:01:37 2020 -0500
+
+    Update 2020_02_29_204022_create_evaluators_table.php
+
+[33mcommit d5606dff1eff3b9727fc0e5a4caa069d363286b1[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Mon Mar 2 23:00:38 2020 -0500
+
+    Update 2020_02_29_210219_create_answers_table.php
+
+[33mcommit b98ee51bb6ae63ff6b8faaed52b9e8976d1e65ee[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Mon Mar 2 23:00:10 2020 -0500
+
+    Update 2020_02_29_210017_create_questions_table.php
+
+[33mcommit 487f4c7ee34289eaaf2537931b2a95f5f48e0b07[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Mon Mar 2 22:59:26 2020 -0500
+
+    Update 2020_02_29_205808_create_userz_tests_table.php
+
+[33mcommit ff363e7be86875b12aac03f3c112c7eb0c40b213[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Mon Mar 2 22:59:07 2020 -0500
+
+    Update 2020_02_29_205020_create_topic_tests_table.php
+
+[33mcommit d787aa1a2828b231e56f0905fe48e8a8d446dbee[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Mon Mar 2 22:58:40 2020 -0500
+
+    Update 2020_02_29_204706_create_tests_table.php
+
+[33mcommit bd58d8507396edabe4d09ed74fc6cb4ad6b73bc5[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Mon Mar 2 22:58:18 2020 -0500
+
+    Update 2020_02_29_204635_create_topics_table.php
+
+[33mcommit 171e19d041a6ee523a0c02576139939fb15785b5[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Mon Mar 2 22:57:14 2020 -0500
+
+    Update 2020_02_29_204635_create_topics_table.php
+
+[33mcommit 79f90bbd23570f9f10955ff8980c5fe0c2c9f019[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Mon Mar 2 22:56:52 2020 -0500
+
+    Update 2020_02_29_204546_create_surveys_table.php
+
+[33mcommit 1d9fe5eb8fe6d4a50448be8ba64285d6a2cb1193[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Mon Mar 2 22:56:32 2020 -0500
+
+    Update 2020_02_29_204407_create_userzs_table.php
+
+[33mcommit c8c9a6f8d97852b0c593e66182e26517eedd9e07[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Mon Mar 2 22:55:40 2020 -0500
+
+    Update 2020_02_29_204248_create_localizations_table.php
+
+[33mcommit 861917e2e857011a6b3bf909813296e7c5c28c06[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Mon Mar 2 22:55:13 2020 -0500
+
+    Update 2020_02_29_204022_create_evaluators_table.php
+
+[33mcommit fcbe45b6e06f1dd5280808fbc13c5c1e204503e3[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Mon Mar 2 22:54:40 2020 -0500
+
+    Update 2020_02_29_203638_create_admins_table.php
+
+[33mcommit 6ea824b5df86729aecb43c7a4b504de2bcf3cc2f[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Mon Mar 2 22:53:27 2020 -0500
+
+    Update 2014_10_12_000000_create_users_table.php
+
+[33mcommit 3879b095e0d786f15d25fe2d6d4ecd1274073204[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 2 22:50:04 2020 -0500
+
+    Bd estable en master, funciona el crud de admin, y el envio de formularios
+
+[33mcommit d618bf3db7c2c5e51918ee0e9d88e6c5df89e4d8[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 2 22:28:49 2020 -0500
+
+    Version estable de la BD
+
+[33mcommit c5c181295ace6246f2bf02849bab25db95713778[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Mon Mar 2 22:04:50 2020 -0500
+
+    avance listar surveys
+
+[33mcommit 7a2de21250b72fc95bcd9531542982367ccb1478[m
+Merge: c157865 c17f44f
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 2 20:56:19 2020 -0500
+
+    Base de Datos solucionada
+
+[33mcommit 74c4a2340e5de23d0f77cf4bde51a5dddb8d61c9[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 2 20:52:13 2020 -0500
+
+    Las migraciones se actualizaron Diagrama 1.6.2
+
+[33mcommit c17f44f3a8c30073a8f7f8396b51b0234f665739[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 2 20:47:19 2020 -0500
+
+    Las migraciones se actualizaron Diagrama 1.6.1
+
+[33mcommit c1578650414c1b75dfb7d7ec375aa78713906f98[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 2 20:47:05 2020 -0500
+
+    1 Solucionando problema en bd
+
+[33mcommit 0b8128cc36e62afbd1f1c7aa9e934c39f7d0e696[m
+Merge: 2cac824 ede5f38
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 2 20:34:31 2020 -0500
+
+    Error BD
+
+[33mcommit 2cac824a67487d36904a5a8b3d01ceeaa3e43bd0[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 2 20:30:45 2020 -0500
+
+    Error en la BD
+
+[33mcommit ede5f389bfb28ef5fd5f6a417a2041c2f0c2c993[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 2 20:29:44 2020 -0500
+
+    Las migraciones se actualizaron Diagrama 1.6
+
+[33mcommit be31a98df4b88505d3ee03b357f556c100953375[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Mon Mar 2 20:16:40 2020 -0500
+
+    agrego un tabla de sruveys para hacer pruebas
+
+[33mcommit e983cc7d5487455969eb274013da9e7bf9422c00[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Mon Mar 2 18:47:48 2020 -0500
+
+    Removió la basura HEAD del landingpage y del login
+
+[33mcommit c282a30d127e102a270676cf91c227fc98d78dd9[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 2 15:20:14 2020 -0500
+
+    El crud de Admin ya funciona en master
+
+[33mcommit 3a47b9f10bf437ca9be7b7e4b0984520792e13c2[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 2 14:01:48 2020 -0500
+
+    Creé el modelo User y lo que tenía por defecto, esa clase no la podemos borrar
+
+[33mcommit 484cce0bb619b127a4634ad3c3697575e4e188fa[m
+Merge: f6cfbcc 98550fe
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 2 13:54:28 2020 -0500
+
+    Merge branch 'SendSurveyLinkByLino' byLino
+
+[33mcommit 98550fea04b39ee19d09431012067d683db6ca1e[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Mon Mar 2 12:38:57 2020 -0500
+
+    1 Version estable de mi rama, envia correos y retorna a la pagina notificando el envio de los mismos
+
+[33mcommit f6cfbccf09f9a365cfc21c2b4cd962827425375c[m
+Merge: d20ef5c 342987a
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Mon Mar 2 11:17:11 2020 -0500
+
+    merge master con CreateListSurveyByJuano
+
+[33mcommit 342987a106f306d723b47d78cf0d1cd83aa68fe2[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Mon Mar 2 11:06:06 2020 -0500
+
+    Plantilla del login y registre aplicadas. Creacion de la encuesta (falta la interaccion con la bd)
+
+[33mcommit d20ef5c0ba0bdcc3ce6131d377626f55a36988ce[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Mon Mar 2 10:49:06 2020 -0500
+
+    rama creada
+
+[33mcommit ab055e38267cfb0aed02793802b7529c57a90d1c[m
+Merge: 825c934 78a9858
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 2 10:15:07 2020 -0500
+
+    Merge branch 'master' of https://github.com/linomu/laravel_proyecto_ZCP
+
+[33mcommit 825c93466cc3ef0322a8f311341ba6f6249642a3[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Mar 2 10:05:24 2020 -0500
+
+    Se modifico la tabla admins
+
+[33mcommit d4fbed91c51e36371d06350fa82aee4696c0c282[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Sun Mar 1 23:26:11 2020 -0500
+
+    Version mejorado del correo enviado
+
+[33mcommit ad5a3ec88a87e52a171f4c386663b431ae1dc82b[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Sun Mar 1 20:29:52 2020 -0500
+
+    Email function is working using localhost
+
+[33mcommit 8a9ea9a4a32e09bb76678f194c430693af0ae397[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Sat Feb 29 23:07:57 2020 -0500
+
+    Solo me hace falta subir el codigo a un servidor y probrar que funcione el envio de correos
+
+[33mcommit 78a9858f6c37c685d95078138674fa688e13df8b[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Sat Feb 29 20:38:10 2020 -0500
+
+    User.app
+
+[33mcommit 8405f92989ba887418e3e99e406e890d6eceb2f6[m
+Merge: d78a5b1 e275bf4
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Sat Feb 29 19:18:50 2020 -0500
+
+    plantilla aplicada a ingresar y registrarse
+
+[33mcommit d78a5b14eeb5226927ae14603dc051747cf17cc6[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Sat Feb 29 19:16:38 2020 -0500
+
+    plantilla aplicada a ingresar y registrarse
+
+[33mcommit d5125e9c2956d8ca5dff0614150d93aeead04b5f[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Sat Feb 29 19:09:30 2020 -0500
+
+    ruta de ingresar y registrarse estan completas con la plantilla
+
+[33mcommit e275bf49035a1f6330a5b9f06b03e5cf36a4c2e1[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Sat Feb 29 16:19:07 2020 -0500
+
+    Se elimino una tabla admins que estaba repetida, Ojo las dos primeras son las tablas de laravel
+
+[33mcommit 60ae0447a14afe5137da466fba3842074821330e[m
+Merge: 915c6ba 7f86af0
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Sat Feb 29 16:16:04 2020 -0500
+
+    Modelo 1.4 mas Modelos
+
+[33mcommit 915c6ba8b150d8a3df122d488e6be560d8fc01db[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Sat Feb 29 16:10:13 2020 -0500
+
+    Tiene la implementacion del Diagrama 1.4
+
+[33mcommit 3f9aa287cfa86b8b934354eba20b620a7da03033[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Sat Feb 29 14:37:43 2020 -0500
+
+    Inserciones a la base de datos, solo necesito enviar el correo y subir el proyecto
+
+[33mcommit 695757f09e11c836fa0bf9bb540d0f1da9635375[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Sat Feb 29 12:13:11 2020 -0500
+
+    Creé mis propias tablas para hacer las consultas de prueba
+
+[33mcommit 7f86af00cd6b3d10703a3cc7e9aef803639750bb[m
+Author: elbajo001 <elbajo002@hotmail.com>
+Date:   Sat Feb 29 11:31:38 2020 -0500
+
+    avance
+
+[33mcommit 80bf93b246a8de6923dc34f528d2748863c2ba91[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Fri Feb 28 21:48:06 2020 -0500
+
+    Previo a subir al servidor web
+
+[33mcommit 424c0c0da500fad8890ba65400821c4c68703311[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Fri Feb 28 21:46:19 2020 -0500
+
+    Previo a subir al servidor web
+
+[33mcommit 9bf6e48f2e2e813d67e3790097aaf36f9c81dd55[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Fri Feb 28 20:44:13 2020 -0500
+
+    Interaccion del evaluador terminada, agregué el campo para cambiar el nombre de usuario y foto, todo se basa en la plantilla master
+
+[33mcommit c0ef2cbc60a82362a0f6afdc0f5272383b7f0838[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Fri Feb 28 20:21:57 2020 -0500
+
+    Correcion de las interacciones del evaluador
+
+[33mcommit ecbc2415e570884c4dc186eaaeecb2cd7544af77[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Fri Feb 28 20:06:05 2020 -0500
+
+    Correcion intercatividad Encuestador
+
+[33mcommit 482dba056b48657cd923ab3631ffbe4791a48181[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Thu Feb 27 23:22:18 2020 -0500
+
+    Testing my branch
+
+[33mcommit 651089f68dfcd2714eef7a3a4763c6fcb1187cdb[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Thu Feb 27 23:19:18 2020 -0500
+
+    Version Estable. Es necesario agregar los modelos y migraciones, desde aqui se deben crear las ramas
+
+[33mcommit e8c135a03f7fc9903e3dfdb26801b1be25761418[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Thu Feb 27 23:11:32 2020 -0500
+
+    Elimando la primera version de la BD
+
+[33mcommit 467815cb78ab633a6e64602525eb6ef1e53f38bb[m
+Merge: adb26ef b913b11
+Author: lino <linomu@unicauca.edu.co>
+Date:   Tue Feb 25 10:54:27 2020 -0500
+
+    Merge branch 'master' of https://github.com/linomu/laravel_proyecto_ZCP
+
+[33mcommit adb26efcd9f8ff358b46c3704cdbec716b1c4eb8[m
+Merge: 026e86c 0611ab5
+Author: lino <linomu@unicauca.edu.co>
+Date:   Tue Feb 25 10:53:59 2020 -0500
+
+    Revision BD
+
+[33mcommit b913b1148740a259dede1831f0074725bcaf9922[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Tue Feb 25 10:43:33 2020 -0500
+
+    solucion de errores timestamps() tabla topics
+
+[33mcommit 026e86cb30751939931f4659a45b114b7f02c0a9[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Tue Feb 25 10:40:32 2020 -0500
+
+    Corrigiendo BD
+
+[33mcommit 0611ab57dd4f890de566fa08f406f2ae2f435928[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Tue Feb 25 10:39:18 2020 -0500
+
+    se agrego el timestamps()
+
+[33mcommit 2145dd4b0e4f51f99dc8d21890de06c95e461297[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Tue Feb 25 09:49:09 2020 -0500
+
+    Add files via upload
+
+[33mcommit ca1ed534fda54c236e64d827b2292e7af5ac407d[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Tue Feb 25 09:46:07 2020 -0500
+
+    Add files via upload
+
+[33mcommit 240786ff2ac873090c8fcd91e82f843967d84dc5[m
+Merge: a81fb96 467a0eb
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Tue Feb 25 09:34:21 2020 -0500
+
+    Merge branch 'master' of https://github.com/linomu/laravel_proyecto_ZCP
+
+[33mcommit a81fb968bb6c6a066011ad055a25576cafc1705e[m
+Author: Tomas escobar <tomasj@unicauca.edu.co>
+Date:   Mon Feb 24 22:52:33 2020 -0500
+
+    Las migraciones estan listas
+
+[33mcommit 467a0eb07e642252faf9a6dfad9a40fe329ae7a7[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Mon Feb 24 14:15:21 2020 -0500
+
+    Add files via upload
+
+[33mcommit ac11811ba760382b55ba0094ea8cf423fa8c457d[m
+Author: Lino Muñoz <55246628+linomu@users.noreply.github.com>
+Date:   Mon Feb 24 14:14:26 2020 -0500
+
+    Add files via upload
+
+[33mcommit df01d3ae153061997c0ea19423bccab6b4b83334[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Sun Feb 23 22:58:09 2020 -0500
+
+    Le agregué la clase Faker para agregarle datos aleatorios al administrador
+
+[33mcommit add5801b5ed7ba365ef45bd2d90e6e3eb5ed31e1[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Sun Feb 23 20:58:57 2020 -0500
+
+    Funciona el CRUD para administrador, la función eliminar funciona con ajax.post, hace falta implementar el cuadro buscar en admin.list
+
+[33mcommit 7e9d559542ec0dc90ea8936783d4b35e31363506[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Sun Feb 23 17:22:56 2020 -0500
+
+    Incorporando una funcion ajax para eliminar un administrador
+
+[33mcommit e0c2b839812ae3d36363b318cf97cb51f2921ea9[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Sun Feb 23 15:19:34 2020 -0500
+
+    Funciona el CRUD para el administrador, hace falta la opcion de buscar cuando se listan los administradores, esa funcion listar debe ser en ajax, al igual que eliminar
+
+[33mcommit 5bfc1fb26faeef341e859c8f0f88c26b44c421f0[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Sun Feb 23 14:10:31 2020 -0500
+
+    Agregué una tabla admins para realizar las pruebas de interacción entre la plantilla y las utilidades CRUD
+
+[33mcommit c6665f01143f7ce55ab478a35f101535ab9ae508[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Sat Feb 22 12:53:14 2020 -0500
+
+    Continuo con los formularios del admin
+
+[33mcommit bb9fbd132d3773c640f5e8ab3cf3aad9d9880cef[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Fri Feb 21 23:00:32 2020 -0500
+
+    Unión entre dashboard and landingpage
+
+[33mcommit 4c6dd4bf2db56f67aa12f900e37924cb9e847be4[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Fri Feb 21 22:03:02 2020 -0500
+
+    Modiqué el color del dashboard y algunas partes del landingpage
+
+[33mcommit 28b55bc5069303e2152028c636c09bbfd41fc72b[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Thu Feb 20 17:42:58 2020 -0500
+
+    Landing page on our website
+
+[33mcommit 9473eb7902810c80394fe6a29b99bb1478f2017b[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Thu Feb 20 17:19:09 2020 -0500
+
+    Interaciones entre las opciones del administrador
+
+[33mcommit b4a67a40bf2a54a9e47e224a301a1f1e1e6ed3d7[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Thu Feb 20 16:21:33 2020 -0500
+
+    Trabajando en las vistas de admin
+
+[33mcommit ad930388f46ef9eb6441cdd0ba33a8d29defbe9b[m
+Author: lino <linomu@unicauca.edu.co>
+Date:   Thu Feb 13 21:53:43 2020 -0500
+
+    Tiene implementado el dashboard, pero aun falta trabajar en él
+
+[33mcommit d136574c2dcdad5bd9b892fb823acb2d9bfae9c4[m
+Author: tomastix100 <49950158+tomastix100@users.noreply.github.com>
+Date:   Wed Nov 13 08:13:53 2019 -0500
+
+    Add files via upload
+
+[33mcommit 79d7a994a501ea156a4e3283b463d9f20d06f601[m
+Author: el bajo jojo <elbajo002@hotmail.com>
+Date:   Wed Nov 13 08:03:37 2019 -0500
+
+    perra

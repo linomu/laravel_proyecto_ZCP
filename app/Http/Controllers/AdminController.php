@@ -88,6 +88,7 @@ class AdminController extends Controller
 
     public function enviarEmail($pass, $correo, $firstname){
         $ip = $_SERVER['REMOTE_ADDR'];
+        //$ruta = "https://zorrosprivativoscomunes.000webhostapp.com/";
         $ruta = $ip."/laravel_proyecto_ZCP/public/";
         $data = array(
             'pass'=>$pass,
